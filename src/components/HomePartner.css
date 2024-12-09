@@ -1,0 +1,22 @@
+@media (max-width: 639px) {
+  .partner {
+    width: 180px;
+    height: 60.822px;
+  }
+
+  .partner-1 {
+    padding: 10.685px 29.342px;
+  }
+
+  .partner-2 {
+    padding: 9.863px 5.753px 10.274px 6.575px;
+  }
+
+  .partner-3 {
+    padding: 7.217px 17.952px 7.577px 18.99px;
+  }
+
+  .partner-4 {
+    padding: 13.562px 6.928px 14.384px 7.749px;
+  }
+}
