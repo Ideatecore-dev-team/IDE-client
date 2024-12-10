@@ -1,14 +1,9 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import FooterLogo from "../assets/images/footer-logo.png";
-import { MdLocalPhone } from "react-icons/md";
-import { MdEmail } from "react-icons/md";
-import { MdLocationOn } from "react-icons/md";
+import { MdLocalPhone, MdEmail, MdLocationOn } from "react-icons/md";
+import { SiLinkedin, SiInstagram, SiYoutube, SiFacebook } from "react-icons/si";
 import { Link } from "react-router-dom";
-import { SiLinkedin } from "react-icons/si";
-import { SiInstagram } from "react-icons/si";
-import { SiYoutube } from "react-icons/si";
-import { SiFacebook } from "react-icons/si";
 
 export const Footer = () => {
   return (
