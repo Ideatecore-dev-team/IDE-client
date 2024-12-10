@@ -1,3 +1,24 @@
+.partner {
+  width: 219px;
+  height: 74px;
+}
+
+.partner-1 {
+  padding: 13px 35.7px;
+}
+
+.partner-2 {
+  padding: 12px 7px 12.5px 8px;
+}
+
+.partner-3 {
+  padding: 8.781px 21.842px 9.219px 23.104px;
+}
+
+.partner-4 {
+  padding: 16.5px 8.429px 17.5px 9.429px;
+}
+
 @media (max-width: 639px) {
   .partner {
     width: 180px;
