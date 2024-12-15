@@ -14,7 +14,7 @@ export const HomePartner = () => {
           <h5 className="text-base font-bold">OUR PARTNERS</h5>
           <hr className="border-b-[1px] flex-1 border-neutral-3" />
         </div>
-        <div className="partners flex py-12 justify-center lg:justify-between items-start lg:items-center xs:content-start xs:gap-y-6 xs:gap-x-4 self-stretch xs:flex-wrap">
+        <div className="partners flex py-12 justify-center lg:justify-between items-start lg:items-center xs:content-start lg:gap-0 gap-y-6 gap-x-4 self-stretch flex-wrap lg:flex-nowrap">
           <div className="partner partner-1 flex content-center items-center">
             <img src={Partner1} alt="" />
           </div>

@@ -41,7 +41,7 @@ const Navbar = () => {
         >
           ARTICLE
         </NavLink>
-        <ButtonLink color="bg-black" caption="CONTACT US" />
+        <ButtonLink color="bg-black" to="/contact-us" caption="CONTACT US" />
       </div>
 
       {/* Mobile Hamburger */}
@@ -62,7 +62,7 @@ const Navbar = () => {
 
       {/* Mobile Dropdown Menu */}
       {isMenuOpen && (
-        <div className="absolute top-16 left-0 w-full bg-white shadow-lg flex flex-col gap-4 p-4 lg:hidden z-40">
+        <div className="absolute top-16 left-0 w-full bg-white shadow-lg flex flex-col gap-4 p-4 lg:hidden z- 40">
           <NavLink
             className="p-3 text-sm font-bold text-neutral-2 hover:text-black"
             to="/about"
