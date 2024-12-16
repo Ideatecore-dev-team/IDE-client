@@ -14,6 +14,13 @@ export default {
         "neutral-3": "#979797",
         "brand-red": "#C82121",
       },
+      fontFamily: {
+        lato: ['Lato', 'sans-serif'],
+      },
+      backgroundImage: {
+        "batik-mobile-bg" : 
+        "linear-gradient(0deg, rgba(18, 18, 18, 0.00) 0.4%, #121212 99.58%), url('/src/assets/images/batik-footer-Mobile.png')",
+      },
     },
   },
   plugins: [],
