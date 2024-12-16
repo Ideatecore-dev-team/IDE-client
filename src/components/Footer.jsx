@@ -7,7 +7,7 @@ import { Social } from "./Social";
 
 export const Footer = () => {
   return (
-    <footer className="footer flex px-6 py-[60px] flex-col content-center items-center gap-8 xs:self-stretch bg-black bg-batik-mobile-bg text-white">
+    <footer className="footer flex px-6 py-[60px] flex-col content-center items-center gap-8 xs:self-stretch lg:bg-batik-desktop-bg bg-cover bg-batik-mobile-bg text-white">
       <div className="footer-container w-full lg:w-[1224px] flex flex-col items-start gap-8 xs:self-stretch ">
         <div className="logo-heading w-full lg:w-[440px] flex flex-col items-start gap-3 xs:self-stretch">
           <div className="logo-holder flex">

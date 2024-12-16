@@ -20,6 +20,8 @@ export default {
       backgroundImage: {
         "batik-mobile-bg" : 
         "linear-gradient(0deg, rgba(18, 18, 18, 0.00) 0.4%, #121212 99.58%), url('/src/assets/images/batik-footer-Mobile.png')",
+        "batik-desktop-bg" : 
+        "url('/src/assets/images/batik-footer-Desktop.png')",
       },
     },
   },
