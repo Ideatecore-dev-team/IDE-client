@@ -10,7 +10,7 @@ export const AboutUsImpact = () => {
         <div className="our-impact-container flex flex-col w-96 lg:w-[1224px] py-12 items-start  border-b-[1px] border-neutral-3 gap-10 lg:gap-12">
             {/* <div className="our-impact lg:w-[568px] flex flex-col items-start gap-8 xs:self-stretch"> */}
                 <div className="heading-desc flex lg:justify-between lg:flex-row flex-col xs:content-center items-start xs:gap-4 lg:self-stretch">
-                    <h2 className=" self-stretch lg:text-4xl text-[24px] lg:text-base font-lato text-neutral-1 font-bold">OUR IMPACT</h2>
+                    <h2 className=" self-stretch lg:text-4xl text-[24px] font-lato text-neutral-1 font-bold">OUR IMPACT</h2>
                     <p className="lg:self-strech text-[18px] lg:text-[24px] font-lato lg:w-[520px] font-[500] text-neutral-1">
                     In a world of challenges, IDE ignites change, shaping a 
                     brighter future for Indonesia and beyond. We are present 
