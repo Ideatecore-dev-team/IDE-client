@@ -1,8 +1,5 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
-import { ContactDetails } from "../components/ContactDetails";
-import { Social } from "../components/Social";
-import { ContactGetInTouch } from "./ContactGetInTouch";
 import aboutUsPhotos from "../assets/images/about-us-banner.png";
 
 export const AboutUsSection = () => {
