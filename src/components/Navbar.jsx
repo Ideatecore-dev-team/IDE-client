@@ -1,86 +1,97 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
 import NavLogo from "../assets/images/nav-logo.png";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import ButtonLink from "./Buttons/ButtonLink";
+import { MdMenu } from "react-icons/md";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="bg-white shadow-md fixed w-full z-10">
-      <div className="container mx-auto px-4 flex justify-between items-center py-4">
-        {/* Logo */}
-        <Link>
-          <img src={NavLogo} alt="" />
-        </Link>
+    <nav className="flex w-full px-8 py-4 justify-between items-center bg-white z-50">
+      {/* Logo */}
+      <NavLink to="/">
+        <img src={NavLogo} alt="Logo" />
+      </NavLink>
 
-        {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-8 font-medium">
-          <li className="hover:text-gray-700">
-            <a href="#about">ABOUT US</a>
-          </li>
-          <li className="hover:text-gray-700">
-            <a href="#program">OUR PROGRAM</a>
-          </li>
-          <li className="hover:text-gray-700">
-            <a href="#gallery">GALLERY</a>
-          </li>
-          <li className="hover:text-gray-700">
-            <a href="#article">ARTICLE</a>
-          </li>
-        </ul>
-
-        {/* Hamburger Menu Button */}
-        <button
-          className="md:hidden text-black focus:outline-none"
-          onClick={toggleMenu}
+      {/* Desktop Menu */}
+      <div className="menu-nav hidden lg:flex items-center gap-3">
+        <NavLink
+          className="flex p-3 justify-center items-center gap-2 text-sm font-bold text-neutral-2 hover:text-black"
+          to="/about"
         >
-          <svg
-            className="w-6 h-6"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
-            />
-          </svg>
-        </button>
+          ABOUT US
+        </NavLink>
+        <NavLink
+          className="flex p-3 justify-center items-center gap-2 text-sm font-bold text-neutral-2 hover:text-black"
+          to="/program"
+        >
+          OUR PROGRAM
+        </NavLink>
+        <NavLink
+          className="flex p-3 justify-center items-center gap-2 text-sm font-bold text-neutral-2 hover:text-black"
+          to="/gallery"
+        >
+          GALLERY
+        </NavLink>
+        <NavLink
+          className="flex p-3 justify-center items-center gap-2 text-sm font-bold text-neutral-2 hover:text-black"
+          to="/article"
+        >
+          ARTICLE
+        </NavLink>
+        <ButtonLink color="bg-black" to="/contact-us" caption="CONTACT US" />
       </div>
 
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden bg-black text-white">
-          <ul className="flex flex-col space-y-4 px-4 py-6 font-medium">
-            <li>
-              <a href="#about" className="block hover:text-gray-300">
-                ABOUT US
-              </a>
-            </li>
-            <li>
-              <a href="#program" className="block hover:text-gray-300">
-                OUR PROGRAM
-              </a>
-            </li>
-            <li>
-              <a href="#gallery" className="block hover:text-gray-300">
-                GALLERY
-              </a>
-            </li>
-            <li>
-              <a href="#article" className="block hover:text-gray-300">
-                ARTICLE
-              </a>
-            </li>
-          </ul>
+      {/* Mobile Hamburger */}
+      {/* <button
+        className="lg:hidden flex items-center justify-center w-10 h-10 rounded-md bg-gray-100"
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+      >
+        <span className="block w-6 h-[2px] bg-black mb-1"></span>
+        <span className="block w-6 h-[2px] bg-black mb-1"></span>
+        <span className="block w-6 h-[2px] bg-black"></span>
+      </button> */}
+      <button
+        className="lg:hidden flex p-3 justify-center items-center size-12 rounded-lg bg-black text-white"
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+      >
+        <MdMenu size={24} />
+      </button>
+
+      {/* Mobile Dropdown Menu */}
+      {isMenuOpen && (
+        <div className="absolute top-16 left-0 w-full bg-white shadow-lg flex flex-col gap-4 p-4 lg:hidden z- 40">
+          <NavLink
+            className="p-3 text-sm font-bold text-neutral-2 hover:text-black"
+            to="/about"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            ABOUT US
+          </NavLink>
+          <NavLink
+            className="p-3 text-sm font-bold text-neutral-2 hover:text-black"
+            to="/program"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            OUR PROGRAM
+          </NavLink>
+          <NavLink
+            className="p-3 text-sm font-bold text-neutral-2 hover:text-black"
+            to="/gallery"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            GALLERY
+          </NavLink>
+          <NavLink
+            className="p-3 text-sm font-bold text-neutral-2 hover:text-black"
+            to="/article"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            ARTICLE
+          </NavLink>
+          <ButtonLink color="bg-black" to="/contact-us"  caption="CONTACT US" />
         </div>
       )}
     </nav>

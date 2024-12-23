@@ -9,12 +9,12 @@ import Partner4 from "../assets/images/partner-4.png";
 export const HomePartner = () => {
   return (
     <div className="our-partner-section flex flex-col items-center self-stretch">
-      <div className="our-partner-container flex w-96 flex-col items-start">
+      <div className="our-partner-container flex w-96 lg:w-[1224px] flex-col items-start">
         <div className="heading flex items-center justify-center gap-6 self-stretch">
           <h5 className="text-base font-bold">OUR PARTNERS</h5>
           <hr className="border-b-[1px] flex-1 border-neutral-3" />
         </div>
-        <div className="partners flex py-12 justify-center items-start content-start gap-y-6 gap-x-4 self-stretch flex-wrap">
+        <div className="partners flex py-12 justify-center lg:justify-between items-start lg:items-center xs:content-start lg:gap-0 gap-y-6 gap-x-4 self-stretch flex-wrap lg:flex-nowrap">
           <div className="partner partner-1 flex content-center items-center">
             <img src={Partner1} alt="" />
           </div>

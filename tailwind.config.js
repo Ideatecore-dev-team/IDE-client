@@ -3,6 +3,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      screens: {
+        xs: { max: "639px" },
+      },
       colors: {
         primary: "#0B4068",
         secondary: "#A88646",
@@ -10,6 +13,15 @@ export default {
         "neutral-2": "#494949",
         "neutral-3": "#979797",
         "brand-red": "#C82121",
+      },
+      fontFamily: {
+        lato: ['Lato', 'sans-serif'],
+      },
+      backgroundImage: {
+        "batik-mobile-bg" : 
+        "linear-gradient(0deg, rgba(18, 18, 18, 0.00) 0.4%, #121212 99.58%), url('/src/assets/images/batik-footer-Mobile.png')",
+        "batik-desktop-bg" : 
+        "url('/src/assets/images/batik-footer-Desktop.png')",
       },
     },
   },
