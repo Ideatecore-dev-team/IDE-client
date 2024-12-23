@@ -91,7 +91,7 @@ const Navbar = () => {
           >
             ARTICLE
           </NavLink>
-          <ButtonLink color="bg-black" caption="CONTACT US" />
+          <ButtonLink color="bg-black" to="/contact-us"  caption="CONTACT US" />
         </div>
       )}
     </nav>
