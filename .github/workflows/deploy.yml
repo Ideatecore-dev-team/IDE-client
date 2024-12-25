@@ -22,7 +22,7 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
           # Update PATH to include NVM binaries
-          export PATH=$PATH:/root/.nvm/v22.12.0/bin
+          export PATH=$PATH:/home/ideatecore/.nvm/v22.12.0/bin
 
           # Debugging information
           echo $PATH
