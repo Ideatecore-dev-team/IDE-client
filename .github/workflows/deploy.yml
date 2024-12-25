@@ -32,6 +32,7 @@ jobs:
           # Commands
           cd /home/ideatecore/IDE-Indonesia/IDE-client
           git pull origin main
+          npm i pm2
           npm install
           npm run build
           pm2 restart /home/ideatecore/IDE-Indonesia/ecosystem.config.cjs
