@@ -3,6 +3,7 @@ import App from "../App";
 import Home from "../pages/Home";
 import { ContactUs } from "../pages/ContactUs";
 import { AboutUs } from "../pages/AboutUs";
+import { Gallery } from "../pages/Gallery";
 
 const ListRouter = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const ListRouter = createBrowserRouter([
       {
         path: "/about",
         element: <AboutUs />,
+      },
+      {
+        path: "/gallery",
+        element: <Gallery />,
       },
     ],
   },
