@@ -34,5 +34,5 @@ jobs:
           git pull origin main
           npm install
           npm run build
-          pm2 reload /home/ideatecore/IDE-Indonesia/ecosystem.config.cjs
+          pm2 restart /home/ideatecore/IDE-Indonesia/ecosystem.config.cjs
         debug: true
