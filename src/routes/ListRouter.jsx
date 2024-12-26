@@ -4,6 +4,7 @@ import Home from "../pages/Home";
 import { ContactUs } from "../pages/ContactUs";
 import { AboutUs } from "../pages/AboutUs";
 import { Gallery } from "../pages/Gallery";
+import { Articles } from "../pages/Articles";
 
 const ListRouter = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const ListRouter = createBrowserRouter([
       {
         path: "/gallery",
         element: <Gallery />,
+      },
+      {
+        path: "/articles",
+        element: <Articles />,
       },
     ],
   },
