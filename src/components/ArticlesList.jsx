@@ -13,7 +13,10 @@ export const ArticlesList = () => {
             NEWEST ARTICLE
           </p>
           <div className="article-cards flex flex-col lg:flex-row lg:flex-wrap items-center gap-12 self-stretch">
-            <div className="article-card flex w-full lg:w-[376px] flex-col items-start justify-center gap-3">
+            <Link
+              className="article-card flex w-full lg:w-[376px] flex-col items-start justify-center gap-3"
+              to="/article/1"
+            >
               <img src={ArticleImage1} className="w-full" alt="" />
               <h5 className="font-bold text-base text-brand-red">DEMOCRACY</h5>
               <div className="title-detail flex flex-col gap-1 self-stretch">
@@ -27,7 +30,7 @@ export const ArticlesList = () => {
                   <p>5 Desember 2024</p>
                 </div>
               </div>
-            </div>
+            </Link>
             <div className="article-card flex w-full lg:w-[376px] flex-col items-start justify-center gap-3">
               <img src={ArticleImage2} className="w-full" alt="" />
               <h5 className="font-bold text-base text-brand-red">DEMOCRACY</h5>
