@@ -258,8 +258,8 @@ export const AboutUsOurTeam = () => {
                             <p className="text-neutral-1 text-lg font-lato font-bold">Loading...</p>
                         </div>
                     ) : (
-                        <div className="our-team-all-staff flex flex-col items-start gap-24-48 self-stretch">
-                            <div className="cards-container flex justify-center items-start content-start gap-[24px] self-stretch flex-wrap ">
+                        <div className="our-team-all-staff flex flex-col items-start self-stretch">
+                            <div className="cards-container flex justify-center items-start content-start gap-24-48 self-stretch flex-wrap ">
                                 {currentStaffMembers.map((staff) => (
                                     <div key={staff.id} className="staff-card flex w-[270px] flex-col items-start gap-[12px]">
                                         <img src={staff.image} alt={staff.name} />
