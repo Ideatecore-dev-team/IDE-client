@@ -17,6 +17,9 @@ export default {
       fontFamily: {
         lato: ["Lato", "sans-serif"],
       },
+      gap: {
+        '24-48': '24px 48px',
+      },
       backgroundImage: {
         "batik-mobile-bg":
           "linear-gradient(0deg, rgba(18, 18, 18, 0.00) 0.4%, #121212 99.58%), url('/src/assets/images/batik-footer-Mobile.png')",
