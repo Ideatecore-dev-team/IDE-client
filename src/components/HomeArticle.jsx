@@ -3,13 +3,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 import ArticleImage from "../assets/images/article-carousel-1.png";
 
-const HomeArticle = () => {
+export const HomeArticle = () => {
   return (
     <div className="article-section flex justify-center items-start self-stretch">
       <div className="article-container flex w-96 lg:w-[1224px] flex-col items-start gap-4 py-12 border-b-[1px] border-neutral-3">
         <div className="article-heading flex justify-between items-center self-stretch">
           <h5 className="text-base font-bold">NEWEST ARTICLE</h5>
-          <Link className="text-base font-bold underline decoration-solid">
+          <Link
+            className="text-base font-bold underline decoration-solid"
+            to="articles"
+          >
             Browse All Newest
           </Link>
         </div>

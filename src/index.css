@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  font-family: "Lato", serif;
+}
+
 hr {
   border: 1px solid #979797;
 }

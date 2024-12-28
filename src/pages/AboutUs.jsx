@@ -2,6 +2,7 @@
 import React from "react";
 import { AboutUsSection } from "../components/AboutUsSection";
 import { AboutUsImpact } from "../components/AboutUsImpact";
+import { AboutUsOurTeam } from "../components/AboutUsOurTeams";
 import { HomePartner } from "../components/HomePartner";
 
 export const AboutUs = () => {
@@ -9,6 +10,7 @@ export const AboutUs = () => {
     <div className="About-Us">
       <AboutUsSection />
       <AboutUsImpact />
+      <AboutUsOurTeam />
       <HomePartner />
     </div>
   );
