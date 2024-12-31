@@ -15,16 +15,16 @@ export const Social = ({ hideAt }) => {
     <div
       className={`social-media items-center gap-3 self-stretch text-white ${visibilityClass}`}
     >
-      <Link className="flex justify-center items-center p-3 rounded-lg bg-brand-red">
+      <Link className="flex size-[48px] justify-center items-center p-3 rounded-lg bg-brand-red">
         <SiLinkedin />
       </Link>
-      <Link className="flex justify-center items-center p-3 rounded-lg bg-brand-red">
+      <Link className="flex size-[48px] justify-center items-center p-3 rounded-lg bg-brand-red">
         <SiInstagram />
       </Link>
-      <Link className="flex justify-center items-center p-3 rounded-lg bg-brand-red">
+      <Link className="flex size-[48px] justify-center items-center p-3 rounded-lg bg-brand-red">
         <SiYoutube />
       </Link>
-      <Link className="flex justify-center items-center p-3 rounded-lg bg-brand-red">
+      <Link className="flex size-[48px] justify-center items-center p-3 rounded-lg bg-brand-red">
         <SiFacebook />
       </Link>
     </div>

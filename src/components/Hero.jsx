@@ -8,7 +8,7 @@ import Carousel3 from "../assets/images/hero-carousel-3.png";
 const Hero = () => {
   return (
     <div className="hero flex flex-col gap-6 items-center w-full">
-      <div className="hero-title flex pt-24 lg:pt-[105px] gap-6 items-center w-96 lg:w-[1224px] mx-auto flex-col self-stretch text-center">
+      <div className="hero-title flex pt-[48px] gap-6 items-center w-96 lg:w-[1224px] mx-auto flex-col self-stretch text-center">
         <div className="hero-desc flex flex-col items-center gap-3 lg:gap-6 self-stretch mx-auto">
           <h1 className="font-bold text-3xl lg:text-5xl">
             Bersama Wujudkan Generasi

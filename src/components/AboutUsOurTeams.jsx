@@ -191,34 +191,34 @@ export const AboutUsOurTeam = () => {
                     <div className="btn-categories lg:flex lg:items-center lg:gap-[12px]">
                         <button 
                             onClick={() => handleCategoryClick("Semua")} 
-                            className={`flex lg:w-max w-[270px] h-[48px] py-3 px-4 justify-between items-center rounded-md ${selectedCategory === "Semua" ? 'bg-brand-red border-brand-red rounded-md' : 'bg-white text-neutral-1 border-2 border-neutral-1' }`}
+                            className={`flex lg:w-max w-[270px] lg:h-[32px] h-[48px] py-2 px-3 justify-between items-center rounded-md ${selectedCategory === "Semua" ? 'bg-brand-red border-brand-red rounded-md' : 'bg-white text-neutral-1 border-2 border-neutral-1' }`}
                         >
-                            <p className={` text-lg font-lato font-bold ${selectedCategory === "Semua" ? 'text-white' : 'text-neutral-1' }`}>
+                            <p className={` text-[14px] font-lato font-bold ${selectedCategory === "Semua" ? 'text-white' : 'text-neutral-1' }`}>
                                 Semua
                             </p>
                             <MdArrowDropDown size={24} className="block lg:hidden flex-shrink-0 text-white" />
                         </button>
                         <button 
                             onClick={() => handleCategoryClick("Core Team")} 
-                            className={`xs:hidden flex lg:w-max w-[270px] h-[48px] py-3 px-4 justify-between items-center rounded-md ${selectedCategory === "Core Team" ? 'bg-brand-red' : 'bg-white text-neutral-1 border-2 border-neutral-1' }`}
+                            className={`xs:hidden flex lg:w-max w-[270px] lg:h-[32px] h-[48px] py-2 px-3 justify-between items-center rounded-md ${selectedCategory === "Core Team" ? 'bg-brand-red' : 'bg-white text-neutral-1 border-2 border-neutral-1' }`}
                         >
-                            <p className={` text-lg font-lato font-bold ${selectedCategory === "Core Team" ? 'text-white' : 'text-neutral-1' }`}>
+                            <p className={` text-[14px] font-lato font-bold ${selectedCategory === "Core Team" ? 'text-white' : 'text-neutral-1' }`}>
                                 Core Team
                             </p>
                         </button>
                         <button 
                             onClick={() => handleCategoryClick("Public Relation")} 
-                            className={`xs:hidden flex lg:w-max w-[270px] h-[48px] py-3 px-4 justify-between items-center rounded-md ${selectedCategory === "Public Relation" ? 'bg-brand-red' : 'bg-white text-neutral-1 border-2 border-neutral-1' }`}
+                            className={`xs:hidden flex lg:w-max w-[270px] lg:h-[32px] h-[48px] py-2 px-3 justify-between items-center rounded-md ${selectedCategory === "Public Relation" ? 'bg-brand-red' : 'bg-white text-neutral-1 border-2 border-neutral-1' }`}
                         >
-                            <p className={` text-lg font-lato font-bold ${selectedCategory === "Public Relation" ? 'text-white' : 'text-neutral-1' }`}>
+                            <p className={` text-[14px] font-lato font-bold ${selectedCategory === "Public Relation" ? 'text-white' : 'text-neutral-1' }`}>
                                 Public Relation
                             </p>
                         </button>
                         <button 
                             onClick={() => handleCategoryClick("Media")} 
-                            className={`xs:hidden flex lg:w-max w-[270px] h-[48px] py-3 px-4 justify-between items-center rounded-md ${selectedCategory === "Media" ? 'bg-brand-red' : 'bg-white text-neutral-1 border-2 border-neutral-1' }`}
+                            className={`xs:hidden flex lg:w-max w-[270px] lg:h-[32px] h-[48px] py-2 px-3 justify-between items-center rounded-md ${selectedCategory === "Media" ? 'bg-brand-red' : 'bg-white text-neutral-1 border-2 border-neutral-1' }`}
                         >
-                            <p className={` text-lg font-lato font-bold ${selectedCategory === "Media" ? 'text-white' : 'text-neutral-1' }`}>
+                            <p className={` text-[14px] font-lato font-bold ${selectedCategory === "Media" ? 'text-white' : 'text-neutral-1' }`}>
                                 Media
                             </p>
                         </button>
@@ -283,7 +283,7 @@ export const AboutUsOurTeam = () => {
                             disabled={currentPage === 1} // Disable if on the first page
                         >
                             <MdKeyboardArrowLeft size={24} className="flex-shrink-0 text-white" />
-                            <p className={` text-lg font-lato font-bold text-white`}>
+                            <p className={` text-[16px] font-lato font-bold text-white`}>
                                 Sebelumnya
                             </p>
                         </button>
@@ -305,7 +305,7 @@ export const AboutUsOurTeam = () => {
                             className="flex p-3 justify-center items-center gap-2.5 rounded-lg bg-brand-red hover:bg-black transition-colors duration-300"
                             disabled={currentPage === totalPages} // Disable if on the last page
                         >
-                            <p className={` text-lg font-lato font-bold text-white`}>
+                            <p className={` text-[16px] font-lato font-bold text-white`}>
                                 Setelahnya
                             </p>
                             <MdKeyboardArrowRight size={24} className="flex-shrink-0 text-white" />
