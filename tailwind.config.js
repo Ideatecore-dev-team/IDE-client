@@ -13,6 +13,7 @@ export default {
         "neutral-2": "#494949",
         "neutral-3": "#979797",
         "brand-red": "#C82121",
+        "brand-red-hover": "#EB2929",
       },
       fontFamily: {
         lato: ["Lato", "sans-serif"],

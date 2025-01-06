@@ -41,7 +41,7 @@ const Navbar = () => {
         >
           ARTICLE
         </NavLink>
-        <ButtonLink color="bg-black" to="/contact-us" caption="CONTACT US" />
+        <ButtonLink color="bg-black hover:bg-neutral-2" to="/contact-us" caption="LET’S COLLABORATE" />
       </div>
 
       {/* Mobile Hamburger */}

@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 
 const ButtonLink = ({
   caption,
-  color = "bg-brand-red",
+  // color = "bg-brand-red",
+  color = "",
   textColor = "text-white",
   to,
   width,
