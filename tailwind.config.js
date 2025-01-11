@@ -12,6 +12,7 @@ export default {
         "neutral-1": "#121212",
         "neutral-2": "#494949",
         "neutral-3": "#979797",
+        "neutral-3-hover": "#C9C8C8",
         "brand-red": "#C82121",
         "brand-red-hover": "#EB2929",
       },
