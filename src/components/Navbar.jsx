@@ -25,7 +25,7 @@ const Navbar = () => {
         </NavLink>
         <NavLink
           className="flex p-3 justify-center items-center gap-2 text-sm font-bold text-neutral-2 hover:text-black"
-          to="/program"
+          to="/our-program"
         >
           OUR PROGRAM
         </NavLink>
@@ -72,7 +72,7 @@ const Navbar = () => {
           </NavLink>
           <NavLink
             className="p-3 text-sm font-bold text-neutral-2 hover:text-black"
-            to="/program"
+            to="/our-program"
             onClick={() => setIsMenuOpen(false)}
           >
             OUR PROGRAM

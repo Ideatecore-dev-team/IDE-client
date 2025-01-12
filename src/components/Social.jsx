@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { SiLinkedin, SiInstagram, SiYoutube, SiFacebook } from "react-icons/si";
 import { Link } from "react-router-dom";

@@ -29,3 +29,21 @@ h5 {
 nav {
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.25);
 }
+
+select {
+  -webkit-appearance: none; /* Untuk browser berbasis Webkit (Chrome, Safari) */
+  -moz-appearance: none; /* Untuk Firefox */
+  appearance: none; /* Browser modern */
+}
+
+option {
+  background-color: white;
+  font-family: "Lato", serif;
+  font-style: normal;
+  font-size: 16px;
+  padding: 12px;
+}
+
+option:hover {
+  background-color: pink;
+}

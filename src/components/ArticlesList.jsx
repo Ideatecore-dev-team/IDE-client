@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { Link } from "react-router-dom";
 import ArticleImage1 from "../assets/images/article-carousel-1.png";

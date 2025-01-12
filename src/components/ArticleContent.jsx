@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React from "react";
 import ArticleImage from "../assets/images/article-carousel-1.png";
 import { MdPerson } from "react-icons/md";

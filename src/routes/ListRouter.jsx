@@ -6,6 +6,7 @@ import { AboutUs } from "../pages/AboutUs";
 import { Gallery } from "../pages/Gallery";
 import { Articles } from "../pages/Articles";
 import { Article } from "../pages/Article";
+import { OurProgram } from "../pages/OurProgram";
 
 const ListRouter = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const ListRouter = createBrowserRouter([
       {
         path: "/article/1",
         element: <Article />,
+      },
+      {
+        path: "/our-program",
+        element: <OurProgram />,
       },
     ],
   },
