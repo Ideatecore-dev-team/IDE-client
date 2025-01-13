@@ -210,7 +210,7 @@ export const AboutUsOurTeam = () => {
                     </div>  
                     <div className="dropdown relative w-full px-6 lg:hidden">  
                         <select  
-                            className="flex p-3 items-start w-full rounded-md border-[1px] border-neutral-2 appearance-none"  
+                            className="flex p-3 items-start w-full px-6 rounded-md border-[1px] border-neutral-2 appearance-none"  
                             onChange={handleCategoryChange}  
                             value={selectedCategory}  
                         >  
@@ -220,13 +220,13 @@ export const AboutUsOurTeam = () => {
                                 </option>  
                             ))}  
                         </select>  
-                        <MdArrowDropDown  
-                            className="absolute top-1/2 right-3 -translate-y-1/2 text-neutral-500 pointer-events-none"  
-                            size={24}  
-                        />  
+                        <MdArrowDropDown
+                        className="absolute top-1/2 right-[37px] -translate-y-1/2 text-neutral-500 pointer-events-none"
+                        size={24}
+                        />
                     </div>  
                     {/* Pagination */}  
-                    <div className="our-team-btn-container w-full px-6 lg:hidden flex justify-between items-center ">  
+                    <div className="our-team-btn-container w-full px-6 lg:hidden flex justify-between sitems-center ">  
                         <button  
                             onClick={handlePrevPage}  
                             className="flex p-3 justify-center items-center gap-2.5 rounded-lg bg-brand-red hover:bg-black transition-colors duration-300"  

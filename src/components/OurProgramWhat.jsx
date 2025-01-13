@@ -23,7 +23,7 @@ export const OurProgramWhat = () => {
           </div>
           <div className="dropdown relative w-full">
             <select
-              className="flex p-3 items-start w-full rounded-md border-[1px] border-neutral-2 appearance-none"
+              className="flex p-3 items-start w-full rounded-md border-[1px] border-neutral-3 hover:bg-neutral-3-hover appearance-none"
               onChange={handleSelectionChange}
               value={selectedProgram}
             >
