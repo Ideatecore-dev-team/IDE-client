@@ -20,7 +20,7 @@ const Hero = () => {
             berkeadilan dan masa depan yang cerah.
           </h3>
         </div>
-        <ButtonLink caption="Let’s collaborate!" color="bg-brand-red hover:bg-brand-red-hover"/>
+        <ButtonLink caption="Let’s collaborate!" color="bg-brand-red hover:bg-brand-red-hover" to="/contact-us"/>
       </div>
       <div className="preview-gallery flex w-full">
         <img

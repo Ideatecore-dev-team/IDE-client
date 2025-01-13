@@ -6,6 +6,73 @@ import ArticleImage2 from "../assets/images/article-carousel-2.png";
 import ArticleImage3 from "../assets/images/article-carousel-3.png";
 
 export const ArticlesList = () => {
+  const response = {
+    data: [
+      {
+        id: "cm5lde97m0003tafsd6whmneh",
+        content: "content hello",
+        description: "description",
+        image: "image",
+        title: "title",
+        userId: "cm5lddtvn0000tafsezqaixnm",
+        categoryId: "cm5lde0xx0001tafs42hoscbf",
+        createdAt: "2025-01-06T18:23:31.619Z",
+        updatedAt: "2025-01-06T18:23:31.619Z",
+        User: {
+          name: "test",
+        },
+        Category: {
+          category: "sains",
+        },
+      },
+      {
+        id: "cm5lde97m0003tafsd6whmneh",
+        content: "content hello",
+        description: "description",
+        image: "image",
+        title: "title",
+        userId: "cm5lddtvn0000tafsezqaixnm",
+        categoryId: "cm5lde0xx0001tafs42hoscbf",
+        createdAt: "2025-01-06T18:23:31.619Z",
+        updatedAt: "2025-01-06T18:23:31.619Z",
+        User: {
+          name: "test",
+        },
+        Category: {
+          category: "sains",
+        },
+      },
+      {
+        id: "cm5lde97m0003tafsd6whmneh",
+        content: "content hello",
+        description: "description",
+        image: "image",
+        title: "title",
+        userId: "cm5lddtvn0000tafsezqaixnm",
+        categoryId: "cm5lde0xx0001tafs42hoscbf",
+        createdAt: "2025-01-06T18:23:31.619Z",
+        updatedAt: "2025-01-06T18:23:31.619Z",
+        User: {
+          name: "test",
+        },
+        Category: {
+          category: "sains",
+        },
+      },
+    ],
+    error: false,
+    message: "success get data",
+    pagination: {
+      currentPage: 1,
+      perPage: 5,
+      totalItems: 20,
+      totalPages: 4,
+    },
+    status: "success",
+    statusCode: 200,
+    success: true,
+  };
+
   return (
     <div className="articles-list-section flex flex-col items-center self-center">
       <div className="articles-list-container flex w-full lg:w-[1224px] xs:px-6 py-12 flex-col items-start gap-12">
