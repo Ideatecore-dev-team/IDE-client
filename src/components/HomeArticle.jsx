@@ -6,7 +6,7 @@ import ArticleImage from "../assets/images/article-carousel-1.png";
 export const HomeArticle = () => {
   return (
     <div className="article-section flex justify-center items-start self-stretch">
-      <div className="article-container flex w-[327px]  lg:w-[1224px] flex-col items-start gap-4 py-12 border-b-[1px] border-neutral-3">
+      <div className="article-container flex w-full px-6  lg:w-[1224px] flex-col items-start gap-4 py-12 border-b-[1px] border-neutral-3">
         <div className="article-heading flex justify-between items-center self-stretch">
           <h5 className="text-base font-bold">NEWEST ARTICLE</h5>
           <Link
@@ -17,8 +17,8 @@ export const HomeArticle = () => {
           </Link>
         </div>
         <div className="articles flex items-center justify-center gap-6 self-stretch">
-          <div className="article-card flex w-[327px]  flex-col items-start justify-center gap-3">
-            <img src={ArticleImage} className="w-[327px] " alt="" />
+          <div className="article-card flex w-full px-6  flex-col items-start justify-center gap-3">
+            <img src={ArticleImage} className="w-full px-6 " alt="" />
             <h5 className="font-bold text-base text-brand-red">DEMOCRACY</h5>
             <div className="title-detail flex flex-col gap-1 self-stretch">
               <Link className="font-bold text-xl">
@@ -32,8 +32,8 @@ export const HomeArticle = () => {
               </div>
             </div>
           </div>
-          <div className="article-card hidden lg:flex w-[327px]  flex-col items-start justify-center gap-3">
-            <img src={ArticleImage} className="w-[327px] " alt="" />
+          <div className="article-card hidden lg:flex w-full px-6  flex-col items-start justify-center gap-3">
+            <img src={ArticleImage} className="w-full px-6 " alt="" />
             <h5 className="font-bold text-base text-brand-red">DEMOCRACY</h5>
             <div className="title-detail flex flex-col gap-1 self-stretch">
               <Link className="font-bold text-xl">
@@ -47,8 +47,8 @@ export const HomeArticle = () => {
               </div>
             </div>
           </div>
-          <div className="article-card hidden lg:flex w-[327px]  flex-col items-start justify-center gap-3">
-            <img src={ArticleImage} className="w-[327px] " alt="" />
+          <div className="article-card hidden lg:flex w-full px-6  flex-col items-start justify-center gap-3">
+            <img src={ArticleImage} className="w-full px-6 " alt="" />
             <h5 className="font-bold text-base text-brand-red">DEMOCRACY</h5>
             <div className="title-detail flex flex-col gap-1 self-stretch">
               <Link className="font-bold text-xl">
@@ -62,8 +62,8 @@ export const HomeArticle = () => {
               </div>
             </div>
           </div>
-          <div className="article-card hidden lg:flex w-[327px]  flex-col items-start justify-center gap-3">
-            <img src={ArticleImage} className="w-[327px] " alt="" />
+          <div className="article-card hidden lg:flex w-full px-6  flex-col items-start justify-center gap-3">
+            <img src={ArticleImage} className="w-full px-6 " alt="" />
             <h5 className="font-bold text-base text-brand-red">DEMOCRACY</h5>
             <div className="title-detail flex flex-col gap-1 self-stretch">
               <Link className="font-bold text-xl">

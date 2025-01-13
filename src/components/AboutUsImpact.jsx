@@ -9,7 +9,7 @@ export const AboutUsImpact = () => {
     <div className="our-impact-section flex lg:p-[10px]  lg:mx-auto lg:flex-col xs:justify-center items-center lg:gap-[10px] self-stretch ">
       <div className="our-impact-container flex flex-col w-full lg:w-[1224px] py-12 items-start  border-b-[1px] border-neutral-3 gap-10 lg:gap-12 xs:items-center">
         {/* <div className="our-impact lg:w-[568px] flex flex-col items-start gap-8 xs:self-stretch"> */}
-        <div className="heading-desc flex lg:w-full w-[327px] lg:justify-between lg:flex-row flex-col xs:content-center items-start xs:gap-4 lg:self-stretch">
+        <div className="heading-desc flex lg:w-full w-full px-6 lg:justify-between lg:flex-row flex-col xs:content-center items-start xs:gap-4 lg:self-stretch">
           <h2 className=" self-stretch lg:text-4xl text-[24px] font-lato text-neutral-1 font-bold">
             OUR IMPACT
           </h2>
@@ -18,7 +18,7 @@ export const AboutUsImpact = () => {
             future for Indonesia and beyond. We are present across Indonesia:
           </p>
         </div>
-        <div className="all-impact flex lg:w-[1224px] w-[327px]  lg:flex-row flex-col lg:items-center items-start lg:gap-16 gap-8 lg:self-stretch">
+        <div className="all-impact flex lg:w-[1224px] w-full px-6 lg:flex-row flex-col lg:items-center items-start lg:gap-16 gap-8 lg:self-stretch">
           <div className="impact-1 lg:w-[365px] flex flex-col items-start gap-2 self-stretch">
             <div className="point flex items-center gap-4 self-stretch">
               <div className="icon flex lg:size-[48px] size-9 justify-center items-center rounded-lg bg-brand-red">

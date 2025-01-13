@@ -5,7 +5,7 @@ import { MdArrowDropDown } from "react-icons/md";
 export const ContactFAQ = () => {
   return (
     <div className="faq-section flex justify-center items-start self-stretch">
-      <div className="faq-container flex w-[327px]  lg:w-[1224px] py-12 flex-col items-center gap-8 border-t-[1px] border-neutral-3">
+      <div className="faq-container flex w-full px-6  lg:w-[1224px] py-12 flex-col items-center gap-8 border-t-[1px] border-neutral-3">
         <div className="faq-heading flex flex-col items-center gap-4 self-stretch">
           <h5 className="text-sm lg:text-base font-bold">FAQ</h5>
           <h3 className="text-lg lg:text-2xl font-bold text-center">
