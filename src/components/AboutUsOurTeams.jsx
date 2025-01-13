@@ -190,7 +190,7 @@ export const AboutUsOurTeam = () => {
     return (  
         <div className="our-team-section flex w-full lg:w-[1224px] justify-center items-start lg:items-center mx-auto gap-2.5">  
             <div className="our-team-container flex w-full py-12 flex-col items-center gap-8 flex-shrink-0">  
-                <div className="our-team-heading w-[342px] lg:w-[520px] flex flex-col items-start gap-4 lg:self-stretch">  
+                <div className="our-team-heading w-[327px] lg:w-[520px] flex flex-col items-start gap-4 lg:self-stretch">  
                     <h5 className="text-neutral-1 text-sm lg:text-[16px] font-lato font-bold">OUR TEAM</h5>  
                     <h2 className="self-stretch text-neutral-1 text-2xl lg:text-[32px] font-lato font-bold">The Minds Behind Our Impact</h2>  
                 </div>  
@@ -208,7 +208,7 @@ export const AboutUsOurTeam = () => {
                             </button>  
                         ))}  
                     </div>  
-                    <div className="dropdown relative w-[342px] lg:hidden">  
+                    <div className="dropdown relative w-[327px] lg:hidden">  
                         <select  
                             className="flex p-3 items-start w-full rounded-md border-[1px] border-neutral-2 appearance-none"  
                             onChange={handleCategoryChange}  
@@ -226,7 +226,7 @@ export const AboutUsOurTeam = () => {
                         />  
                     </div>  
                     {/* Pagination */}  
-                    <div className="our-team-btn-container w-[342px] lg:hidden flex justify-between items-center ">  
+                    <div className="our-team-btn-container w-[327px] lg:hidden flex justify-between items-center ">  
                         <button  
                             onClick={handlePrevPage}  
                             className="flex p-3 justify-center items-center gap-2.5 rounded-lg bg-brand-red hover:bg-black transition-colors duration-300"  

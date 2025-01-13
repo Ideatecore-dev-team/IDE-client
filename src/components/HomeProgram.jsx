@@ -6,10 +6,10 @@ import ButtonLink from "./Buttons/ButtonLink";
 export const HomeProgram = () => {
   return (
     <div className="ourprog-section flex justify-center items-start self-stretch">
-      <div className="ourprog-container flex w-96 lg:w-[1224px] py-12 flex-col lg:flex-row-reverse items-start lg:content-between gap-6">
+      <div className="ourprog-container flex w-[327px]  lg:w-[1224px] py-12 flex-col lg:flex-row-reverse items-start lg:content-between gap-6">
         <img
           src={OurProgramBanner}
-          className="h-[127.333px] w-96 lg:w-[750px] lg:h-[250px]"
+          className="h-[127.333px] w-[327px]  lg:w-[750px] lg:h-[250px]"
           alt=""
         />
         <div className="heading-button lg:w-[440px] flex flex-col items-start gap-3 lg:gap-5 xs:self-stretch">
@@ -21,7 +21,7 @@ export const HomeProgram = () => {
             sosial-budaya, kewirausahaan, dan keagamaan untuk memberdayakan
             generasi muda Indonesia.
           </p>
-          <ButtonLink caption="Check Our Program" />
+          <ButtonLink caption="Check Our Program" color="bg-brand-red hover:bg-brand-red-hover" to="/our-program"/>
         </div>
       </div>
     </div>
