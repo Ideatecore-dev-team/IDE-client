@@ -25,7 +25,7 @@ const Navbar = () => {
         </NavLink>
         <NavLink
           className="flex p-3 justify-center items-center gap-2 text-sm font-bold text-neutral-2 hover:text-black"
-          to="/program"
+          to="/our-program"
         >
           OUR PROGRAM
         </NavLink>
@@ -41,7 +41,7 @@ const Navbar = () => {
         >
           ARTICLE
         </NavLink>
-        <ButtonLink color="bg-black" to="/contact-us" caption="CONTACT US" />
+        <ButtonLink color="bg-black hover:bg-neutral-2" to="/contact-us" caption="LET’S COLLABORATE" />
       </div>
 
       {/* Mobile Hamburger */}
@@ -72,7 +72,7 @@ const Navbar = () => {
           </NavLink>
           <NavLink
             className="p-3 text-sm font-bold text-neutral-2 hover:text-black"
-            to="/program"
+            to="/our-program"
             onClick={() => setIsMenuOpen(false)}
           >
             OUR PROGRAM
@@ -86,7 +86,7 @@ const Navbar = () => {
           </NavLink>
           <NavLink
             className="p-3 text-sm font-bold text-neutral-2 hover:text-black"
-            to="/article"
+            to="/articles"
             onClick={() => setIsMenuOpen(false)}
           >
             ARTICLE

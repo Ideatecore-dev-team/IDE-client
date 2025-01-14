@@ -19,7 +19,8 @@ export const HomeDetails = () => {
               IDE menghadirkan solusi inovatif untuk menciptakan demokrasi yang
               inklusif dan berkelanjutan di tingkat nasional dan global.
             </p>
-            <Link className="text-base font-bold underline decoration-solid text-neutral-1">
+            <Link className="text-base font-bold underline decoration-solid text-neutral-1"
+            to="/about">
               Learn More
             </Link>
           </div>
@@ -38,7 +39,7 @@ export const HomeDetails = () => {
           <div className="all-impact flex w-80 flex-col items-start gap-8">
             <div className="impact-1 flex flex-col items-start gap-2 self-stretch">
               <div className="point flex items-center gap-4 self-stretch">
-                <div className="icon flex size-9 justify-center items-center rounded-lg bg-brand-red">
+                <div className="icon flex size-9 justify-center items-center rounded-lg bg-brand-red hover:bg-brand-red-hover">
                   <MdLocationOn className="text-white size-6" />
                 </div>
                 <h1 className=" text-3xl font-bold">34</h1>
@@ -49,7 +50,7 @@ export const HomeDetails = () => {
             </div>
             <div className="impact-2 flex flex-col items-start gap-2 self-stretch">
               <div className="point flex items-center gap-4 self-stretch">
-                <div className="icon flex size-9 justify-center items-center rounded-lg bg-brand-red">
+                <div className="icon flex size-9 justify-center items-center rounded-lg bg-brand-red hover:bg-brand-red-hover">
                   <MdLocationCity className="text-white size-6" />
                 </div>
                 <h1 className=" text-3xl font-bold">100+</h1>
@@ -60,7 +61,7 @@ export const HomeDetails = () => {
             </div>
             <div className="impact-3 flex flex-col items-start gap-2 self-stretch">
               <div className="point flex items-center gap-4 self-stretch">
-                <div className="icon flex size-9 justify-center items-center rounded-lg bg-brand-red">
+                <div className="icon flex size-9 justify-center items-center rounded-lg bg-brand-red hover:bg-brand-red-hover">
                   <MdPeople className="text-white size-6" />
                 </div>
                 <h1 className=" text-3xl font-bold">10</h1>

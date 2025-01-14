@@ -50,7 +50,7 @@ export const ContactGetInTouch = () => {
           name="fre-text"
           placeholder="Apa yang bisa kami bantu?"
         />
-        <ButtonLink caption="SUBMIT" width="w-full" />
+        <ButtonLink color="bg-brand-red hover:bg-brand-red-hover" caption="SUBMIT" width="w-full" />
       </div>
     </div>
   );

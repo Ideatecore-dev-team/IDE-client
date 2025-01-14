@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { SiLinkedin, SiInstagram, SiYoutube, SiFacebook } from "react-icons/si";
 import { Link } from "react-router-dom";
@@ -15,16 +17,16 @@ export const Social = ({ hideAt }) => {
     <div
       className={`social-media items-center gap-3 self-stretch text-white ${visibilityClass}`}
     >
-      <Link className="flex justify-center items-center p-3 rounded-lg bg-brand-red">
+      <Link className="flex size-[48px] justify-center items-center p-3 rounded-lg bg-brand-red hover:bg-brand-red-hover">
         <SiLinkedin />
       </Link>
-      <Link className="flex justify-center items-center p-3 rounded-lg bg-brand-red">
+      <Link className="flex size-[48px] justify-center items-center p-3 rounded-lg bg-brand-red hover:bg-brand-red-hover">
         <SiInstagram />
       </Link>
-      <Link className="flex justify-center items-center p-3 rounded-lg bg-brand-red">
+      <Link className="flex size-[48px] justify-center items-center p-3 rounded-lg bg-brand-red hover:bg-brand-red-hover">
         <SiYoutube />
       </Link>
-      <Link className="flex justify-center items-center p-3 rounded-lg bg-brand-red">
+      <Link className="flex size-[48px] justify-center items-center p-3 rounded-lg bg-brand-red hover:bg-brand-red-hover">
         <SiFacebook />
       </Link>
     </div>
