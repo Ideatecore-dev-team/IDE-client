@@ -17,8 +17,8 @@ export const HomeArticle = () => {
           </Link>
         </div>
         <div className="articles flex items-center justify-center gap-6 self-stretch">
-          <div className="article-card flex w-full px-6  flex-col items-start justify-center gap-3">
-            <img src={ArticleImage} className="w-full px-6 " alt="" />
+          <div className="article-card flex w-full   flex-col items-start justify-center gap-3">
+            <img src={ArticleImage} className="w-full" alt="" />
             <h5 className="font-bold text-base text-brand-red">DEMOCRACY</h5>
             <div className="title-detail flex flex-col gap-1 self-stretch">
               <Link className="font-bold text-xl">
@@ -32,8 +32,8 @@ export const HomeArticle = () => {
               </div>
             </div>
           </div>
-          <div className="article-card hidden lg:flex w-full px-6  flex-col items-start justify-center gap-3">
-            <img src={ArticleImage} className="w-full px-6 " alt="" />
+          <div className="article-card hidden lg:flex w-full   flex-col items-start justify-center gap-3">
+            <img src={ArticleImage} className="w-full" alt="" />
             <h5 className="font-bold text-base text-brand-red">DEMOCRACY</h5>
             <div className="title-detail flex flex-col gap-1 self-stretch">
               <Link className="font-bold text-xl">
@@ -47,8 +47,8 @@ export const HomeArticle = () => {
               </div>
             </div>
           </div>
-          <div className="article-card hidden lg:flex w-full px-6  flex-col items-start justify-center gap-3">
-            <img src={ArticleImage} className="w-full px-6 " alt="" />
+          <div className="article-card hidden lg:flex w-full   flex-col items-start justify-center gap-3">
+            <img src={ArticleImage} className="w-full" alt="" />
             <h5 className="font-bold text-base text-brand-red">DEMOCRACY</h5>
             <div className="title-detail flex flex-col gap-1 self-stretch">
               <Link className="font-bold text-xl">
@@ -62,8 +62,8 @@ export const HomeArticle = () => {
               </div>
             </div>
           </div>
-          <div className="article-card hidden lg:flex w-full px-6  flex-col items-start justify-center gap-3">
-            <img src={ArticleImage} className="w-full px-6 " alt="" />
+          <div className="article-card hidden lg:flex w-full   flex-col items-start justify-center gap-3">
+            <img src={ArticleImage} className="w-full" alt="" />
             <h5 className="font-bold text-base text-brand-red">DEMOCRACY</h5>
             <div className="title-detail flex flex-col gap-1 self-stretch">
               <Link className="font-bold text-xl">
