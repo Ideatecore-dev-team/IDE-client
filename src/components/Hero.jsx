@@ -26,23 +26,6 @@ const Hero = () => {
           color="bg-brand-red hover:bg-brand-red-hover"
         />
       </div>
-      <div className="preview-gallery flex w-full">
-        <img
-          src={Carousel1}
-          alt=""
-          className="lg:h-[400px] basis-full lg:basis-1/3"
-        />
-        <img
-          src={Carousel2}
-          alt=""
-          className="lg:h-[400px] hidden lg:block basis-1/3"
-        />
-        <img
-          src={Carousel3}
-          alt=""
-          className="lg:h-[400px] hidden lg:block basis-1/3"
-        />
-      </div>
       <HomeCarouselSwiper />
     </div>
   );
