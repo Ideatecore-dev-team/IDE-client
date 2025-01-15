@@ -31,7 +31,7 @@ export const OurProgramHeader = () => {
         <div className="programs pb-12 flex flex-col lg:flex-row lg:flex-wrap items-start lg:content-start lg:justify-between xs:gap-8 lg:gap-y-8 self-stretch">
           <div className=" lg:w-[300px] flex flex-col items-start gap-2 lg:gap-3 self-stretch">
             <div className="program-name flex gap-3 self-stretch items-center">
-              <div className="icon flex p-3 items-center justify-center rounded-lg bg-brand-red te">
+              <div className="icon flex p-3 items-center justify-center rounded-lg bg-brand-red hover:bg-brand-red-hover te">
                 <MdHowToVote size={24} className="text-white" />
               </div>
               <h4 className="text-xl font-bold">Democracy Affairs</h4>
@@ -40,7 +40,7 @@ export const OurProgramHeader = () => {
           </div>
           <div className=" lg:w-[300px] flex flex-col items-start gap-2 lg:gap-3 self-stretch">
             <div className="program-name flex gap-3 self-stretch items-center">
-              <div className="icon flex p-3 items-center justify-center rounded-lg bg-brand-red te">
+              <div className="icon flex p-3 items-center justify-center rounded-lg bg-brand-red hover:bg-brand-red-hover te">
                 <MdMenuBook size={24} className="text-white" />
               </div>
               <h4 className="text-xl font-bold">Education Affairs</h4>
@@ -51,7 +51,7 @@ export const OurProgramHeader = () => {
           </div>
           <div className=" lg:w-[300px] flex flex-col items-start gap-2 lg:gap-3 self-stretch">
             <div className="program-name flex gap-3 self-stretch items-center">
-              <div className="icon flex p-3 items-center justify-center rounded-lg bg-brand-red te">
+              <div className="icon flex p-3 items-center justify-center rounded-lg bg-brand-red hover:bg-brand-red-hover te">
                 <MdPeople size={24} className="text-white" />
               </div>
               <h4 className="text-xl font-bold">Social Affairs</h4>
@@ -60,7 +60,7 @@ export const OurProgramHeader = () => {
           </div>
           <div className=" lg:w-[300px] flex flex-col items-start gap-2 lg:gap-3 self-stretch">
             <div className="program-name flex gap-3 self-stretch items-center">
-              <div className="icon flex p-3 items-center justify-center rounded-lg bg-brand-red te">
+              <div className="icon flex p-3 items-center justify-center rounded-lg bg-brand-red hover:bg-brand-red-hover te">
                 <MdLightbulb size={24} className="text-white" />
               </div>
               <h4 className="text-xl font-bold">Entrepreneurship Affairs</h4>
@@ -71,7 +71,7 @@ export const OurProgramHeader = () => {
           </div>
           <div className=" lg:w-[300px] flex flex-col items-start gap-2 lg:gap-3 self-stretch">
             <div className="program-name flex gap-3 self-stretch items-center">
-              <div className="icon flex p-3 items-center justify-center rounded-lg bg-brand-red te">
+              <div className="icon flex p-3 items-center justify-center rounded-lg bg-brand-red hover:bg-brand-red-hover te">
                 <MdStarRate size={24} className="text-white" />
               </div>
               <h4 className="text-xl font-bold">Interfaith Affairs</h4>

@@ -19,7 +19,8 @@ export const HomeDetails = () => {
               IDE menghadirkan solusi inovatif untuk menciptakan demokrasi yang
               inklusif dan berkelanjutan di tingkat nasional dan global.
             </p>
-            <Link className="text-base font-bold underline decoration-solid text-neutral-1">
+            <Link className="text-base font-bold underline decoration-solid text-neutral-1"
+            to="/about">
               Learn More
             </Link>
           </div>

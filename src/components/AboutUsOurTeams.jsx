@@ -179,67 +179,83 @@ export const AboutUsOurTeam = () => {
         }  
     };  
 
-    const handleCategoryClick = (category) => {  
-        setLoading(true); // Set loading state  
-        setSelectedCategory(category);  
+    const handleCategoryChange = (e) => {  
+        setLoading(true);  
+        setSelectedCategory(e.target.value);  
         setCurrentPage(1);  
         setTimeout(() => {  
-            setLoading(false); // Reset loading state after a delay  
-        }, 500); // Simulate loading time  
+            setLoading(false);  
+        }, 500);  
     };  
     return (  
         <div className="our-team-section flex w-full lg:w-[1224px] justify-center items-start lg:items-center mx-auto gap-2.5">  
             <div className="our-team-container flex w-full py-12 flex-col items-center gap-8 flex-shrink-0">  
-                <div className="our-team-heading w-[342px] lg:w-[520px] flex flex-col items-start gap-4 lg:self-stretch">  
+                <div className="our-team-heading w-full px-6 lg:w-[520px] flex flex-col items-start gap-4 lg:self-stretch">  
                     <h5 className="text-neutral-1 text-sm lg:text-[16px] font-lato font-bold">OUR TEAM</h5>  
                     <h2 className="self-stretch text-neutral-1 text-2xl lg:text-[32px] font-lato font-bold">The Minds Behind Our Impact</h2>  
                 </div>  
                 <div className="our-team-ctg-and-staff lg:w-[1224px] flex flex-col items-center gap-8 xs:self-stretch">  
-                    <div className="btn-categories lg:flex lg:items-center lg:gap-[12px]">  
+                    <div className="btn-categories lg:flex lg:items-center lg:gap-[12px] hidden ">  
                         {categories.map((category, index) => (  
-                            <button   
+                            <button  
                                 key={index}  
-                                onClick={() => handleCategoryClick(category)}   
-                                className={`flex lg:w-max w-[270px] lg:h-[32px] h-[48px] py-2 px-3 justify-between items-center rounded-md ${selectedCategory === category ? 'bg-brand-red border-brand-red rounded-md hover:bg-brand-red-hover' : 'bg-white hover:bg-neutral-3-hover text-neutral-1 border-2 border-neutral-1' }`}  
+                                onClick={() => handleCategoryChange({ target: { value: category } })}  
+                                className={`lg:flex hidden lg:w-max w-[270px] lg:h-[32px] h-[48px] py-2 px-3 justify-between items-center rounded-md ${selectedCategory === category ? 'bg-brand-red border-brand-red rounded-md hover:bg-brand-red-hover' : 'bg-white hover:bg-neutral-3-hover text-neutral-1 border-2 border-neutral-1'}`}  
                             >  
-                                <p className={` text-[14px] font-lato font-bold ${selectedCategory === category ? 'text-white' : 'text-neutral-1' }`}>  
+                                <p className={` text-[14px] font-lato font-bold ${selectedCategory === category ? 'text-white' : 'text-neutral-1'}`}>  
                                     {category}  
                                 </p>  
-                                <MdArrowDropDown size={24} className="block lg:hidden flex-shrink-0 text-white" />  
                             </button>  
                         ))}  
                     </div>  
+                    <div className="dropdown relative w-full px-6 lg:hidden">  
+                        <select  
+                            className="flex p-3 items-start w-full px-6 rounded-md border-[1px] border-neutral-2 appearance-none"  
+                            onChange={handleCategoryChange}  
+                            value={selectedCategory}  
+                        >  
+                            {categories.map((category, index) => (  
+                                <option key={index} value={category}>  
+                                    {category}  
+                                </option>  
+                            ))}  
+                        </select>  
+                        <MdArrowDropDown
+                        className="absolute top-1/2 right-[37px] -translate-y-1/2 text-neutral-500 pointer-events-none"
+                        size={24}
+                        />
+                    </div>  
                     {/* Pagination */}  
-                    <div className="our-team-btn-container w-[342px] lg:hidden flex justify-between items-center ">   
-                        <button   
-                            onClick={handlePrevPage}   
+                    <div className="our-team-btn-container w-full px-6 lg:hidden flex justify-between sitems-center ">  
+                        <button  
+                            onClick={handlePrevPage}  
                             className="flex p-3 justify-center items-center gap-2.5 rounded-lg bg-brand-red hover:bg-black transition-colors duration-300"  
-                            disabled={currentPage === 1} // Disable if on the first page  
+                            disabled={currentPage === 1}  
                         >  
                             <MdKeyboardArrowLeft size={24} className="flex-shrink-0 text-white" />  
                         </button>  
                         <div className="numbers flex items-center gap-[32px]">  
                             {Array.from({ length: totalPages }, (_, index) => (  
-                                <p   
-                                    key={index + 1}   
+                                <p  
+                                    key={index + 1}  
                                     className={`text-sm font-lato font-bold cursor-pointer ${currentPage === index + 1 ? 'text-brand-red' : 'text-neutral-2'} hover:text-brand-red`}  
                                     onClick={() => {  
-                                        setCurrentPage(index + 1); // Set current page on click  
-                                    }}   
+                                        setCurrentPage(index + 1);  
+                                    }}  
                                 >  
                                     {index + 1}  
                                 </p>  
                             ))}  
                         </div>  
-                        <button   
-                            onClick={handleNextPage}   
+                        <button  
+                            onClick={handleNextPage}  
                             className="flex p-3 justify-center items-center gap-2.5 rounded-lg bg-brand-red hover:bg-black transition-colors duration-300"  
-                            disabled={currentPage === totalPages} // Disable if on the last page  
+                            disabled={currentPage === totalPages}  
                         >  
                             <MdKeyboardArrowRight size={24} className="flex-shrink-0 text-white" />  
                         </button>  
                     </div>  
-                    {loading ? ( // Show loading indicator  
+                    {loading ? (  
                         <div className="loading-indicator flex justify-center items-center">  
                             <p className="text-neutral-1 text-lg font-lato font-bold">Loading...</p>  
                         </div>  
@@ -262,11 +278,11 @@ export const AboutUsOurTeam = () => {
                             </div>  
                         </div>  
                     )}  
-                    <div className="our-team-btn-container w-[1224px] hidden lg:flex justify-between items-center ">   
-                        <button   
-                            onClick={handlePrevPage}   
+                    <div className="our-team-btn-container w-[1224px] hidden lg:flex justify-between items-center ">  
+                        <button  
+                            onClick={handlePrevPage}  
                             className="flex p-3 justify-center items-center gap-2.5 rounded-lg bg-black hover:bg-neutral-2 transition-colors duration-300"  
-                            disabled={currentPage === 1} // Disable if on the first page  
+                            disabled={currentPage === 1}  
                         >  
                             <MdKeyboardArrowLeft size={24} className="flex-shrink-0 text-white" />  
                             <p className={` text-[16px] font-lato font-bold text-white`}>  
@@ -275,21 +291,21 @@ export const AboutUsOurTeam = () => {
                         </button>  
                         <div className="numbers flex items-center gap-[32px]">  
                             {Array.from({ length: totalPages }, (_, index) => (  
-                                <p   
-                                    key={index + 1}   
+                                <p  
+                                    key={index + 1}  
                                     className={`text-sm font-lato font-bold cursor-pointer ${currentPage === index + 1 ? 'text-brand-red' : 'text-neutral-2'} hover:text-brand-red`}  
                                     onClick={() => {  
-                                        setCurrentPage(index + 1); // Set current page on click  
-                                    }}   
+                                        setCurrentPage(index + 1);  
+                                    }}  
                                 >  
                                     {index + 1}  
                                 </p>  
                             ))}  
                         </div>  
-                        <button   
-                            onClick={handleNextPage}   
+                        <button  
+                            onClick={handleNextPage}  
                             className="flex p-3 justify-center items-center gap-2.5 rounded-lg bg-brand-red hover:bg-brand-red-hover transition-colors duration-300"  
-                            disabled={currentPage === totalPages} // Disable if on the last page  
+                            disabled={currentPage === totalPages}  
                         >  
                             <p className={` text-[16px] font-lato font-bold text-white`}>  
                                 Setelahnya  

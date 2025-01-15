@@ -86,7 +86,7 @@ const Navbar = () => {
           </NavLink>
           <NavLink
             className="p-3 text-sm font-bold text-neutral-2 hover:text-black"
-            to="/article"
+            to="/articles"
             onClick={() => setIsMenuOpen(false)}
           >
             ARTICLE

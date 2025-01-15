@@ -7,7 +7,7 @@ import { ContactGetInTouch } from "./ContactGetInTouch";
 export const ContactUsHeader = () => {
   return (
     <div className="contact-us-section flex justify-center items-start self-stretch">
-      <div className="contact-us-container lg:w-[1224px] flex w-96 py-12 flex-col items-start">
+      <div className="contact-us-container lg:w-[1224px] flex w-full px-6 py-12 flex-col items-start">
         <div className="contact flex flex-col lg:flex-row lg:justify-between items-start lg:items-center gap-12 self-stretch">
           <div className="contact-header w-auto lg:w-[571px] h-auto lg:h-[473px] flex flex-col justify-between items-start self-stretch lg:shrink-0">
             <div className="contact-title flex flex-col items-start gap-4 self-stretch">
