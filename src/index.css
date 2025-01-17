@@ -47,3 +47,19 @@ option {
 option:hover {
   background-color: pink;
 }
+
+.swiper-pagination-bullet {
+  background: #b99e6b;
+  opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+  background: #c82121 !important;
+}
+
+.swiper-pagination-bullet {
+  width: 40px !important;
+  background: white;
+  height: 4px !important;
+  border-radius: 0 !important;
+}
