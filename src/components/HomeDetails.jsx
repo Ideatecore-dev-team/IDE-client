@@ -8,7 +8,7 @@ import { MdPeople } from "react-icons/md";
 export const HomeDetails = () => {
   return (
     <div className="details-section flex justify-center items-center self-stretch ">
-      <div className="details-container flex lg:flex-row flex-col w-96 lg:w-[1224px] py-12 items-start lg:items-center lg:content-between border-b-[1px] border-neutral-3 gap-10 lg:gap-12">
+      <div className="details-container flex lg:flex-row flex-col w-full xs:px-6 lg:w-[1224px] py-12 items-start lg:items-center lg:content-between border-b-[1px] border-neutral-3 gap-10 lg:gap-12">
         <div className="our-mission lg:w-[568px] flex flex-col items-start gap-4 xs:self-stretch">
           <h5 className=" text-sm lg:text-base font-bold">OUR MISSION</h5>
           <div className="heading-desc flex flex-col items-start gap-3 self-stretch">
@@ -19,8 +19,10 @@ export const HomeDetails = () => {
               IDE menghadirkan solusi inovatif untuk menciptakan demokrasi yang
               inklusif dan berkelanjutan di tingkat nasional dan global.
             </p>
-            <Link className="text-base font-bold underline decoration-solid text-neutral-1"
-            to="/about">
+            <Link
+              className="text-base font-bold underline decoration-solid text-neutral-1"
+              to="/about"
+            >
               Learn More
             </Link>
           </div>
