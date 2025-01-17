@@ -21,6 +21,7 @@ const Hero = () => {
         <ButtonLink
           caption="Let’s collaborate!"
           color="bg-brand-red hover:bg-brand-red-hover"
+          to="/contact-us"
         />
       </div>
       <HomeCarouselSwiper />

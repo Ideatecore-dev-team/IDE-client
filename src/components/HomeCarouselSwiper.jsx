@@ -51,10 +51,10 @@ export const HomeCarouselSwiper = () => {
           </SwiperSlide>
         ))}
 
-        <button className="custom-prev flex p-[12px] justify-center items-center rounded-[40px] bg-[#C82121] absolute left-16 xs:left-4 lg:top-1/2 xs:-bottom-6 transform -translate-y-1/2 z-10">
+        <button className="custom-prev flex p-[12px] justify-center items-center rounded-[40px] bg-brand-red hover:bg-brand-red-hover absolute left-16 xs:left-4 lg:top-1/2 xs:-bottom-6 transform -translate-y-1/2 z-10">
           <MdKeyboardArrowLeft size={24} color="#fff" />
         </button>
-        <button className="custom-next flex p-[12px] justify-center items-center rounded-[40px] bg-[#C82121] absolute right-16 xs:right-4 lg:top-1/2 xs:-bottom-6 transform -translate-y-1/2 z-10">
+        <button className="custom-next flex p-[12px] justify-center items-center rounded-[40px] bg-brand-red hover:bg-brand-red-hover absolute right-16 xs:right-4 lg:top-1/2 xs:-bottom-6 transform -translate-y-1/2 z-10">
           <MdKeyboardArrowRight size={24} color="#fff" />
         </button>
       </Swiper>
