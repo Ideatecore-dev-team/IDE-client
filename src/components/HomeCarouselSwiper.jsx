@@ -11,22 +11,24 @@ import image4 from "../assets/images/hero-carousel-4.png";
 import image5 from "../assets/images/hero-carousel-5.png";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { MdKeyboardArrowLeft } from "react-icons/md";
-import "../index.css";
+import "./HomeCarouselSwiper.css";
 
 export const HomeCarouselSwiper = () => {
   const images = [image1, image2, image3, image4, image5];
 
   return (
-    <div className="w-full relative mb-6">
-      <button className="custom-prev flex p-[12px] justify-center items-center rounded-[40px] bg-[#C82121] absolute left-16 top-1/2 transform -translate-y-1/2 z-10">
-        <MdKeyboardArrowLeft size={24} color="#fff" />
-      </button>
-      <button className="custom-next flex p-[12px] justify-center items-center rounded-[40px] bg-[#C82121] absolute right-16 top-1/2 transform -translate-y-1/2 z-10">
-        <MdKeyboardArrowRight size={24} color="#fff" />
-      </button>
+    <div className="w-full relative">
       <Swiper
-        slidesPerView={3}
-        spaceBetween={0}
+        breakpoints={{
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 0,
+          },
+          410: {
+            slidesPerView: 1,
+            centeredSlides: true,
+          },
+        }}
         pagination={{ clickable: true }}
         autoplay={{
           delay: 3000,
@@ -37,7 +39,7 @@ export const HomeCarouselSwiper = () => {
           prevEl: ".custom-prev",
         }}
         modules={[Pagination, Autoplay, Navigation]}
-        className="mySwiper w-full"
+        className="mySwiper pb-6 w-full"
       >
         {images.map((image, index) => (
           <SwiperSlide key={index}>
@@ -48,6 +50,13 @@ export const HomeCarouselSwiper = () => {
             />
           </SwiperSlide>
         ))}
+
+        <button className="custom-prev flex p-[12px] justify-center items-center rounded-[40px] bg-[#C82121] absolute left-16 xs:left-4 lg:top-1/2 xs:-bottom-6 transform -translate-y-1/2 z-10">
+          <MdKeyboardArrowLeft size={24} color="#fff" />
+        </button>
+        <button className="custom-next flex p-[12px] justify-center items-center rounded-[40px] bg-[#C82121] absolute right-16 xs:right-4 lg:top-1/2 xs:-bottom-6 transform -translate-y-1/2 z-10">
+          <MdKeyboardArrowRight size={24} color="#fff" />
+        </button>
       </Swiper>
     </div>
   );
