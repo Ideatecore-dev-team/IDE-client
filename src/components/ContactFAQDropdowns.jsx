@@ -17,7 +17,7 @@ const ContactFAQDropdowns = ({ question, answer }) => {
         <p className="text-sm flex-1 text-neutral-1">{question}</p>
         <MdArrowDropDown
           size={24}
-          className={`duration-300 ${isOpen ? "rotate-0" : "rotate-180"}`}
+          className={`duration-300 ${isOpen ? "rotate-180" : "rotate-0"}`}
         />
       </div>
 
