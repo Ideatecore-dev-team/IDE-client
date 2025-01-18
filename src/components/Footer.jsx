@@ -49,7 +49,7 @@ export const Footer = () => {
             <Social />
           </div>
         </div>
-        <hr className="border-b-[1px] w-[342px] lg:w-full flex-1 border-neutral-3" />
+        <hr className="border-b-[1px] w-full xs:px-6 flex-1 border-neutral-3" />
         <p className="text-sm font-bold">
           Copyright2024 IDE Indonesia. All rights reserved.
         </p>

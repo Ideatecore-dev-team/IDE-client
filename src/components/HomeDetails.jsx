@@ -13,11 +13,12 @@ export const HomeDetails = () => {
           <h5 className=" text-sm lg:text-base font-bold">OUR MISSION</h5>
           <div className="heading-desc flex flex-col items-start gap-3 self-stretch">
             <h2 className="text-2xl lg:text-3xl font-bold text-neutral-1">
-              Membawa Indonesia ke Panggung Dunia dengan Demokrasi
+            Melahirkan Manusia Indonesia Berkualitas melalui Ilmu Pengetahuan dan Pengembangan Keterampilan
             </h2>
             <p className="text-base font-normal text-neutral-2">
-              IDE menghadirkan solusi inovatif untuk menciptakan demokrasi yang
-              inklusif dan berkelanjutan di tingkat nasional dan global.
+            IDE Indonesia hadir sebagai jembatan bagi generasi muda di seluruh Indonesia dalam mewujudkan 
+            mimpi dan cita-cita mereka melalui pemberdayaan, 
+            kolaborasi, dan gotong-royong menghadirkan solusi inovatif bagi kemajuan bangsa dan negara.
             </p>
             <Link
               className="text-base font-bold underline decoration-solid text-neutral-1"
@@ -33,9 +34,8 @@ export const HomeDetails = () => {
           <div className="heading-desc flex flex-col content-center items-start gap-4">
             <h5 className=" text-sm lg:text-base font-bold">OUR IMPACT</h5>
             <p className="text-base font-normal text-neutral-2">
-              Kami menciptakan solusi inovatif yang memperkuat masyarakat lokal
-              dan mempersiapkan generasi muda untuk bersaing di tingkat global
-              melalui program yang berdampak luas.
+            Memberikan akses pendidikan, informasi, dan berbagai pelatihan seluas-luasnya bagi seluruh anak 
+            bangsa guna mempersiapkan pemimpin masa depan Indonesia berdaya saing global.
             </p>
           </div>
           <div className="all-impact flex w-80 flex-col items-start gap-8">
