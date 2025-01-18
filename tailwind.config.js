@@ -15,12 +15,13 @@ export default {
         "neutral-3-hover": "#C9C8C8",
         "brand-red": "#C82121",
         "brand-red-hover": "#EB2929",
+        "neutral-white-2": "#EEF1F4",
       },
       fontFamily: {
         lato: ["Lato", "sans-serif"],
       },
       gap: {
-        '24-48': '24px 48px',
+        "24-48": "24px 48px",
       },
       backgroundImage: {
         "batik-mobile-bg":
