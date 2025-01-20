@@ -8,12 +8,19 @@ import { motion, AnimatePresence } from "framer-motion"; // Import AnimatePresen
   
 const Navbar = () => {    
   const [isMenuOpen, setIsMenuOpen] = useState(false);    
-  
+
+  const scrollToTop = () => {  
+    window.scrollTo({  
+      top: 0,  
+      behavior: "smooth", 
+    });  
+
+  };  
   return (    
     <nav className="flex w-full px-8 py-4 justify-between items-center bg-white z-50 sticky top-0 shadow-md">    
       {/* Logo */}    
       <NavLink to="/">    
-        <img src={NavLogo} alt="Logo" />    
+        <img src={NavLogo} alt="Logo" onClick={scrollToTop} />    
       </NavLink>    
   
       {/* Desktop Menu */}    
@@ -21,28 +28,32 @@ const Navbar = () => {
         <NavLink    
           className="flex p-3 justify-center items-center gap-2 text-sm font-bold text-neutral-2 hover:text-black"    
           to="/about"    
+          onClick={scrollToTop}
         >    
           ABOUT US    
         </NavLink>    
         <NavLink    
           className="flex p-3 justify-center items-center gap-2 text-sm font-bold text-neutral-2 hover:text-black"    
-          to="/our-program"    
+          to="/our-program"  
+          onClick={scrollToTop}  
         >    
           OUR PROGRAM    
         </NavLink>    
         <NavLink    
           className="flex p-3 justify-center items-center gap-2 text-sm font-bold text-neutral-2 hover:text-black"    
-          to="/gallery"    
+          to="/gallery"   
+          onClick={scrollToTop} 
         >    
           GALLERY    
         </NavLink>    
         <NavLink    
           className="flex p-3 justify-center items-center gap-2 text-sm font-bold text-neutral-2 hover:text-black"    
           to="/articles"    
+          onClick={scrollToTop}
         >    
           ARTICLE    
         </NavLink>    
-        <ButtonLink color="bg-black hover:bg-neutral-2" to="/contact-us" caption="LET’S COLLABORATE" />    
+        <ButtonLink color="bg-black hover:bg-neutral-2" to="/contact-us" caption="LET’S COLLABORATE" onClick={scrollToTop}/>    
       </div>    
   
       {/* Mobile Hamburger */}    
