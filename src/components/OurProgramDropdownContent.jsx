@@ -11,22 +11,22 @@ export const OurProgramDropdownContent = ({ programId }) => {
     2: {
       name: "Education Affairs",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum.",
+        "Memberikan akses informasi, pelatihan, dan pendidikan bagi seluruh anak bangsa di berbagai isu seperti informasi beasiswa dan workshop yang berkaitan dengan peningkatan keterampilan, wawasan hukum, keperempuanan, lingkungan, serta kesehatan. ",
     },
     3: {
       name: "Social Affairs",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum.",
+        "Menjaga tradisi dan budaya serta mempromosikan nilai-nilai keindonesiaan berdasarkan semangat Pancasila yang penuh cinta kasih, persatuan dan gotong-royong.",
     },
     4: {
       name: "Entrepreneurship Affairs",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum.",
+        "Menghubungkan wirausahawan muda di berbagai sektor dan mendukung berbagai inovasi ekonomi kreatif UMKM Lokal serta mempromosikannya di panggung global.",
     },
     5: {
-      name: "Interfaith Affairs",
+      name: "Media, Art, And Creative Affairs",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum.",
+        "Melahirkan berbagai inovasi baru dalam rangka menciptakan masa depan anak bangsa yang kreatif, adaptif, inklusif, dan berdaya saing global.",
     },
   };
 

@@ -9,7 +9,7 @@ import Partner4 from "../assets/images/partner-4.png";
 export const HomePartner = () => {
   return (
     <div className="our-partner-section flex flex-col items-center self-stretch">
-      <div className="our-partner-container flex w-full px-6 lg:w-[1224px] flex-col items-start">
+      <div className="our-partner-container flex w-full xs:px-6 lg:w-[1224px] flex-col items-start">
         <div className="heading flex items-center justify-center gap-6 self-stretch">
           <h5 className="text-base font-bold">OUR PARTNERS</h5>
           <hr className="border-b-[1px] flex-1 border-neutral-3" />
