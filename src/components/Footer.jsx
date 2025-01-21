@@ -13,6 +13,8 @@ export const Footer = () => {
       behavior: "smooth", 
     });  
   };  
+
+  const currentYear = new Date().getFullYear();
   
   return (  
     <footer className="footer flex px-6 py-[60px] flex-col content-center items-center gap-8 xs:self-stretch lg:bg-batik-desktop-bg bg-cover bg-batik-mobile-bg text-white">  
@@ -107,7 +109,7 @@ export const Footer = () => {
         </div>  
         <hr className="border-b-[1px] w-full xs:px-6 flex-1 border-neutral-3" />  
         <p className="text-sm font-bold">  
-          Copyright2024 IDE Indonesia. All rights reserved.  
+          Copyright {currentYear} IDE Indonesia. All rights reserved.  
         </p>  
       </div>  
     </footer>  
