@@ -77,28 +77,28 @@ const Navbar = () => {
             <NavLink    
               className="p-3 text-sm font-bold text-neutral-2 hover:text-black"    
               to="/about"    
-              onClick={() => setIsMenuOpen(false)}    
+              onClick={() => {setIsMenuOpen(false); scrollToTop}}    
             >    
               ABOUT US    
             </NavLink>    
             <NavLink    
               className="p-3 text-sm font-bold text-neutral-2 hover:text-black"    
               to="/our-program"    
-              onClick={() => setIsMenuOpen(false)}    
+              onClick={() => {setIsMenuOpen(false); scrollToTop}}    
             >    
               OUR PROGRAM    
             </NavLink>    
             <NavLink    
               className="p-3 text-sm font-bold text-neutral-2 hover:text-black"    
               to="/gallery"    
-              onClick={() => setIsMenuOpen(false)}    
+              onClick={() => {setIsMenuOpen(false); scrollToTop}}    
             >    
               GALLERY    
             </NavLink>    
             <NavLink    
               className="p-3 text-sm font-bold text-neutral-2 hover:text-black"    
               to="/articles"    
-              onClick={() => setIsMenuOpen(false)}    
+              onClick={() => {setIsMenuOpen(false); scrollToTop}}    
             >    
               ARTICLE    
             </NavLink>    
