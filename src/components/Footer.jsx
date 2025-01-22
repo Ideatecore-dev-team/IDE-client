@@ -20,8 +20,8 @@ export const Footer = () => {
     const rect = document.getElementById("footer").getBoundingClientRect();    
     if (rect.top < window.innerHeight && rect.bottom >= 0) {    
       setIsVisible(true);    
-    } else {  
-      setIsVisible(false); // Reset visibility if not in view  
+    // } else {  
+      // setIsVisible(false); // Reset visibility if not in view  
     }  
   };    
   

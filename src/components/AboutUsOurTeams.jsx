@@ -10,9 +10,9 @@ import Staff5 from "../assets/images/staff-5.png";
 import Staff6 from "../assets/images/staff-6.png";      
 import Staff7 from "../assets/images/staff-7.png";      
 import Staff8 from "../assets/images/staff-8.png";     
-  
+
 import { motion } from "framer-motion";           
-  
+
 const staffMembers = [      
     { id: 1, name: "Atep Saifullah", position: "Daily Chairman", image: Staff1, category: "Core Team" },      
     { id: 2, name: "Siti Aminah", position: "Project Manager", image: Staff2, category: "Core Team" },      
@@ -31,14 +31,14 @@ const staffMembers = [
     { id: 1, name: "Atep Saifullah", position: "Daily Chairman", image: Staff1, category: "Core Team" },      
     { id: 6, name: "Zubaidah Prasetyo", position: "Sales Manager", image: Staff5, category: "Media" },      
 ];     
-  
+
 export const AboutUsOurTeam = () => {      
     const [currentPage, setCurrentPage] = useState(1);      
     const [itemsPerPage, setItemsPerPage] = useState(4);       
     const [selectedCategory, setSelectedCategory] = useState("Semua");      
     const [activePage, setActivePage] = useState(1);      
     const [categories, setCategories] = useState([]);      
-  
+
     useEffect(() => {      
         const handleResize = () => {      
             setItemsPerPage(window.innerWidth >= 1024 ? 8 : 4);      
@@ -49,41 +49,41 @@ export const AboutUsOurTeam = () => {
             window.removeEventListener("resize", handleResize);       
         };      
     }, []);      
-  
+
     useEffect(() => {      
         const uniqueCategories = [...new Set(staffMembers.map(staff => staff.category))];      
         setCategories(["Semua", ...uniqueCategories]);      
     }, []);      
-  
+
     const filteredStaffMembers = selectedCategory === "Semua"       
         ? staffMembers       
         : staffMembers.filter(staff => staff.category === selectedCategory);      
-  
+
     const indexOfLastStaff = currentPage * itemsPerPage;      
     const indexOfFirstStaff = indexOfLastStaff - itemsPerPage;      
     const currentStaffMembers = filteredStaffMembers.slice(indexOfFirstStaff, indexOfLastStaff);      
-  
+
     const totalPages = Math.ceil(filteredStaffMembers.length / itemsPerPage);      
-  
+
     const handleNextPage = () => {      
         if (currentPage < totalPages) {      
             setCurrentPage(currentPage + 1);      
             setActivePage(currentPage + 1);      
         }      
     };      
-  
+
     const handlePrevPage = () => {      
         if (currentPage > 1) {      
             setCurrentPage(currentPage - 1);      
             setActivePage(currentPage - 1);      
         }      
     };      
-  
+
     const handleCategoryChange = (e) => {      
         setSelectedCategory(e.target.value);      
         setCurrentPage(1);      
     };      
-  
+
     return (      
         <div className="our-team-section flex w-full lg:w-[1224px] justify-center items-start lg:items-center mx-auto gap-2.5">      
             <div className="our-team-container flex w-full py-12 flex-col items-center gap-8 flex-shrink-0">      
