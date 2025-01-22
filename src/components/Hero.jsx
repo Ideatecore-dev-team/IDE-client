@@ -17,7 +17,7 @@ const Hero = () => {
           </h3>
         </div>
         <ButtonLink
-          caption="Let’s collaborate!"
+          caption="Learn More"
           color="bg-brand-red hover:bg-brand-red-hover"
           to="/contact-us"
         />
