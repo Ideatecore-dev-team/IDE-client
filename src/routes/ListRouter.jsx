@@ -34,7 +34,7 @@ const ListRouter = createBrowserRouter([
         element: <Articles />,
       },
       {
-        path: "/article/1",
+        path: "/article/:id",
         element: <Article />,
       },
       {

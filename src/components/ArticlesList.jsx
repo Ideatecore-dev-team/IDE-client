@@ -1,76 +1,19 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import ArticleImage1 from "../assets/images/article-carousel-1.png";
-import ArticleImage2 from "../assets/images/article-carousel-2.png";
-import ArticleImage3 from "../assets/images/article-carousel-3.png";
+import GetArticles from "../hooks/getArticles";
 
 export const ArticlesList = () => {
-  const response = {
-    data: [
-      {
-        id: "cm5lde97m0003tafsd6whmneh",
-        content: "content hello",
-        description: "description",
-        image: "image",
-        title: "title",
-        userId: "cm5lddtvn0000tafsezqaixnm",
-        categoryId: "cm5lde0xx0001tafs42hoscbf",
-        createdAt: "2025-01-06T18:23:31.619Z",
-        updatedAt: "2025-01-06T18:23:31.619Z",
-        User: {
-          name: "test",
-        },
-        Category: {
-          category: "sains",
-        },
-      },
-      {
-        id: "cm5lde97m0003tafsd6whmneh",
-        content: "content hello",
-        description: "description",
-        image: "image",
-        title: "title",
-        userId: "cm5lddtvn0000tafsezqaixnm",
-        categoryId: "cm5lde0xx0001tafs42hoscbf",
-        createdAt: "2025-01-06T18:23:31.619Z",
-        updatedAt: "2025-01-06T18:23:31.619Z",
-        User: {
-          name: "test",
-        },
-        Category: {
-          category: "sains",
-        },
-      },
-      {
-        id: "cm5lde97m0003tafsd6whmneh",
-        content: "content hello",
-        description: "description",
-        image: "image",
-        title: "title",
-        userId: "cm5lddtvn0000tafsezqaixnm",
-        categoryId: "cm5lde0xx0001tafs42hoscbf",
-        createdAt: "2025-01-06T18:23:31.619Z",
-        updatedAt: "2025-01-06T18:23:31.619Z",
-        User: {
-          name: "test",
-        },
-        Category: {
-          category: "sains",
-        },
-      },
-    ],
-    error: false,
-    message: "success get data",
-    pagination: {
-      currentPage: 1,
-      perPage: 5,
-      totalItems: 20,
-      totalPages: 4,
-    },
-    status: "success",
-    statusCode: 200,
-    success: true,
+  const { articles, loading, error } = GetArticles();
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
+
+  const titleCut = (text, maxLength) => {
+    if (text.length > maxLength) {
+      return text.substring(0, maxLength) + "...";
+    }
+    return text;
   };
 
   return (
@@ -81,99 +24,38 @@ export const ArticlesList = () => {
             NEWEST ARTICLE
           </p>
           <div className="article-cards flex flex-col lg:flex-row lg:flex-wrap items-center gap-12 self-stretch">
-            <Link
-              className="article-card flex w-full lg:w-[376px] flex-col items-start justify-center gap-3"
-              to="/article/1"
-            >
-              <img src={ArticleImage1} className="w-full" alt="" />
-              <h5 className="font-bold text-base text-brand-red">DEMOCRACY</h5>
-              <div className="title-detail flex flex-col gap-1 self-stretch">
-                <Link className="font-bold text-xl">
-                  Mendorong Transparansi: Generasi Muda dan Masa Depan Demokrasi
-                  di Indonesia
-                </Link>
-                <div className="user-date flex items-center gap-1 text-sm font-normal text-neutral-3">
-                  <p>Andika Putra</p>
-                  <p>-</p>
-                  <p>5 Desember 2024</p>
+            {articles.map((article) => (
+              <Link
+                key={article.id} // Menggunakan id artikel sebagai key
+                className="article-card flex w-full lg:w-[376px] flex-col items-start justify-center gap-3"
+                to={`/article/${article.id}`} // Link ke halaman artikel berdasarkan id
+              >
+                <img
+                  src={article.image} // Menampilkan gambar artikel
+                  className="w-full h-[211.674px]"
+                  alt={article.title}
+                />
+                <h5 className="font-bold text-base text-brand-red">
+                  {article.Category.category}
+                </h5>
+                <div className="title-detail flex flex-col gap-1 self-stretch">
+                  <Link
+                    className="font-bold text-xl"
+                    to={`/article/${article.id}`}
+                  >
+                    {titleCut(article.title, 70)}
+                  </Link>
+                  <div className="user-date flex items-center gap-1 text-sm font-normal text-neutral-3">
+                    <p>{article.User.name}</p>
+                    <p>-</p>
+                    <p>
+                      {new Date(article.createdAt).toLocaleDateString()}
+                    </p>{" "}
+                    {/* Format tanggal */}
+                  </div>
                 </div>
-              </div>
-            </Link>
-            <div className="article-card flex w-full lg:w-[376px] flex-col items-start justify-center gap-3">
-              <img src={ArticleImage2} className="w-full" alt="" />
-              <h5 className="font-bold text-base text-brand-red">DEMOCRACY</h5>
-              <div className="title-detail flex flex-col gap-1 self-stretch">
-                <Link className="font-bold text-xl">
-                  Mendorong Transparansi: Generasi Muda dan Masa Depan Demokrasi
-                  di Indonesia
-                </Link>
-                <div className="user-date flex items-center gap-1 text-sm font-normal text-neutral-3">
-                  <p>Andika Putra</p>
-                  <p>-</p>
-                  <p>5 Desember 2024</p>
-                </div>
-              </div>
-            </div>
-            <div className="article-card flex w-full lg:w-[376px] flex-col items-start justify-center gap-3">
-              <img src={ArticleImage3} className="w-full" alt="" />
-              <h5 className="font-bold text-base text-brand-red">DEMOCRACY</h5>
-              <div className="title-detail flex flex-col gap-1 self-stretch">
-                <Link className="font-bold text-xl">
-                  Mendorong Transparansi: Generasi Muda dan Masa Depan Demokrasi
-                  di Indonesia
-                </Link>
-                <div className="user-date flex items-center gap-1 text-sm font-normal text-neutral-3">
-                  <p>Andika Putra</p>
-                  <p>-</p>
-                  <p>5 Desember 2024</p>
-                </div>
-              </div>
-            </div>
-            <div className="article-card flex w-full lg:w-[376px] flex-col items-start justify-center gap-3">
-              <img src={ArticleImage1} className="w-full" alt="" />
-              <h5 className="font-bold text-base text-brand-red">DEMOCRACY</h5>
-              <div className="title-detail flex flex-col gap-1 self-stretch">
-                <Link className="font-bold text-xl">
-                  Mendorong Transparansi: Generasi Muda dan Masa Depan Demokrasi
-                  di Indonesia
-                </Link>
-                <div className="user-date flex items-center gap-1 text-sm font-normal text-neutral-3">
-                  <p>Andika Putra</p>
-                  <p>-</p>
-                  <p>5 Desember 2024</p>
-                </div>
-              </div>
-            </div>
-            <div className="article-card flex w-full lg:w-[376px] flex-col items-start justify-center gap-3">
-              <img src={ArticleImage2} className="w-full" alt="" />
-              <h5 className="font-bold text-base text-brand-red">DEMOCRACY</h5>
-              <div className="title-detail flex flex-col gap-1 self-stretch">
-                <Link className="font-bold text-xl">
-                  Mendorong Transparansi: Generasi Muda dan Masa Depan Demokrasi
-                  di Indonesia
-                </Link>
-                <div className="user-date flex items-center gap-1 text-sm font-normal text-neutral-3">
-                  <p>Andika Putra</p>
-                  <p>-</p>
-                  <p>5 Desember 2024</p>
-                </div>
-              </div>
-            </div>
-            <div className="article-card flex w-full lg:w-[376px] flex-col items-start justify-center gap-3">
-              <img src={ArticleImage3} className="w-full" alt="" />
-              <h5 className="font-bold text-base text-brand-red">DEMOCRACY</h5>
-              <div className="title-detail flex flex-col gap-1 self-stretch">
-                <Link className="font-bold text-xl">
-                  Mendorong Transparansi: Generasi Muda dan Masa Depan Demokrasi
-                  di Indonesia
-                </Link>
-                <div className="user-date flex items-center gap-1 text-sm font-normal text-neutral-3">
-                  <p>Andika Putra</p>
-                  <p>-</p>
-                  <p>5 Desember 2024</p>
-                </div>
-              </div>
-            </div>
+              </Link>
+            ))}
           </div>
         </div>
       </div>
