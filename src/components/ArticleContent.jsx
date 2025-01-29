@@ -1,7 +1,8 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import { MdPerson } from "react-icons/md";
-import DOMPurify from "dompurify"; // Untuk sanitasi HTML
+import DOMPurify from "dompurify";
+import PropTypes from "prop-types";
 
 export const ArticleContent = ({ articleData }) => {
   return (
@@ -29,11 +30,23 @@ export const ArticleContent = ({ articleData }) => {
         <div
           className="article-content lg:w-[600px] flex flex-col items-start gap-8 self-stretch"
           dangerouslySetInnerHTML={{
-            __html: DOMPurify.sanitize(articleData.content), // Render deskripsi dengan sanitasi
+            __html: DOMPurify.sanitize(articleData.content),
           }}
         ></div>
         <div className="author flex flex-col items-start gap-3 xs:hidden w-[157.594px]"></div>
       </div>
     </div>
   );
+};
+
+ArticleContent.propTypes = {
+  articleData: PropTypes.shape({
+    image: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    User: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+    }).isRequired,
+    createdAt: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
+  }).isRequired,
 };

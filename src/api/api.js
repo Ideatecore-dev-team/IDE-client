@@ -1,6 +1,5 @@
-const BASE_URL = "http://localhost:3001"; // Base URL API
+const BASE_URL = "http://localhost:3001";
 
-// Fungsi umum untuk permintaan API
 const apiRequest = async (
   endpoint,
   method = "GET",
@@ -42,7 +41,6 @@ export const getArticleById = async (id) => {
   return apiRequest(`/article/${id}`);
 };
 
-// Ekspor semua fungsi sekaligus
 export default {
   getArticles,
   getArticleById,

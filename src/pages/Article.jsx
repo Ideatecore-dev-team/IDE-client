@@ -6,13 +6,8 @@ import { ArticleContent } from "../components/ArticleContent";
 import { HomeArticle } from "../components/HomeArticle";
 
 export const Article = () => {
-  const { id } = useParams(); // Ambil ID artikel dari URL
-  const { article, loading, error } = GetArticleById(id); // Gunakan hook untuk fetch data artikel
-
-  console.log(article);
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
+  const { id } = useParams();
+  const { article, loading, error } = GetArticleById(id);
 
   return (
     <div className="article article-section items-start justify-center self-center">

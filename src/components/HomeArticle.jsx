@@ -5,10 +5,10 @@ import GetArticles from "../hooks/getArticles";
 import { motion } from "framer-motion";
 
 export const HomeArticle = () => {
-  const { articles, loading, error } = GetArticles(); // Mengambil data artikel
+  const { articles, loading, error } = GetArticles();
 
-  const [isVisible, setIsVisible] = useState(false); // Always call useState unconditionally
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768); // Initial check for mobile view
+  const [isVisible, setIsVisible] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   const handleScroll = () => {
     const rect = document
