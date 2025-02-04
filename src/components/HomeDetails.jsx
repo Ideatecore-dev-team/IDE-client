@@ -27,14 +27,18 @@ export const HomeDetails = () => {
     };        
   }, []);        
   
-  return (        
-    <motion.div        
-      id="home-details"        
-      className="details-section flex justify-center items-center self-stretch"        
-      initial={isMobile ? {} : { opacity: 0, x: -1000 }} // No animation for mobile        
-      animate={isMobile ? { opacity: 1, x: 0 } : (isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -1000 })} // Conditional animation        
-      transition={{ duration: 1, ease: "easeInOut" }}        
-    >        
+  return (     
+    <div 
+    className="details-section flex justify-center items-center self-stretch"        
+    >
+
+    {/* // <motion.div        
+    //   id="home-details"        
+    //   className="details-section flex justify-center items-center self-stretch"        
+    //   initial={isMobile ? {} : { opacity: 0, x: -1000 }} // No animation for mobile        
+    //   animate={isMobile ? { opacity: 1, x: 0 } : (isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -1000 })} // Conditional animation        
+    //   transition={{ duration: 1, ease: "easeInOut" }}        
+    // >         */}
       <div className="details-container flex flex-col lg:flex-row w-full xs:px-4 lg:px-6 lg:w-[1224px] py-12 items-start lg:items-center lg:content-between border-b-[1px] border-neutral-3 gap-6 lg:gap-12">        
         <div className="our-mission lg:w-[568px] flex flex-col items-start gap-4">        
           <h5 className="text-sm lg:text-base font-bold">OUR MISSION</h5>        
@@ -104,6 +108,7 @@ export const HomeDetails = () => {
           </div>        
         </div>        
       </div>        
-    </motion.div>        
+    </div>   
+    // </motion.div>        
   );        
 };        

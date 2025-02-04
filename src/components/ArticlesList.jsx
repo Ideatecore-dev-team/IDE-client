@@ -2,11 +2,12 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import GetArticles from "../hooks/GetArticles";
+import { motion } from "framer-motion";
 
 export const ArticlesList = () => {
   const { articles, loading, error } = GetArticles();
 
-  if (loading) return <p>Loading...</p>;
+  // if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
 
   const titleCut = (text, maxLength) => {
@@ -23,9 +24,46 @@ export const ArticlesList = () => {
           <p className="text-base font-bold article-list-header">
             NEWEST ARTICLE
           </p>
+          {loading ? (
+          <div className="flex justify-center items-center h-full w-full">
+            <motion.div
+              className="loading-spinner"
+              animate={{ rotate: 360 }}
+              transition={{ repeat: Infinity, duration: 100 }}
+            >
+              <svg
+                className="animate-spin size-10 text-brand-red"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <circle
+                  className="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                ></circle>
+                <path
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                ></path>
+              </svg>
+            </motion.div>
+          </div>
+          ) : (
           <div className="flex flex-col items-center self-stretch gap-12 article-cards lg:flex-row lg:flex-wrap">
             {articles &&
               articles.map((article) => (
+                <motion.div
+                key={article.id}
+                // className="flex flex-col items-center self-stretch gap-12 article-cards lg:flex-row lg:flex-wrap"
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+              >
                 <Link
                   key={article.id} // Menggunakan id artikel sebagai key
                   className="article-card flex w-full lg:w-[376px] flex-col items-start justify-center gap-3"
@@ -56,8 +94,10 @@ export const ArticlesList = () => {
                     </div>
                   </div>
                 </Link>
+              </motion.div>
               ))}
           </div>
+          )}
         </div>
       </div>
     </div>

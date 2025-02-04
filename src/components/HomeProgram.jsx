@@ -29,13 +29,13 @@ export const HomeProgram = () => {
   }, []);       
   
   return (    
-    <motion.div      
-      id="home-program"      
-      className="details-section flex justify-center items-center self-stretch"      
-      initial={isMobile ? {} : { opacity: 0, x: -1000 }} // No animation for mobile     
-      animate={isMobile ? { opacity: 1, x: 0 } : (isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -1000 })} // Conditional animation      
-      transition={{ duration: 1, ease: "easeInOut" }}      
-    >      
+    // <motion.div      
+    //   id="home-program"      
+    //   className="details-section flex justify-center items-center self-stretch"      
+    //   initial={isMobile ? {} : { opacity: 0, x: -1000 }} // No animation for mobile     
+    //   animate={isMobile ? { opacity: 1, x: 0 } : (isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -1000 })} // Conditional animation      
+    //   transition={{ duration: 1, ease: "easeInOut" }}      
+    // >      
       <div className="ourprog-section flex justify-center items-start self-stretch">    
         <div className="ourprog-container flex w-full xs:px-6 lg:w-[1224px] py-12 flex-col lg:flex-row-reverse items-start lg:content-between lg:justify-between xs:gap-6">    
           <img    
@@ -56,7 +56,7 @@ export const HomeProgram = () => {
           </div>    
         </div>    
       </div>    
-    </motion.div>    
+    // </motion.div>    
   );    
 };    
   

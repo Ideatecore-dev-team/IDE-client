@@ -32,13 +32,13 @@ export const HomePartner = () => {
   }, []);            
       
   return (      
-    <motion.div          
-      id="home-partners"          
-      className="details-section flex justify-center items-center self-stretch"          
-      initial={isMobile ? {} : { opacity: 0, x: 1000 }} // No animation for mobile         
-      animate={isMobile ? { opacity: 1, x: 0 } : (isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: 1000 })} // Conditional animation   
-      transition={{ duration: 1, ease: "easeInOut" }}          
-    >       
+    // <motion.div          
+    //   id="home-partners"          
+    //   className="details-section flex justify-center items-center self-stretch"          
+    //   initial={isMobile ? {} : { opacity: 0, x: 1000 }} // No animation for mobile         
+    //   animate={isMobile ? { opacity: 1, x: 0 } : (isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: 1000 })} // Conditional animation   
+    //   transition={{ duration: 1, ease: "easeInOut" }}          
+    // >       
       <div className="our-partner-section flex flex-col items-center self-stretch">      
         <div className="our-partner-container flex w-full xs:px-6 lg:w-[1224px] flex-col items-start">      
           <div className="heading flex items-center justify-center gap-6 self-stretch">      
@@ -64,7 +64,7 @@ export const HomePartner = () => {
           </div>      
         </div>      
       </div>      
-    </motion.div>       
+    // </motion.div>       
   );      
 };      
       

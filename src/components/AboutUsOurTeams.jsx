@@ -3,75 +3,9 @@ import React, { useState, useEffect } from "react";
 import { MdArrowDropDown } from "react-icons/md";
 import GetTeam from "../hooks/GetTeam";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
-import Staff1 from "../assets/images/staff-1.png";
-import Staff2 from "../assets/images/staff-2.png";
-import Staff3 from "../assets/images/staff-3.png";
-import Staff4 from "../assets/images/staff-4.png";
-import Staff5 from "../assets/images/staff-5.png";
-import Staff6 from "../assets/images/staff-6.png";
-import Staff7 from "../assets/images/staff-7.png";
-import Staff8 from "../assets/images/staff-8.png";
 
 import { motion } from "framer-motion";
 
-const staffMembers = [
-  {
-    id: 1,
-    name: "Atep Saifullah",
-    position: "Daily Chairman",
-    image: Staff1,
-    category: "Core Team",
-  },
-  {
-    id: 2,
-    name: "Siti Aminah",
-    position: "Project Manager",
-    image: Staff2,
-    category: "Core Team",
-  },
-  {
-    id: 3,
-    name: "Atep Rizal",
-    position: "Lead Developer",
-    image: Staff3,
-    category: "Core Team",
-  },
-  {
-    id: 4,
-    name: "Kekeyi",
-    position: "Designer",
-    image: Staff4,
-    category: "Public Relation",
-  },
-  {
-    id: 5,
-    name: "Ken Kentaro",
-    position: "Marketing Specialist",
-    image: Staff5,
-    category: "Media",
-  },
-  {
-    id: 6,
-    name: "Zubaidah Prasetyo",
-    position: "Sales Manager",
-    image: Staff6,
-    category: "Media",
-  },
-  {
-    id: 7,
-    name: "Ikbar Sari",
-    position: "HR Manager",
-    image: Staff7,
-    category: "Media",
-  },
-  {
-    id: 8,
-    name: "Ria Wijaya",
-    position: "IT Support",
-    image: Staff8,
-    category: "Media",
-  },
-];
 
 export const AboutUsOurTeam = () => {
   const { team, loading, error } = GetTeam();
@@ -135,36 +69,36 @@ export const AboutUsOurTeam = () => {
     setCurrentPage(1);
   };
 
-  if (loading) return (
-    <div className="flex justify-center items-center h-screen">
-      <motion.div
-        className="loading-spinner"
-        animate={{ rotate: 360 }}
-        transition={{ repeat: Infinity, duration: 1 }}
-      >
-        <svg
-          className="animate-spin size-10 text-brand-red"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-        >
-          <circle
-            className="opacity-25"
-            cx="12"
-            cy="12"
-            r="10"
-            stroke="currentColor"
-            strokeWidth="4"
-          ></circle>
-          <path
-            className="opacity-75"
-            fill="currentColor"
-            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-          ></path>
-        </svg>
-      </motion.div>
-    </div>
-  );
+  // if (loading) return (
+  //   <div className="flex justify-center items-center h-screen">
+  //     <motion.div
+  //       className="loading-spinner"
+  //       animate={{ rotate: 360 }}
+  //       transition={{ repeat: Infinity, duration: 1 }}
+  //     >
+  //       <svg
+  //         className="animate-spin size-10 text-brand-red"
+  //         xmlns="http://www.w3.org/2000/svg"
+  //         fill="none"
+  //         viewBox="0 0 24 24"
+  //       >
+  //         <circle
+  //           className="opacity-25"
+  //           cx="12"
+  //           cy="12"
+  //           r="10"
+  //           stroke="currentColor"
+  //           strokeWidth="4"
+  //         ></circle>
+  //         <path
+  //           className="opacity-75"
+  //           fill="currentColor"
+  //           d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+  //         ></path>
+  //       </svg>
+  //     </motion.div>
+  //   </div>
+  // );
 
   if (error) return <div>Error: {error}</div>;
 
@@ -264,6 +198,36 @@ export const AboutUsOurTeam = () => {
           </div>
           <div className="our-team-all-staff flex flex-col items-start self-stretch">
             <div className="cards-container flex justify-center items-start content-start gap-24-48 self-stretch flex-wrap ">
+            {loading ? (
+              <div className="flex justify-center items-center h-full w-full">
+                <motion.div
+                  className="loading-spinner"
+                  animate={{ rotate: 360 }}
+                  transition={{ repeat: Infinity, duration: 5 }}
+                >
+                  <svg
+                    className="animate-spin size-10 text-brand-red"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    ></path>
+                  </svg>
+                </motion.div>
+              </div>
+              ) : (
               <motion.div
                 key={`${selectedCategory}-${currentPage}`} // Key to trigger animation on category and page change
                 initial={{ opacity: 0, y: 20 }} // Initial state
@@ -293,6 +257,7 @@ export const AboutUsOurTeam = () => {
                   </div>
                 ))}
               </motion.div>
+              )}
             </div>
           </div>
           <div className="our-team-btn-container w-[1224px] hidden lg:flex justify-between items-center ">
