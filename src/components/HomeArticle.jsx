@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import GetArticles from "../hooks/getArticles";
+import GetArticles from "../hooks/GetArticles";
 import { motion } from "framer-motion";
 
 export const HomeArticle = () => {
@@ -45,7 +45,7 @@ export const HomeArticle = () => {
   return (
     <motion.div
       id="home-articles"
-      className="details-section flex justify-center items-center self-stretch"
+      className="flex items-center self-stretch justify-center details-section"
       initial={isMobile ? {} : { opacity: 0, x: 1000 }} // No animation for mobile
       animate={
         isMobile
@@ -56,9 +56,9 @@ export const HomeArticle = () => {
       } // Conditional animation
       transition={{ duration: 1, ease: "easeInOut" }}
     >
-      <div className="article-section flex justify-center items-start self-stretch">
+      <div className="flex items-start self-stretch justify-center article-section">
         <div className="article-container flex w-full xs:px-6 lg:w-[1224px] flex-col items-start gap-4 py-12 border-b-[1px] border-neutral-3">
-          <div className="article-heading flex justify-between items-center self-stretch">
+          <div className="flex items-center self-stretch justify-between article-heading">
             <h5 className="text-base font-bold">NEWEST ARTICLE</h5>
             <Link
               className="text-base font-bold underline decoration-solid"
@@ -67,26 +67,26 @@ export const HomeArticle = () => {
               Browse All Newest
             </Link>
           </div>
-          <div className="articles flex items-center justify-center gap-6 self-stretch">
+          <div className="flex items-center self-stretch justify-center gap-6 articles">
             {articles.slice(0, 4).map((article) => (
               <Link
                 key={article.id}
                 to={`/article/${article.id}`}
-                className="article-card flex w-full flex-col items-start justify-center gap-3"
+                className="flex flex-col items-start justify-center w-full gap-3 article-card"
               >
                 <img
                   src={article.image}
                   className="w-full"
                   alt={article.title}
                 />
-                <h5 className="font-bold text-base text-brand-red">
+                <h5 className="text-base font-bold text-brand-red">
                   DEMOCRACY
                 </h5>
-                <div className="title-detail flex flex-col gap-1 self-stretch">
-                  <Link className="font-bold text-xl">
+                <div className="flex flex-col self-stretch gap-1 title-detail">
+                  <Link className="text-xl font-bold">
                     {titleCut(article.title, 50)}
                   </Link>
-                  <div className="user-date flex items-center gap-1 text-sm font-normal text-neutral-3">
+                  <div className="flex items-center gap-1 text-sm font-normal user-date text-neutral-3">
                     <p>{article.User.name}</p>
                     <p>-</p>
                     <p>{new Date(article.createdAt).toLocaleDateString()}</p>
