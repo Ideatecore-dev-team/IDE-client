@@ -71,62 +71,6 @@ const staffMembers = [
     image: Staff8,
     category: "Media",
   },
-  {
-    id: 3,
-    name: "Atep Rizal",
-    position: "Lead Developer",
-    image: Staff3,
-    category: "Core Team",
-  },
-  {
-    id: 2,
-    name: "Siti Aminah",
-    position: "Project Manager",
-    image: Staff7,
-    category: "Core Team",
-  },
-  {
-    id: 7,
-    name: "Ikbar Sari",
-    position: "HR Manager",
-    image: Staff7,
-    category: "Media",
-  },
-  {
-    id: 5,
-    name: "Ken Kentaro",
-    position: "Marketing Specialist",
-    image: Staff3,
-    category: "Media",
-  },
-  {
-    id: 4,
-    name: "Kekeyi",
-    position: "Designer",
-    image: Staff4,
-    category: "Public Relation",
-  },
-  {
-    id: 8,
-    name: "Ria Wijaya",
-    position: "IT Support",
-    image: Staff8,
-    category: "Media",
-  },
-  {
-    id: 1,
-    name: "Atep Saifullah",
-    position: "Daily Chairman",
-    image: Staff1,
-    category: "Core Team",
-  },
-  {
-    id: 6,
-    name: "Zubaidah Prasetyo",
-    position: "Sales Manager",
-    image: Staff5,
-    category: "Media",
-  },
 ];
 
 export const AboutUsOurTeam = () => {
