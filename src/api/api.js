@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3001";
+const BASE_URL = "https://server-ideindonesia.ideatecore.com";
 
 const apiRequest = async (
   endpoint,
@@ -41,7 +41,12 @@ export const getArticleById = async (id) => {
   return apiRequest(`/article/${id}`);
 };
 
+export const getTeam = async (id) => {
+  return apiRequest(`/team`);
+};
+
 export default {
   getArticles,
   getArticleById,
+  getTeam,
 };
