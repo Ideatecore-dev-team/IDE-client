@@ -1,22 +1,12 @@
-import React, { useState } from "react";
+// eslint-disable-next-line no-unused-vars
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import useGetArticles from "../hooks/useGetArticles";
+import { ArticlesContext } from "../context/ArticlesContext";
 
 export const ArticlesList = () => {
-  const [page] = useState(1);
-  const [size] = useState(6); // Jumlah artikel per halaman
-  const [search, setSearch] = useState(""); // Input pencarian
+  const { articles, loading, error } = useContext(ArticlesContext);
 
-  const { articles, loading, error, pagination } = useGetArticles({
-    page,
-    size,
-    search,
-  });
-
-  const validArticles = !loading && Array.isArray(articles) ? articles : [];
-
-  // Fungsi untuk memotong judul agar tidak terlalu panjang
   const titleCut = (text, maxLength) => {
     return text.length > maxLength
       ? text.substring(0, maxLength) + "..."
@@ -30,6 +20,8 @@ export const ArticlesList = () => {
           <p className="text-base font-bold article-list-header">
             NEWEST ARTICLE
           </p>
+
+          {/* Loading State */}
           {loading && (
             <div className="flex justify-center items-center h-full w-full">
               <motion.div
@@ -64,15 +56,15 @@ export const ArticlesList = () => {
           {/* Error Handling */}
           {error && <p className="text-red-500">{error}</p>}
 
-          {/* No Articles Found */}
-          {!loading && validArticles.length === 0 && (
+          {/* No Articles Found - Hanya muncul jika loading selesai */}
+          {!loading && articles.length === 0 && (
             <p className="text-center text-gray-500">No articles available.</p>
           )}
 
           {/* Daftar Artikel */}
-          {!loading && validArticles.length > 0 && (
+          {!loading && articles.length > 0 && (
             <div className="flex flex-col items-center self-stretch gap-12 article-cards lg:flex-row lg:flex-wrap">
-              {validArticles.map((article) => (
+              {articles.map((article) => (
                 <motion.div
                   key={article.id}
                   initial={{ opacity: 0, y: 50 }}
@@ -80,7 +72,6 @@ export const ArticlesList = () => {
                   transition={{ duration: 0.5, ease: "easeInOut" }}
                 >
                   <Link
-                    key={article.id}
                     to={`/article/${article.id}`}
                     className="article-card flex w-full lg:w-[376px] flex-col items-start justify-center gap-3"
                   >

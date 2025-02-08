@@ -1,14 +1,20 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { MdSearch, MdFilterList } from "react-icons/md";
+import { ArticlesContext } from "../context/ArticlesContext";
 
 export const ArticlesHeader = () => {
-  const [searchQuery, setSearchQuery] = useState("");
+  const { dispatch, searchQuery } = useContext(ArticlesContext);
+  const [inputValue, setInputValue] = useState(searchQuery);
   const [isFocused, setIsFocused] = useState(false);
+
+  const handleSearch = () => {
+    dispatch({ type: "SET_SEARCH_QUERY", payload: inputValue });
+  };
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
-      console.log("Searching for:", searchQuery);
+      handleSearch();
     }
   };
 
@@ -28,8 +34,8 @@ export const ArticlesHeader = () => {
             <input
               type="text"
               placeholder="Cari nama artikel..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
               onKeyDown={handleKeyDown}
               onFocus={() => setIsFocused(true)}
               onBlur={() => setIsFocused(false)}
@@ -40,8 +46,9 @@ export const ArticlesHeader = () => {
               }`}
             />
             <MdSearch
-              className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500"
+              className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 cursor-pointer"
               size={20}
+              onClick={handleSearch}
             />
           </div>
           <button className="flex p-3 justify-center items-center rounded-lg bg-brand-red hover:bg-brand-red-hover">

@@ -1,11 +1,12 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react"; // ✅ Tambahkan useContext
 import { Link } from "react-router-dom";
-import useGetArticles from "../hooks/useGetArticles";
+import { ArticlesContext } from "../context/ArticlesContext"; // ✅ Import Context
 import { motion } from "framer-motion";
 
 export const HomeArticle = () => {
-  const { articles, loading, error } = useGetArticles({ page: 1, size: 4 });
+  // ✅ Gunakan context untuk mengambil state global
+  const { articles, loading, error } = useContext(ArticlesContext);
 
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
@@ -14,7 +15,6 @@ export const HomeArticle = () => {
       setIsMobile(window.innerWidth < 768);
     };
     window.addEventListener("resize", handleResize);
-
     return () => {
       window.removeEventListener("resize", handleResize);
     };
@@ -24,15 +24,15 @@ export const HomeArticle = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // Pastikan articles dalam bentuk array setelah loading selesai
+  // ✅ Pastikan articles dalam bentuk array setelah loading selesai
   const validArticles = !loading && Array.isArray(articles) ? articles : [];
 
-  // Urutkan artikel berdasarkan `createdAt` terbaru
+  // ✅ Urutkan artikel berdasarkan `createdAt` terbaru
   const sortedArticles = [...validArticles].sort(
     (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
   );
 
-  // Artikel terbaru
+  // ✅ Ambil artikel terbaru untuk mobile view
   const mostRecentArticle = sortedArticles[0];
 
   return (
@@ -90,44 +90,45 @@ export const HomeArticle = () => {
         ) : (
           <div className="article flex items-center self-stretch justify-center gap-6 articles">
             {(isMobile ? [mostRecentArticle] : sortedArticles.slice(0, 4)).map(
-              (article) => (
-                <motion.div
-                  key={article.id}
-                  className="flex flex-col items-start justify-center w-full gap-3 article-card"
-                  initial={{ opacity: 0, y: 50 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, ease: "easeInOut" }}
-                >
-                  <Link
-                    to={`/article/${article.id}`}
-                    className="w-full"
-                    onClick={scrollToTop}
+              (article) =>
+                article && ( // ✅ Pastikan `article` tidak `undefined`
+                  <motion.div
+                    key={article.id}
+                    className="flex flex-col items-start justify-center w-full gap-3 article-card"
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, ease: "easeInOut" }}
                   >
-                    <img
-                      src={article.image}
-                      className="w-full h-[211.674px] object-cover rounded-md"
-                      alt={article.title}
-                    />
-                    <h5 className="text-base font-bold text-brand-red">
-                      {article.Category?.category || "Uncategorized"}
-                    </h5>
-                    <div className="flex flex-col self-stretch gap-1 title-detail">
-                      <Link className="text-xl font-bold">
-                        {article.title.length > 50
-                          ? `${article.title.substring(0, 50)}...`
-                          : article.title}
-                      </Link>
-                      <div className="flex items-center gap-1 text-sm font-normal user-date text-neutral-3">
-                        <p>{article.User?.name || "Unknown Author"}</p>
-                        <p>-</p>
-                        <p>
-                          {new Date(article.createdAt).toLocaleDateString()}
-                        </p>
+                    <Link
+                      to={`/article/${article.id}`}
+                      className="w-full"
+                      onClick={scrollToTop}
+                    >
+                      <img
+                        src={article.image}
+                        className="w-full h-[211.674px] object-cover rounded-md"
+                        alt={article.title}
+                      />
+                      <h5 className="text-base font-bold text-brand-red">
+                        {article.Category?.category || "Uncategorized"}
+                      </h5>
+                      <div className="flex flex-col self-stretch gap-1 title-detail">
+                        <Link className="text-xl font-bold">
+                          {article.title.length > 50
+                            ? `${article.title.substring(0, 50)}...`
+                            : article.title}
+                        </Link>
+                        <div className="flex items-center gap-1 text-sm font-normal user-date text-neutral-3">
+                          <p>{article.User?.name || "Unknown Author"}</p>
+                          <p>-</p>
+                          <p>
+                            {new Date(article.createdAt).toLocaleDateString()}
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                  </Link>
-                </motion.div>
-              )
+                    </Link>
+                  </motion.div>
+                )
             )}
           </div>
         )}

@@ -9,19 +9,22 @@ const api = axios.create({
   },
 });
 
-export const getArticles = async (page = null, size = null, search = "") => {
+export const getArticles = async ({ page, size, search } = {}) => {
+  let query = "/article?";
+  if (page) query += `page=${page}&`;
+  if (size) query += `size=${size}&`;
+  if (search) query += `search=${search}&`;
+
+  const fullUrl = `${BASE_URL}${query}`;
+  console.log("[API HIT] GET:", fullUrl);
+
   try {
-    let endpoint = "/article?";
-
-    const params = {};
-    if (page !== null) params.page = page;
-    if (size !== null) params.size = size;
-    if (search) params.search = search;
-
-    const response = await api.get(endpoint, { params });
-    return response.data;
+    const response = await axios.get(fullUrl);
+    console.log("[API RESPONSE]:", response.data);
+    return response;
   } catch (error) {
-    throw error.response ? error.response.data : error.message;
+    console.error("[API ERROR]:", error);
+    throw error;
   }
 };
 

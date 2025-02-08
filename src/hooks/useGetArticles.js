@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import api from "../api/api";
 
-const useGetArticles = ({ page = null, size = null, search = "" } = {}) => {
+const useGetArticles = ({ page, size, search } = {}) => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -10,14 +10,12 @@ const useGetArticles = ({ page = null, size = null, search = "" } = {}) => {
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const response = await api.getArticles(page, size, search);
-        console.log("API Response:", response);
-
-        setArticles(response?.data || []);
-        setPagination(response?.pagination || null);
+        setLoading(true);
+        const response = await api.getArticles({ page, size, search });
+        setArticles(response.data.data || []);
+        setPagination(response.data.pagination || null);
       } catch (err) {
-        console.error("API Error:", err);
-        setError(err.message || "Something went wrong");
+        setError(err.message);
       } finally {
         setLoading(false);
       }
