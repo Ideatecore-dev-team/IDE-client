@@ -1,48 +1,46 @@
+import axios from "axios";
+
 const BASE_URL = "https://server-ideindonesia.ideatecore.com";
 
-const apiRequest = async (
-  endpoint,
-  method = "GET",
-  body = null,
-  headers = {}
-) => {
-  // eslint-disable-next-line no-useless-catch
+const api = axios.create({
+  baseURL: BASE_URL,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+
+export const getArticles = async (page = null, size = null, search = "") => {
   try {
-    const config = {
-      method,
-      headers: {
-        "Content-Type": "application/json",
-        ...headers,
-      },
-    };
+    let endpoint = "/article?";
 
-    if (body) {
-      config.body = JSON.stringify(body);
-    }
+    const params = {};
+    if (page !== null) params.page = page;
+    if (size !== null) params.size = size;
+    if (search) params.search = search;
 
-    const response = await fetch(`${BASE_URL}${endpoint}`, config);
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-
-    return await response.json();
+    const response = await api.get(endpoint, { params });
+    return response.data;
   } catch (error) {
-    throw error;
+    throw error.response ? error.response.data : error.message;
   }
 };
 
-// Fungsi-fungsi API spesifik
-export const getArticles = async () => {
-  return apiRequest("/article?");
-};
-
 export const getArticleById = async (id) => {
-  return apiRequest(`/article/${id}`);
+  try {
+    const response = await api.get(`/article/${id}`);
+    return response.data;
+  } catch (error) {
+    throw error.response ? error.response.data : error.message;
+  }
 };
 
-export const getTeam = async (id) => {
-  return apiRequest(`/team`);
+export const getTeam = async () => {
+  try {
+    const response = await api.get(`/team`);
+    return response.data;
+  } catch (error) {
+    throw error.response ? error.response.data : error.message;
+  }
 };
 
 export default {

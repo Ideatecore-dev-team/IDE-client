@@ -1,13 +1,13 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import { useParams } from "react-router-dom";
-import GetArticleById from "../hooks/GetArticleById";
+import useGetArticleById from "../hooks/useGetArticleById";
 import { ArticleContent } from "../components/ArticleContent";
 import { HomeArticle } from "../components/HomeArticle";
 
 export const Article = () => {
   const { id } = useParams();
-  const { article, loading, error } = GetArticleById(id);
+  const { article, loading, error } = useGetArticleById(id);
 
   return (
     <div className="items-start self-center justify-center article article-section">

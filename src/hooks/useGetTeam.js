@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import api from "../api/api";
 
-const GetTeam = () => {
+const useGetTeam = () => {
   const [team, setTeam] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -10,9 +10,14 @@ const GetTeam = () => {
     const fetchTeam = async () => {
       try {
         const response = await api.getTeam();
-        setTeam(response.data);
+
+        if (response && Array.isArray(response.data)) {
+          setTeam(response.data);
+        } else {
+          setTeam([]);
+        }
       } catch (err) {
-        setError(err.message);
+        setError(err.message || "Failed to fetch team data");
       } finally {
         setLoading(false);
       }
@@ -24,4 +29,4 @@ const GetTeam = () => {
   return { team, loading, error };
 };
 
-export default GetTeam;
+export default useGetTeam;
