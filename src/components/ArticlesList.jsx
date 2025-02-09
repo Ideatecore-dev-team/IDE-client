@@ -97,15 +97,15 @@ export const ArticlesList = () => {
                 >
                   <Link
                     to={`/article/${article.id}`}
-                    className="article-card flex w-full lg:w-[376px] flex-col items-start justify-center gap-3"
+                    className="article-card flex w-full lg:w-[376px] flex-col items-start justify-center"
                   >
                     <img
                       src={article.image}
                       className="w-full h-[211.674px] object-cover rounded-md"
                       alt={article.title}
                     />
-                    <h5 className="text-base font-bold text-brand-red">
-                      {article.Category?.category || "Uncategorized"}
+                    <h5 className="text-base font-bold text-brand-red py-3">
+                      {article.Category?.category.toUpperCase() || "Uncategorized"}
                     </h5>
                     <div className="flex flex-col self-stretch gap-1 title-detail">
                       <Link className="text-xl font-bold">{article.title}</Link>
