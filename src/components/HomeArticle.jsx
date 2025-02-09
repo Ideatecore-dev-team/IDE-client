@@ -107,8 +107,8 @@ export const HomeArticle = () => {
                         </h5>
                         <div className="title-detail flex flex-col self-stretch gap-1">
                           <Link className="text-xl font-bold">
-                            {article.title.length > 50
-                              ? `${article.title.substring(0, 50)}...`
+                            {article.title.length > 30
+                              ? `${article.title.substring(0, 30)}...`
                               : article.title}
                           </Link>
                           <div className="flex items-center gap-1 text-sm font-normal user-date text-neutral-3">
