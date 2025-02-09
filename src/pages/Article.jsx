@@ -15,7 +15,7 @@ export const Article = () => {
         <div className="flex flex-col items-center self-stretch gap-4 pb-6 text-center title-category">
           <h2 className="text-2xl font-bold">{article?.title}</h2>
           <h5 className="text-sm font-bold text-brand-red lg:text-base">
-            {article.Category?.category?.toUpperCase() || "Uncategorized"}
+            {article?.Category?.category.toUpperCase()}
           </h5>
         </div>
         {article && <ArticleContent articleData={article} />}
