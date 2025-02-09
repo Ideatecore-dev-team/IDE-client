@@ -86,7 +86,7 @@ export const HomeArticle = () => {
                 article && ( // ✅ Pastikan `article` tidak `undefined`
                   <motion.div
                     key={article.id}
-                    className="flex flex-col items-start justify-center w-full gap-3 article-card"
+                    className="flex flex-col items-start justify-center w-full lg:h-[272.63px] gap-3 article-card "
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, ease: "easeInOut" }}

@@ -1,44 +1,14 @@
 /* eslint-disable no-unused-vars */      
-import React, { useEffect, useState } from "react";      
+import React from "react";      
 import "./HomePartner.css";      
 import Partner1 from "../assets/images/partner-1.png";      
 import Partner2 from "../assets/images/partner-2.png";      
 import Partner3 from "../assets/images/partner-3.png";      
 import Partner4 from "../assets/images/partner-4.png";      
-import { motion } from "framer-motion";         
   
 export const HomePartner = () => {      
-  const [isVisible, setIsVisible] = useState(false);      
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);    
-      
-  const handleScroll = () => {            
-    const rect = document.getElementById("home-partners").getBoundingClientRect();            
-    if (rect.top < window.innerHeight && rect.bottom >= 0) {            
-      setIsVisible(true);            
-    }            
-  };         
-      
-  useEffect(() => {            
-    window.addEventListener("scroll", handleScroll);            
-    const handleResize = () => {      
-      setIsMobile(window.innerWidth < 768); // Update mobile state on resize      
-    };      
-    window.addEventListener("resize", handleResize); // Listen for resize events      
-      
-    return () => {            
-      window.removeEventListener("scroll", handleScroll);          
-      window.removeEventListener("resize", handleResize); // Clean up the resize listener      
-    };            
-  }, []);            
-      
+        
   return (      
-    // <motion.div          
-    //   id="home-partners"          
-    //   className="details-section flex justify-center items-center self-stretch"          
-    //   initial={isMobile ? {} : { opacity: 0, x: 1000 }} // No animation for mobile         
-    //   animate={isMobile ? { opacity: 1, x: 0 } : (isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: 1000 })} // Conditional animation   
-    //   transition={{ duration: 1, ease: "easeInOut" }}          
-    // >       
       <div className="our-partner-section flex flex-col items-center self-stretch">      
         <div className="our-partner-container flex w-full xs:px-6 lg:w-[1224px] flex-col items-start">      
           <div className="heading flex items-center justify-center gap-6 self-stretch">      
@@ -63,8 +33,7 @@ export const HomePartner = () => {
             </div>      
           </div>      
         </div>      
-      </div>      
-    // </motion.div>       
+      </div>           
   );      
 };      
       
