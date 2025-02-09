@@ -86,7 +86,7 @@ export const HomeArticle = () => {
                 article && ( // ✅ Pastikan `article` tidak `undefined`
                   <motion.div
                     key={article.id}
-                    className="flex flex-col items-start justify-between w-full lg:h-[272.63px] gap-3 article-card "//nambahin h biar card sama
+                    className="flex flex-col items-start justify-between w-full lg:h-[296.63px] gap-3 article-card "//nambahin h biar card sama
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, ease: "easeInOut" }}
@@ -101,9 +101,9 @@ export const HomeArticle = () => {
                         className="w-full h-[172.8px]"
                         alt={article.title}
                       />
-                      <div className="flex flex-col h-[99px]">
-                        <h5 className="text-base font-bold text-brand-red">
-                          {article.Category?.category || "Uncategorized"}
+                      <div className="flex flex-col h-[123px]">
+                        <h5 className="text-base font-bold text-brand-red py-3">
+                          {article.Category?.category?.toUpperCase() || "Uncategorized"}
                         </h5>
                         <div className="title-detail flex flex-col self-stretch gap-1">
                           <Link className="text-xl font-bold">
