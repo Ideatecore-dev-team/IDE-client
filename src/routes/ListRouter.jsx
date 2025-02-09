@@ -44,7 +44,11 @@ const ListRouter = createBrowserRouter([
       },
       {
         path: "/article/:id",
-        element: <Article />,
+        element: (
+          <ArticlesProvider page={1} size={4}>
+            <Article />
+          </ArticlesProvider>
+        ),
       },
       {
         path: "/our-program",

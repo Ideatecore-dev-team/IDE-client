@@ -5,7 +5,6 @@ import { ArticlesContext } from "../context/ArticlesContext"; // ✅ Import Cont
 import { motion } from "framer-motion";
 
 export const HomeArticle = () => {
-  // ✅ Gunakan context untuk mengambil state global
   const { articles, loading, error } = useContext(ArticlesContext);
 
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
@@ -24,21 +23,17 @@ export const HomeArticle = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // ✅ Pastikan articles dalam bentuk array setelah loading selesai
   const validArticles = !loading && Array.isArray(articles) ? articles : [];
 
-  // ✅ Urutkan artikel berdasarkan `createdAt` terbaru
   const sortedArticles = [...validArticles].sort(
     (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
   );
 
-  // ✅ Ambil artikel terbaru untuk mobile view
   const mostRecentArticle = sortedArticles[0];
 
   return (
     <div className="flex items-start self-stretch justify-center article-section">
       <div className="article-container flex w-full xs:px-6 lg:w-[1224px] flex-col items-start gap-4 py-12 border-b-[1px] border-neutral-3">
-        {/* Header */}
         <div className="flex items-center self-stretch justify-between article-heading">
           <h5 className="text-base font-bold">NEWEST ARTICLE</h5>
           <Link
@@ -49,7 +44,6 @@ export const HomeArticle = () => {
           </Link>
         </div>
 
-        {/* Loading Spinner */}
         {loading && (
           <div className="flex justify-center items-center h-full w-full">
             <motion.div
@@ -81,10 +75,8 @@ export const HomeArticle = () => {
           </div>
         )}
 
-        {/* Error Handling */}
         {error && <p className="text-red-500">{error}</p>}
 
-        {/* Daftar Artikel */}
         {!loading && validArticles.length === 0 ? (
           <p className="text-center text-gray-500">No articles available.</p>
         ) : (
@@ -106,7 +98,7 @@ export const HomeArticle = () => {
                     >
                       <img
                         src={article.image}
-                        className="w-full h-[211.674px] object-cover rounded-md"
+                        className="w-full"
                         alt={article.title}
                       />
                       <h5 className="text-base font-bold text-brand-red">

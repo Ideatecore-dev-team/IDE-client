@@ -2,11 +2,15 @@
 import React, { useContext, useState } from "react";
 import { MdSearch, MdFilterList } from "react-icons/md";
 import { ArticlesContext } from "../context/ArticlesContext";
+import { ButtonPopCategory } from "./Buttons/ButtonPopCategory";
+import "./Buttons/ButtonPopCategory.css";
 
 export const ArticlesHeader = () => {
   const { dispatch, searchQuery } = useContext(ArticlesContext);
   const [inputValue, setInputValue] = useState(searchQuery);
   const [isFocused, setIsFocused] = useState(false);
+  const [isFilterOpen, setIsFilterOpen] = useState(false); // ✅ State untuk pop-up filter
+  console.log("Filter Pop-up Status:", isFilterOpen);
 
   const handleSearch = () => {
     dispatch({ type: "SET_SEARCH_QUERY", payload: inputValue });
@@ -18,15 +22,20 @@ export const ArticlesHeader = () => {
     }
   };
 
+  const toggleFilterPopup = () => {
+    setIsFilterOpen((prev) => !prev);
+    console.log("Filter Pop-up Status:", isFilterOpen);
+  };
+
   return (
-    <div className="articles-header-section flex py-12 flex-col items-center self-stretch">
+    <div className="articles-header-section flex py-12 flex-col items-center self-stretch relative">
       <div className="articles-header-container flex w-full lg:w-[1224px] xs:px-6 xs:flex-col justify-center lg:justify-between items-start lg:items-center gap-6">
         <div className="articles-header flex flex-col items-center lg:items-start gap-3 self-stretch">
           <h1 className="text-[32px] lg:text-5xl font-bold text-center">
             Article IDE Indonesia
           </h1>
           <p className="text-center text-base">
-            Temukan berita menarik seputar pemuda indonesia disini!
+            Temukan berita menarik seputar pemuda Indonesia di sini!
           </p>
         </div>
         <div className="articles-search-filter w-full lg:w-[500px] flex gap-3">
@@ -51,11 +60,20 @@ export const ArticlesHeader = () => {
               onClick={handleSearch}
             />
           </div>
-          <button className="flex p-3 justify-center items-center rounded-lg bg-brand-red hover:bg-brand-red-hover">
+          <button
+            className="flex p-3 justify-center items-center rounded-lg bg-brand-red hover:bg-brand-red-hover relative"
+            onClick={toggleFilterPopup} // ✅ Toggle pop-up saat diklik
+          >
             <MdFilterList size={24} color="white" />
           </button>
         </div>
       </div>
+
+      {isFilterOpen && (
+        <div className="filter-article relative z-50">
+          <ButtonPopCategory onClose={() => setIsFilterOpen(false)} />
+        </div>
+      )}
     </div>
   );
 };

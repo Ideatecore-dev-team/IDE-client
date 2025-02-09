@@ -1,17 +1,45 @@
-// eslint-disable-next-line no-unused-vars
-import React, { useContext } from "react";
+import React, { useContext, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArticlesContext } from "../context/ArticlesContext";
 
 export const ArticlesList = () => {
-  const { articles, loading, error } = useContext(ArticlesContext);
+  const {
+    articles,
+    loading,
+    error,
+    searchQuery,
+    selectedCategory,
+    selectedSort,
+  } = useContext(ArticlesContext);
 
-  const titleCut = (text, maxLength) => {
-    return text.length > maxLength
-      ? text.substring(0, maxLength) + "..."
-      : text;
-  };
+  const filteredArticles = useMemo(() => {
+    let filtered = articles;
+
+    if (searchQuery) {
+      filtered = filtered.filter((article) =>
+        article.title.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
+
+    if (selectedCategory) {
+      filtered = filtered.filter(
+        (article) => article.Category?.category === selectedCategory
+      );
+    }
+
+    if (selectedSort === "newest") {
+      filtered = filtered.sort(
+        (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+      );
+    } else if (selectedSort === "oldest") {
+      filtered = filtered.sort(
+        (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
+      );
+    }
+
+    return filtered;
+  }, [articles, searchQuery, selectedCategory, selectedSort]);
 
   return (
     <div className="flex flex-col items-center self-center articles-list-section">
@@ -21,7 +49,6 @@ export const ArticlesList = () => {
             NEWEST ARTICLE
           </p>
 
-          {/* Loading State */}
           {loading && (
             <div className="flex justify-center items-center h-full w-full">
               <motion.div
@@ -53,18 +80,15 @@ export const ArticlesList = () => {
             </div>
           )}
 
-          {/* Error Handling */}
           {error && <p className="text-red-500">{error}</p>}
 
-          {/* No Articles Found - Hanya muncul jika loading selesai */}
-          {!loading && articles.length === 0 && (
+          {!loading && filteredArticles.length === 0 && (
             <p className="text-center text-gray-500">No articles available.</p>
           )}
 
-          {/* Daftar Artikel */}
-          {!loading && articles.length > 0 && (
+          {!loading && filteredArticles.length > 0 && (
             <div className="flex flex-col items-center self-stretch gap-12 article-cards lg:flex-row lg:flex-wrap">
-              {articles.map((article) => (
+              {filteredArticles.map((article) => (
                 <motion.div
                   key={article.id}
                   initial={{ opacity: 0, y: 50 }}
@@ -84,9 +108,7 @@ export const ArticlesList = () => {
                       {article.Category?.category || "Uncategorized"}
                     </h5>
                     <div className="flex flex-col self-stretch gap-1 title-detail">
-                      <Link className="text-xl font-bold">
-                        {titleCut(article.title, 70)}
-                      </Link>
+                      <Link className="text-xl font-bold">{article.title}</Link>
                       <div className="flex items-center gap-1 text-sm font-normal user-date text-neutral-3">
                         <p>{article.User?.name || "Unknown Author"}</p>
                         <p>-</p>
