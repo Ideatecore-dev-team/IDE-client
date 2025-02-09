@@ -86,7 +86,7 @@ export const HomeArticle = () => {
                 article && ( // ✅ Pastikan `article` tidak `undefined`
                   <motion.div
                     key={article.id}
-                    className="flex flex-col items-start justify-center w-full lg:h-[272.63px] gap-3 article-card "
+                    className="flex flex-col items-start justify-between w-full lg:h-[272.63px] gap-3 article-card "//nambahin h biar card sama
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, ease: "easeInOut" }}
@@ -98,24 +98,26 @@ export const HomeArticle = () => {
                     >
                       <img
                         src={article.image}
-                        className="w-full"
+                        className="w-full h-[172.8px]"
                         alt={article.title}
                       />
-                      <h5 className="text-base font-bold text-brand-red">
-                        {article.Category?.category || "Uncategorized"}
-                      </h5>
-                      <div className="flex flex-col self-stretch gap-1 title-detail">
-                        <Link className="text-xl font-bold">
-                          {article.title.length > 50
-                            ? `${article.title.substring(0, 50)}...`
-                            : article.title}
-                        </Link>
-                        <div className="flex items-center gap-1 text-sm font-normal user-date text-neutral-3">
-                          <p>{article.User?.name || "Unknown Author"}</p>
-                          <p>-</p>
-                          <p>
-                            {new Date(article.createdAt).toLocaleDateString()}
-                          </p>
+                      <div className="flex flex-col h-[99px]">
+                        <h5 className="text-base font-bold text-brand-red">
+                          {article.Category?.category || "Uncategorized"}
+                        </h5>
+                        <div className="title-detail flex flex-col self-stretch gap-1">
+                          <Link className="text-xl font-bold">
+                            {article.title.length > 50
+                              ? `${article.title.substring(0, 50)}...`
+                              : article.title}
+                          </Link>
+                          <div className="flex items-center gap-1 text-sm font-normal user-date text-neutral-3">
+                            <p>{article.User?.name || "Unknown Author"}</p>
+                            <p>-</p>
+                            <p>
+                              {new Date(article.createdAt).toLocaleDateString()}
+                            </p>
+                          </div>
                         </div>
                       </div>
                     </Link>
