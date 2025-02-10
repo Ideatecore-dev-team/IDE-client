@@ -20,7 +20,27 @@ export const HomeArticle = () => {
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    const duration = 1000; // Duration in milliseconds (1 second)
+    const start = window.pageYOffset;
+    const change = -start;
+    let startTime = null;
+
+    const animateScroll = (currentTime) => {
+      if (startTime === null) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+      const run = easeInOutQuad(timeElapsed, start, change, duration);
+      window.scrollTo(0, run);
+      if (timeElapsed < duration) requestAnimationFrame(animateScroll);
+    };
+
+    const easeInOutQuad = (t, b, c, d) => {
+      t /= d / 2;
+      if (t < 1) return (c / 2) * t * t + b;
+      t--;
+      return (-c / 2) * (t * (t - 2) - 1) + b;
+    };
+
+    requestAnimationFrame(animateScroll);
   };
 
   const validArticles = !loading && Array.isArray(articles) ? articles : [];
