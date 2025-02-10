@@ -65,7 +65,7 @@ export const HomeArticle = () => {
         </div>
 
         {loading && (
-          <div className="flex justify-center items-center h-full w-full">
+          <div className="flex justify-center items-center h-[334.67px] w-full">
             <motion.div
               className="loading-spinner"
               animate={{ rotate: 360 }}

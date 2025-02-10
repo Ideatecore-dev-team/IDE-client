@@ -50,7 +50,7 @@ export const ArticlesList = () => {
           </p>
 
           {loading && (
-            <div className="flex justify-center items-center h-full w-full">
+            <div className="flex justify-center items-center h-[334.67px] lg:h-[757.34px] w-full">
               <motion.div
                 className="loading-spinner"
                 animate={{ rotate: 360 }}
