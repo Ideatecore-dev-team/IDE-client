@@ -101,10 +101,10 @@ export const ArticlesList = () => {
                   >
                     <img
                       src={article.image}
-                      className="w-full h-[211.674px] object-cover rounded-md"
+                      className="w-full h-[211.674px] object-cover"
                       alt={article.title}
                     />
-                    <h5 className="text-base font-bold text-brand-red py-3">
+                    <h5 className="text-base font-bold text-brand-red py-3 overflow-hidden">
                       {article.Category?.category.toUpperCase() || "Uncategorized"}
                     </h5>
                     <div className="flex flex-col self-stretch gap-1 title-detail">

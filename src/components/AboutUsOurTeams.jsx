@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { MdArrowDropDown } from "react-icons/md";
 import useGetTeam from "../hooks/useGetTeam";
+import { Link } from "react-router-dom";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 
 import { motion } from "framer-motion";
@@ -67,37 +68,6 @@ export const AboutUsOurTeam = () => {
     setSelectedCategory(e.target.value);
     setCurrentPage(1);
   };
-
-  // if (loading) return (
-  //   <div className="flex justify-center items-center h-screen">
-  //     <motion.div
-  //       className="loading-spinner"
-  //       animate={{ rotate: 360 }}
-  //       transition={{ repeat: Infinity, duration: 1 }}
-  //     >
-  //       <svg
-  //         className="animate-spin size-10 text-brand-red"
-  //         xmlns="http://www.w3.org/2000/svg"
-  //         fill="none"
-  //         viewBox="0 0 24 24"
-  //       >
-  //         <circle
-  //           className="opacity-25"
-  //           cx="12"
-  //           cy="12"
-  //           r="10"
-  //           stroke="currentColor"
-  //           strokeWidth="4"
-  //         ></circle>
-  //         <path
-  //           className="opacity-75"
-  //           fill="currentColor"
-  //           d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-  //         ></path>
-  //       </svg>
-  //     </motion.div>
-  //   </div>
-  // );
 
   if (error) return <div>Error: {error}</div>;
 
@@ -240,11 +210,17 @@ export const AboutUsOurTeam = () => {
                       key={staff.id}
                       className="staff-card flex w-[270px] flex-col items-start gap-[12px]"
                     >
-                      <img
-                        src={staff.image}
-                        alt={staff.name}
-                        className="w-[270px] h-[290px]"
-                      />
+                      <Link
+                        to={staff.link}
+                        target={"_blank"}
+                        >
+                        <img
+                          src={staff.image}
+                          alt={staff.name}
+                          className="w-[270px] h-[290px]"
+
+                        />
+                      </Link>
                       <div className="title-and-detail flex flex-col items-start gap-[4px] self-stretch">
                         <h4 className="text-neutral-1 text-[20px] font-lato font-bold">
                           {staff.name}
