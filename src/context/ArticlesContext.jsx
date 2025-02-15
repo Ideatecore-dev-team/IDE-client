@@ -1,96 +1,60 @@
-import React, { createContext, useReducer, useEffect, useState } from "react";
+import { createContext, useReducer, useEffect } from "react";
 import useGetArticles from "../hooks/useGetArticles";
 
 const initialState = {
-  articles: [], // Semua artikel dari API
-  filteredArticles: [], // Artikel yang sudah difilter berdasarkan searchQuery
-  categories: [],
-  loading: false,
+  articles: [],
+  loading: true,
   error: null,
   searchQuery: "",
-  selectedCategory: "",
-  selectedSort: "",
+  selectedCategory: null,
+  selectedSort: "newest",
+  currentPage: 1,
+  pagination: { currentPage: 1, perPage: 6, totalItems: 0, totalPage: 1 },
 };
 
 const articlesReducer = (state, action) => {
   switch (action.type) {
-    case "FETCH_START":
-      return { ...state, loading: true, error: null };
-
-    case "FETCH_SUCCESS":
-      return {
-        ...state,
-        loading: false,
-        articles: action.payload.articles,
-        filteredArticles: action.payload.articles, // Inisialisasi
-        categories: action.payload.categories,
-        error: null,
-      };
-
-    case "FETCH_ERROR":
-      return { ...state, loading: false, error: action.payload };
-
+    case "SET_ARTICLES":
+      return { ...state, articles: action.payload };
+    case "SET_LOADING":
+      return { ...state, loading: action.payload };
+    case "SET_ERROR":
+      return { ...state, error: action.payload };
+    case "SET_PAGE":
+      return { ...state, currentPage: action.payload };
+    case "SET_PAGINATION":
+      console.log("📌 SET_PAGINATION:", action.payload);
+      return { ...state, pagination: action.payload };
     case "SET_SEARCH_QUERY":
-      return { ...state, searchQuery: action.payload };
-
-    case "APPLY_FILTERS":
-      return {
-        ...state,
-        selectedCategory: action.payload.category,
-        selectedSort: action.payload.sort,
-        filteredArticles: state.articles
-          .filter((article) =>
-            action.payload.category
-              ? article.Category?.category === action.payload.category
-              : true
-          )
-          .sort((a, b) =>
-            action.payload.sort === "newest"
-              ? new Date(b.createdAt) - new Date(a.createdAt)
-              : new Date(a.createdAt) - new Date(b.createdAt)
-          ),
-      };
-
-    case "RESET_CATEGORY":
-      return {
-        ...state,
-        selectedCategory: "",
-        filteredArticles: state.articles,
-      };
-
+      return { ...state, searchQuery: action.payload, currentPage: 1 }; // Reset ke halaman pertama
     default:
       return state;
   }
 };
 
-const ArticlesContext = createContext(initialState);
+export const ArticlesContext = createContext();
 
-const ArticlesProvider = ({ children, page = 1, size = 10 }) => {
+export const ArticlesProvider = ({ children }) => {
   const [state, dispatch] = useReducer(articlesReducer, initialState);
 
-  const { articles, loading, error } = useGetArticles({ page, size });
+  // Fetch data berdasarkan `currentPage`
+  const { articles, loading, error, pagination } = useGetArticles({
+    page: state.currentPage,
+    size: 6,
+    search: state.searchQuery, // ✅ Search langsung ke API
+  });
 
   useEffect(() => {
-    dispatch({ type: "FETCH_START" });
+    console.log("📡 Fetching articles...");
+    dispatch({ type: "SET_ARTICLES", payload: articles });
+    dispatch({ type: "SET_LOADING", payload: loading });
+    dispatch({ type: "SET_ERROR", payload: error });
 
-    if (error) {
-      dispatch({ type: "FETCH_ERROR", payload: error });
-    } else if (!loading) {
-      const uniqueCategories = [
-        ...new Map(
-          articles.map((article) => [
-            article.Category.category,
-            article.Category,
-          ])
-        ).values(),
-      ];
-
-      dispatch({
-        type: "FETCH_SUCCESS",
-        payload: { articles, categories: uniqueCategories },
-      });
+    // Pastikan `pagination` ada sebelum menyimpannya ke state
+    if (pagination) {
+      dispatch({ type: "SET_PAGINATION", payload: pagination });
     }
-  }, [articles, loading, error]);
+  }, [articles, loading, error, pagination]);
 
   return (
     <ArticlesContext.Provider value={{ ...state, dispatch }}>
@@ -98,5 +62,3 @@ const ArticlesProvider = ({ children, page = 1, size = 10 }) => {
     </ArticlesContext.Provider>
   );
 };
-
-export { ArticlesContext, ArticlesProvider };

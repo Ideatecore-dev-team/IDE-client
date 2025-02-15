@@ -13,7 +13,7 @@ export const ArticlesHeader = () => {
   console.log("Filter Pop-up Status:", isFilterOpen);
 
   const handleSearch = () => {
-    dispatch({ type: "SET_SEARCH_QUERY", payload: inputValue });
+    dispatch({ type: "SET_SEARCH_QUERY", payload: inputValue }); // ✅ Search langsung ke API
   };
 
   const handleKeyDown = (e) => {
