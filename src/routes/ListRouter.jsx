@@ -7,6 +7,7 @@ import { Gallery } from "../pages/Gallery";
 import { Articles } from "../pages/Articles";
 import { Article } from "../pages/Article";
 import { OurProgram } from "../pages/OurProgram";
+import { ArticlesProvider } from "../context/ArticlesContext";
 
 const ListRouter = createBrowserRouter([
   {
@@ -15,7 +16,11 @@ const ListRouter = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />,
+        element: (
+          <ArticlesProvider page={1} size={4}>
+            <Home />
+          </ArticlesProvider>
+        ), // Membungkus Home dengan ArticlesProvider
       },
       {
         path: "/contact-us",
@@ -31,11 +36,19 @@ const ListRouter = createBrowserRouter([
       },
       {
         path: "/articles",
-        element: <Articles />,
+        element: (
+          <ArticlesProvider page={1} size={6}>
+            <Articles />
+          </ArticlesProvider>
+        ), // Membungkus Articles dengan ArticlesProvider
       },
       {
         path: "/article/:id",
-        element: <Article />,
+        element: (
+          <ArticlesProvider page={1} size={4}>
+            <Article />
+          </ArticlesProvider>
+        ),
       },
       {
         path: "/our-program",

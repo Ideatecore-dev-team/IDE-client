@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import api from "../api/api";
 
-const GetArticleById = (id) => {
+const useGetArticleById = (id) => {
   const [article, setArticle] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -10,9 +10,14 @@ const GetArticleById = (id) => {
     const fetchArticle = async () => {
       try {
         const response = await api.getArticleById(id);
-        setArticle(response.data);
+
+        if (response && response.data) {
+          setArticle(response.data);
+        } else {
+          setArticle(null);
+        }
       } catch (err) {
-        setError(err.message);
+        setError(err.message || "Failed to fetch article");
       } finally {
         setLoading(false);
       }
@@ -24,4 +29,4 @@ const GetArticleById = (id) => {
   return { article, loading, error };
 };
 
-export default GetArticleById;
+export default useGetArticleById;
