@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useContext, useMemo, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -11,26 +12,15 @@ export const ArticlesList = () => {
     error,
     searchQuery,
     selectedCategory,
-    selectedSort,
     currentPage,
     dispatch,
     pagination,
   } = useContext(ArticlesContext);
 
-  useEffect(() => {
-    console.log("📜 Render ArticlesList - Current Page:", currentPage);
-    console.log("📝 Articles Data:", articles);
-    console.log("🔍 Search Query:", searchQuery);
-    console.log("⏳ Loading:", loading);
-  }, [articles, currentPage, loading, searchQuery]);
-
   const totalPages = pagination?.totalPage || 1;
 
-  // Filter and sort articles based on user selection
   const filteredArticles = useMemo(() => {
-    let filtered = [...articles];
-
-    return filtered;
+    return [...articles];
   }, [articles]);
 
   return (
@@ -76,18 +66,32 @@ export const ArticlesList = () => {
           {/* Error Message */}
           {error && <p className="text-red-500">{error}</p>}
 
+          {/* No Articles Found (Search) */}
           {!loading &&
             articles.length === 0 &&
-            searchQuery(
+            searchQuery &&
+            typeof searchQuery === "string" && (
               <p className="text-center text-gray-500">
-                No articles found for {searchQuery}
+                No articles found for &quot;{searchQuery}&quot;.
               </p>
             )}
 
-          {/* No Articles Available */}
-          {!loading && filteredArticles.length === 0 && (
-            <p className="text-center text-gray-500">No articles available.</p>
+          {/* No Articles Found (Filter by Category) */}
+          {!loading && articles.length === 0 && selectedCategory && (
+            <p className="text-center text-gray-500">
+              No articles found in this category.
+            </p>
           )}
+
+          {/* No Articles Available (General Case) */}
+          {!loading &&
+            articles.length === 0 &&
+            !searchQuery &&
+            !selectedCategory && (
+              <p className="text-center text-gray-500">
+                No articles available.
+              </p>
+            )}
 
           {/* Article List */}
           {!loading && filteredArticles.length > 0 && (
@@ -109,7 +113,7 @@ export const ArticlesList = () => {
                       alt={article.title}
                     />
                     <h5 className="text-base font-bold text-brand-red py-3 overflow-hidden">
-                      {article.Category?.category.toUpperCase() ||
+                      {article.Category?.category?.toUpperCase() ||
                         "Uncategorized"}
                     </h5>
                     <div className="flex flex-col self-stretch gap-1 title-detail">
@@ -129,45 +133,49 @@ export const ArticlesList = () => {
           )}
 
           {/* Pagination Controls */}
-          <div className="article-pagination-container w-full flex justify-between items-center mt-6">
-            <button
-              className="pagination-btn text-white flex p-3 justify-center items-center gap-2.5 rounded-lg bg-black hover:bg-neutral-2 transition-colors duration-300"
-              disabled={currentPage === 1}
-              onClick={() =>
-                dispatch({ type: "SET_PAGE", payload: currentPage - 1 })
-              }
-            >
-              <MdKeyboardArrowLeft />
-              <p className="font-bold xs:hidden">Sebelumnya</p>
-            </button>
+          {totalPages > 1 && (
+            <div className="article-pagination-container w-full flex justify-between items-center mt-6">
+              <button
+                className="pagination-btn text-white flex p-3 justify-center items-center gap-2.5 rounded-lg bg-black hover:bg-neutral-2 transition-colors duration-300"
+                disabled={currentPage === 1}
+                onClick={() =>
+                  dispatch({ type: "SET_PAGE", payload: currentPage - 1 })
+                }
+              >
+                <MdKeyboardArrowLeft />
+                <p className="font-bold xs:hidden">Sebelumnya</p>
+              </button>
 
-            <div className="pagination-index flex items-center text-sm font-bold gap-6">
-              {Array.from({ length: totalPages }, (_, index) => (
-                <button
-                  key={index + 1}
-                  className={`pagination-number transition-colors duration-300 ${
-                    currentPage === index + 1 ? "text-brand-red" : "text-black"
-                  }`}
-                  onClick={() =>
-                    dispatch({ type: "SET_PAGE", payload: index + 1 })
-                  }
-                >
-                  {index + 1}
-                </button>
-              ))}
+              <div className="pagination-index flex items-center text-sm font-bold gap-6">
+                {Array.from({ length: totalPages }, (_, index) => (
+                  <button
+                    key={index + 1}
+                    className={`pagination-number transition-colors duration-300 ${
+                      currentPage === index + 1
+                        ? "text-brand-red"
+                        : "text-black"
+                    }`}
+                    onClick={() =>
+                      dispatch({ type: "SET_PAGE", payload: index + 1 })
+                    }
+                  >
+                    {index + 1}
+                  </button>
+                ))}
+              </div>
+
+              <button
+                className="pagination-btn text-white flex p-3 justify-center items-center gap-2.5 rounded-lg bg-brand-red hover:bg-brand-red-hover transition-colors duration-300"
+                disabled={currentPage === totalPages}
+                onClick={() =>
+                  dispatch({ type: "SET_PAGE", payload: currentPage + 1 })
+                }
+              >
+                <p className="font-bold xs:hidden">Setelahnya</p>
+                <MdKeyboardArrowRight />
+              </button>
             </div>
-
-            <button
-              className="pagination-btn text-white flex p-3 justify-center items-center gap-2.5 rounded-lg bg-brand-red hover:bg-brand-red-hover transition-colors duration-300"
-              disabled={currentPage === totalPages}
-              onClick={() =>
-                dispatch({ type: "SET_PAGE", payload: currentPage + 1 })
-              }
-            >
-              <p className="font-bold xs:hidden">Setelahnya</p>
-              <MdKeyboardArrowRight />
-            </button>
-          </div>
+          )}
         </div>
       </div>
     </div>

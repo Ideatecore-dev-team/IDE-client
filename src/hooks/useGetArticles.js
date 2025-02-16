@@ -1,22 +1,23 @@
 import { useState, useEffect } from "react";
 import api from "../api/api";
 
-const useGetArticles = ({ page, size, search } = {}) => {
+const useGetArticles = ({ page, size, search, searchByCategory } = {}) => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [pagination, setPagination] = useState(null);
-
+  // eslint-disable-next-line no-unused-vars
+  const [usedCategories, setUsedCategories] = useState([]);
   useEffect(() => {
     const fetchArticles = async () => {
       try {
         setLoading(true);
-        const response = await api.getArticles({ page, size, search }); // ✅ Search dikirim ke API
-        console.log(
-          `[FETCH ARTICLES] Page: ${page}, Size: ${size}, Search: ${search}`
-        );
-        console.log("[API RESPONSE]:", response.data);
-
+        const response = await api.getArticles({
+          page,
+          size,
+          search,
+          searchByCategory,
+        });
         setArticles(response.data.data || []);
         setPagination(response.data.pagination || null);
       } catch (err) {
@@ -28,9 +29,9 @@ const useGetArticles = ({ page, size, search } = {}) => {
     };
 
     fetchArticles();
-  }, [page, size, search]); // ✅ Re-fetch saat search berubah
+  }, [page, size, search, searchByCategory]);
 
-  return { articles, loading, error, pagination };
+  return { articles, loading, error, pagination, usedCategories };
 };
 
 export default useGetArticles;

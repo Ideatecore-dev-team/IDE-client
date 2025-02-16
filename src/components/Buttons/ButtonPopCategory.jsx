@@ -1,16 +1,24 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useContext, useState } from "react";
 import { MdClose, MdArrowDropDown } from "react-icons/md";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { ArticlesContext } from "../../context/ArticlesContext";
 
+// eslint-disable-next-line react/prop-types
 export const ButtonPopCategory = ({ onClose }) => {
-  const { categories, selectedCategory, selectedSort, dispatch } =
-    useContext(ArticlesContext);
-  const [tempCategory, setTempCategory] = useState(selectedCategory);
+  const {
+    categories = [],
+    selectedCategory,
+    selectedSort,
+    dispatch,
+  } = useContext(ArticlesContext);
+
+  const [tempCategory, setTempCategory] = useState(selectedCategory || "");
   const [tempSort, setTempSort] = useState(selectedSort);
 
   const handleCategoryChange = (e) => {
-    setTempCategory(e.target.value);
+    const categoryId = e.target.value;
+    setTempCategory(categoryId);
   };
 
   const handleSortChange = (sortType) => {
@@ -20,8 +28,12 @@ export const ButtonPopCategory = ({ onClose }) => {
   const handleSaveFilter = () => {
     dispatch({
       type: "APPLY_FILTERS",
-      payload: { category: tempCategory, sort: tempSort },
+      payload: {
+        categoryId: tempCategory,
+        selectedSort: tempSort,
+      },
     });
+
     onClose();
   };
 
@@ -38,6 +50,7 @@ export const ButtonPopCategory = ({ onClose }) => {
         </button>
       </div>
 
+      {/* Dropdown Categories */}
       <div className="filter-dropdown relative w-full flex items-center mb-4">
         <select
           className="flex p-3 items-start w-full px-6 rounded-md border-[1px] border-neutral-2 appearance-none"
@@ -45,11 +58,15 @@ export const ButtonPopCategory = ({ onClose }) => {
           onChange={handleCategoryChange}
         >
           <option value="">Semua Kategori</option>
-          {categories.map((cat) => (
-            <option key={cat.id} value={cat.category}>
-              {cat.category}
-            </option>
-          ))}
+          {categories.length > 0 ? (
+            categories.map((cat) => (
+              <option key={cat.id} value={cat.id}>
+                {cat.category}
+              </option>
+            ))
+          ) : (
+            <option disabled>Loading categories...</option>
+          )}
         </select>
         <MdArrowDropDown
           className="absolute top-1/2 right-[16px] -translate-y-1/2 text-neutral-500 pointer-events-none"
@@ -86,7 +103,10 @@ export const ButtonPopCategory = ({ onClose }) => {
 
       {tempCategory && (
         <div className="selected bg-[#FF8D8D] py-1 px-3 justify-center items-center flex gap-[10px] text-white font-bold rounded-md">
-          <p>{tempCategory}</p>
+          <p>
+            {categories.find((c) => c.id === tempCategory)?.category ||
+              tempCategory}
+          </p>
           <button onClick={handleRemoveCategory}>
             <IoMdCloseCircleOutline />
           </button>

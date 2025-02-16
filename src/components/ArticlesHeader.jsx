@@ -9,11 +9,10 @@ export const ArticlesHeader = () => {
   const { dispatch, searchQuery } = useContext(ArticlesContext);
   const [inputValue, setInputValue] = useState(searchQuery);
   const [isFocused, setIsFocused] = useState(false);
-  const [isFilterOpen, setIsFilterOpen] = useState(false); // ✅ State untuk pop-up filter
-  console.log("Filter Pop-up Status:", isFilterOpen);
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   const handleSearch = () => {
-    dispatch({ type: "SET_SEARCH_QUERY", payload: inputValue }); // ✅ Search langsung ke API
+    dispatch({ type: "SET_SEARCH_QUERY", payload: inputValue });
   };
 
   const handleKeyDown = (e) => {
@@ -24,7 +23,6 @@ export const ArticlesHeader = () => {
 
   const toggleFilterPopup = () => {
     setIsFilterOpen((prev) => !prev);
-    console.log("Filter Pop-up Status:", isFilterOpen);
   };
 
   return (
@@ -62,7 +60,7 @@ export const ArticlesHeader = () => {
           </div>
           <button
             className="flex p-3 justify-center items-center rounded-lg bg-brand-red hover:bg-brand-red-hover relative"
-            onClick={toggleFilterPopup} // ✅ Toggle pop-up saat diklik
+            onClick={toggleFilterPopup}
           >
             <MdFilterList size={24} color="white" />
           </button>
