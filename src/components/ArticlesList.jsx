@@ -175,22 +175,7 @@ export const ArticlesList = () => {
                 <MdKeyboardArrowRight />
               </button>
             </div>
-<<<<<<< HEAD
           )}
-=======
-
-            <button
-              className="pagination-btn text-white flex p-3 justify-center items-center gap-2.5 rounded-lg bg-brand-red hover:bg-brand-red-hover transition-colors duration-300"
-              disabled={currentPage === totalPages}
-              onClick={() =>
-                dispatch({ type: "SET_PAGE", payload: currentPage + 1 })
-              }
-            >
-              <p className="font-bold xs:hidden">Selanjutnya</p>
-              <MdKeyboardArrowRight />
-            </button>
-          </div>
->>>>>>> 55fd2828e41dc11df0442abf90d07bf627e3791b
         </div>
       </div>
     </div>
