@@ -272,7 +272,7 @@ export const AboutUsOurTeam = () => {
               disabled={currentPage === totalPages}
             >
               <p className={` text-[16px] font-lato font-bold text-white`}>
-                Setelahnya
+                Selanjutnya
               </p>
               <MdKeyboardArrowRight
                 size={24}

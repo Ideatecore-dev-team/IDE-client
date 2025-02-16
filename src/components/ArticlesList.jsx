@@ -164,7 +164,7 @@ export const ArticlesList = () => {
                 dispatch({ type: "SET_PAGE", payload: currentPage + 1 })
               }
             >
-              <p className="font-bold xs:hidden">Setelahnya</p>
+              <p className="font-bold xs:hidden">Selanjutnya</p>
               <MdKeyboardArrowRight />
             </button>
           </div>
