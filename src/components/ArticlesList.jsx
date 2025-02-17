@@ -33,7 +33,7 @@ export const ArticlesList = () => {
 
           {/* Loading State */}
           {loading && (
-            <div className="flex justify-center items-center h-[334.67px] lg:h-[757.34px] w-full">
+            <div className="flex justify-center items-center h-[334.67px] lg:h-[717.08px] w-full">
               <motion.div
                 className="loading-spinner"
                 animate={{ rotate: 360 }}
@@ -95,7 +95,7 @@ export const ArticlesList = () => {
 
           {/* Article List */}
           {!loading && filteredArticles.length > 0 && (
-            <div className="flex flex-col items-center self-stretch gap-12 article-cards lg:flex-row lg:flex-wrap">
+            <div className="article-cards flex flex-col lg:h-[717.08px] lg:items-start items-center self-stretch gap-12 lg:flex-row lg:flex-wrap">
               {filteredArticles.map((article) => (
                 <motion.div
                   key={article.id}
