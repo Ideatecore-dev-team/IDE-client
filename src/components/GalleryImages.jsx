@@ -1,23 +1,16 @@
 import React, { useState, useEffect } from "react";
+import { fetchGalleryImages } from "../api/api"; // Import the fetch function
 
 export const GalleryImages = () => {
   const [images, setImages] = useState([]);
 
   useEffect(() => {
-    const fetchImages = async () => {
-      try {
-        const response = await fetch("https://server-ideindonesia.ideatecore.com/gallery");
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const data = await response.json();
-        setImages(data.data.map(item => item.image));
-      } catch (error) {
-        console.error("There was a problem with the fetch operation:", error);
-      }
+    const loadImages = async () => {
+      const fetchedImages = await fetchGalleryImages();
+      setImages(fetchedImages);
     };
 
-    fetchImages();
+    loadImages();
   }, []);
 
   return (

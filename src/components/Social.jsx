@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";  
 import PropTypes from "prop-types";  
 import { SiLinkedin, SiInstagram, SiYoutube, SiFacebook } from "react-icons/si";  
+import { fetchCompanyInfo } from "../api/api"; // Import the fetch function
 
 export const Social = ({ hideAt }) => {  
   const [socialLinks, setSocialLinks] = useState({
@@ -12,25 +13,12 @@ export const Social = ({ hideAt }) => {
   });
 
   useEffect(() => {
-    const fetchCompanyInfo = async () => {
-      try {
-        const response = await fetch("https://server-ideindonesia.ideatecore.com/companyinfo");
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const data = await response.json();
-        setSocialLinks({
-          linkedin: data.data.Linkedin,
-          instagram: data.data.Instagram,
-          youtube: data.data.Youtube,
-          facebook: data.data.Facebook,
-        });
-      } catch (error) {
-        console.error("There was a problem with the fetch operation:", error);
-      }
+    const getCompanyInfo = async () => {
+      const links = await fetchCompanyInfo(); // Use the fetch function
+      setSocialLinks(links);
     };
 
-    fetchCompanyInfo();
+    getCompanyInfo();
   }, []);
 
   // Determine visibility class based on "hideAt" prop  
@@ -87,4 +75,4 @@ Social.propTypes = {
 
 Social.defaultProps = {  
   hideAt: "",  
-};
+};  
