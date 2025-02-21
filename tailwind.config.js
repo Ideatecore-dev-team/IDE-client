@@ -16,6 +16,7 @@ export default {
         "brand-red": "#C82121",
         "brand-red-hover": "#EB2929",
         "neutral-white-2": "#EEF1F4",
+        "custom-rose": "#FF8D8D",
       },
       fontFamily: {
         lato: ["Lato", "sans-serif"],

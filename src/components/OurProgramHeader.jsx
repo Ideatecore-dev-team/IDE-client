@@ -47,7 +47,7 @@ export const OurProgramHeader = () => {
           <h5 className="text-sm lg:text-base font-bold">OUR PROGRAM</h5>  
           <img src={Logo} alt="" />  
           <div className="heading-desc flex flex-col items-start gap-3 self-stretch">  
-            <h2 className="text-2xl lg:text-[32px] text-justify font-bold">  
+            <h2 className="text-2xl lg:text-[32px] text-left font-bold">  
               Menghubungkan Para Pemimpin Muda untuk Berkreasi, Berkolaborasi, dan Mempersiapkan Diri.  
             </h2>  
             <p className="text-base text-justify">  

@@ -1,41 +1,11 @@
 /* eslint-disable no-unused-vars */    
-import React, { useEffect, useState } from "react";    
+import React from "react";    
 import OurProgramBanner from "../assets/images/our-program-banner.png";    
-import ButtonLink from "./Buttons/ButtonLink";    
-import { motion } from "framer-motion";     
+import ButtonLink from "./Buttons/ButtonLink";     
   
-export const HomeProgram = () => {    
-  const [isVisible, setIsVisible] = useState(false);        
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);   
-    
-  const handleScroll = () => {        
-    const rect = document.getElementById("home-program").getBoundingClientRect();        
-    if (rect.top < window.innerHeight && rect.bottom >= 0) {        
-      setIsVisible(true);        
-    }        
-  };     
+export const HomeProgram = () => {       
   
-  useEffect(() => {          
-    window.addEventListener("scroll", handleScroll);          
-    const handleResize = () => {    
-      setIsMobile(window.innerWidth < 768); // Update mobile state on resize    
-    };    
-    window.addEventListener("resize", handleResize); // Listen for resize events    
-  
-    return () => {          
-      window.removeEventListener("scroll", handleScroll);        
-      window.removeEventListener("resize", handleResize); // Clean up the resize listener    
-    };          
-  }, []);       
-  
-  return (    
-    <motion.div      
-      id="home-program"      
-      className="details-section flex justify-center items-center self-stretch"      
-      initial={isMobile ? {} : { opacity: 0, x: -1000 }} // No animation for mobile     
-      animate={isMobile ? { opacity: 1, x: 0 } : (isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -1000 })} // Conditional animation      
-      transition={{ duration: 1, ease: "easeInOut" }}      
-    >      
+  return (      
       <div className="ourprog-section flex justify-center items-start self-stretch">    
         <div className="ourprog-container flex w-full xs:px-6 lg:w-[1224px] py-12 flex-col lg:flex-row-reverse items-start lg:content-between lg:justify-between xs:gap-6">    
           <img    
@@ -55,8 +25,7 @@ export const HomeProgram = () => {
             <ButtonLink caption="Check Our Program" color="bg-brand-red hover:bg-brand-red-hover" to="/our-program"/>    
           </div>    
         </div>    
-      </div>    
-    </motion.div>    
+      </div>       
   );    
 };    
   
