@@ -69,6 +69,10 @@ export const AboutUsOurTeam = () => {
     setCurrentPage(1);
   };
 
+  const capitalizeFirstLetter = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
+  
   if (error) return <div>Error: {error}</div>;
 
   return (
@@ -103,7 +107,7 @@ export const AboutUsOurTeam = () => {
                       : "text-neutral-1"
                   }`}
                 >
-                  {category}
+                  {capitalizeFirstLetter(category)}
                 </p>
               </button>
             ))}
