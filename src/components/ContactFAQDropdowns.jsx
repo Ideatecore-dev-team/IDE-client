@@ -9,13 +9,13 @@ const ContactFAQDropdowns = ({ question, answer }) => {
   
   return (  
     <div  
-      className={`faq-dropdown flex flex-col p-3 items-start self-stretch rounded-md border-[1px] gap-3 cursor-pointer bg-white hover:bg-neutral-100 ${  
+      className={`faq-dropdown flex flex-col px-3 pt-3 pb-0 items-start self-stretch rounded-md border-[1px] gap-3 cursor-pointer bg-white hover:bg-neutral-100 ${  
         isOpen ? "border-brand-red bg-neutral-100" : "border-neutral-3"  
       }`}  
       onClick={() => setIsOpen(!isOpen)}  
     >  
       <div className="dropdown-header flex items-center w-full">  
-        <p className="text-sm flex-1 text-neutral-1">{question}</p>  
+        <p className="text-base flex-1 text-neutral-1">{question}</p>  
         <MdArrowDropDown  
           size={24}  
           className={`duration-300 ${isOpen ? "rotate-180" : "rotate-0"}`}  
@@ -32,7 +32,7 @@ const ContactFAQDropdowns = ({ question, answer }) => {
         {isOpen && (  
           <>  
             <hr className="border-b-[0.5px] lg:w-[470px] border-neutral-3" />  
-            <p className="text-sm text-neutral-1 lg:w-[470px] pt-[12px]">{answer}</p>  
+            <p className=" text-base text-neutral-1 lg:w-[470px] pt-[12px] pb-3">{answer}</p>  
           </>  
         )}  
       </motion.div>  
