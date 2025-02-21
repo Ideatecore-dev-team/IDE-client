@@ -111,3 +111,24 @@ export const fetchGalleryImages = async () => {
     return []; // Return an empty array in case of error
   }
 };
+
+// api.js
+export const fetchPartnerData = async () => {
+  try {
+    const response = await fetch(`${BASE_URL}/partner`);
+
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    const data = await response.json();
+    return data.data.map(item => ({
+      id: item.id,
+      name: item.name,
+      image: item.image,
+      link: item.link,
+    }));
+  } catch (error) {
+    console.error("There was a problem with the fetch operation:", error);
+    return [];
+  }
+};

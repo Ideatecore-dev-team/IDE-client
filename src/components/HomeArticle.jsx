@@ -100,13 +100,13 @@ export const HomeArticle = () => {
         {!loading && validArticles.length === 0 ? (
           <p className="text-center text-gray-500">No articles available.</p>
         ) : (
-          <div className="article flex items-center self-stretch justify-center gap-6 articles">
+          <div className="article flex items-center self-stretch justify-left gap-6 articles ">
             {(isMobile ? [mostRecentArticle] : sortedArticles.slice(0, 4)).map(
               (article) =>
                 article && ( // ✅ Pastikan `article` tidak `undefined`
                   <motion.div
                     key={article.id}
-                    className="flex flex-col items-start justify-between w-full lg:h-[296.63px] gap-3 article-card "//nambahin h biar card sama
+                    className="flex flex-col items-start justify-between w-[288px] lg:h-[296.63px] gap-3 article-card "//nambahin h biar card sama
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, ease: "easeInOut" }}
