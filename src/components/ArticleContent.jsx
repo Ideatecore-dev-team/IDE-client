@@ -3,6 +3,7 @@ import React from "react";
 import { MdPerson } from "react-icons/md";
 import DOMPurify from "dompurify";
 import PropTypes from "prop-types";
+import "quill/dist/quill.snow.css"; // Include the Quill stylesheet
 
 export const ArticleContent = ({ articleData }) => {
   return (

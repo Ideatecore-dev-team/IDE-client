@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://server-ideindonesia.ideatecore.com";
+const BASE_URL = "https://api.theideindonesia.id";
 
 const api = axios.create({
   baseURL: BASE_URL,
@@ -85,6 +85,7 @@ export const fetchCompanyInfo = async () => {
       instagram: data.data.Instagram,
       youtube: data.data.Youtube,
       facebook: data.data.Facebook,
+      tiktok : data.data.Tiktok,
     }; 
   } catch (error) {
     console.error("Error fetching company info:", error);
@@ -99,7 +100,7 @@ export const fetchCompanyInfo = async () => {
 
 export const fetchGalleryImages = async () => {
   try {
-    const response = await fetch("https://server-ideindonesia.ideatecore.com/gallery");
+    const response = await fetch(`${BASE_URL}/gallery`);
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }

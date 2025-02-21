@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */  
 import React, { useState, useEffect } from "react";  
 import PropTypes from "prop-types";  
-import { SiLinkedin, SiInstagram, SiYoutube, SiFacebook } from "react-icons/si";  
+import { SiLinkedin, SiInstagram, SiYoutube, SiFacebook} from "react-icons/si";  
 import { fetchCompanyInfo } from "../api/api"; // Import the fetch function
 
 export const Social = ({ hideAt }) => {  
