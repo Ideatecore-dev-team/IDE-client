@@ -227,10 +227,10 @@ export const AboutUsOurTeam = () => {
                       </Link>
                       <div className="title-and-detail flex flex-col items-start gap-[4px] self-stretch">
                         <h4 className="text-neutral-1 text-[20px] font-lato font-bold">
-                          {staff.name}
+                          {capitalizeFirstLetter(staff.name)}
                         </h4>
                         <p className="text-neutral-2 text-[14px] font-lato font-normal">
-                          {staff.position}
+                          {capitalizeFirstLetter(staff.position)}
                         </p>
                       </div>
                     </div>
