@@ -29,7 +29,7 @@ export const ArticleContent = ({ articleData }) => {
           </div>
         </div>
         <div
-          className="article-content lg:w-[600px] flex flex-col items-start gap-8 self-stretch"
+          className="article-content lg:w-[600px] flex flex-col items-start gap-0 self-stretch text-justify"
           dangerouslySetInnerHTML={{
             __html: DOMPurify.sanitize(articleData.content),
           }}
