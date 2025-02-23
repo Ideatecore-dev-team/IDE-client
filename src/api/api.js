@@ -88,6 +88,8 @@ export const fetchCompanyInfo = async () => {
       instagram: data.data.Instagram,
       youtube: data.data.Youtube,
       facebook: data.data.Facebook,
+      tiktok: data.data.Tiktok,
+      x: data.data.Twitter,
     }; 
   } catch (error) {
     console.error("Error fetching company info:", error);
@@ -95,10 +97,14 @@ export const fetchCompanyInfo = async () => {
       phone: "",
       addrese: "",
       email: "",
+
       linkedin: "",
       instagram: "",
       youtube: "",
       facebook: "",
+      tiktok: "",
+      x: "",
+
     }; 
   }
 };

@@ -1,7 +1,14 @@
 /* eslint-disable react/prop-types */  
 import React, { useState, useEffect } from "react";  
 import PropTypes from "prop-types";  
-import { SiLinkedin, SiInstagram, SiYoutube, SiFacebook} from "react-icons/si";  
+import { 
+  SiLinkedin, 
+  SiInstagram, 
+  SiYoutube, 
+  SiFacebook,
+  SiTiktok, 
+  SiX,
+} from "react-icons/si";  
 import { fetchCompanyInfo } from "../api/api"; // Import the fetch function
 
 export const Social = ({ hideAt }) => {  
@@ -10,6 +17,7 @@ export const Social = ({ hideAt }) => {
     instagram: "",
     youtube: "",
     facebook: "",
+    tiktok: "",
   });
 
   useEffect(() => {
@@ -29,42 +37,44 @@ export const Social = ({ hideAt }) => {
       ? "flex md:hidden mt-4" // Visible on small screens, hidden on medium and up  
       : "flex"; // Default is visible everywhere  
 
+  // Create an array of icon components
+  const icons = [
+    { name: "facebook", icon: <SiFacebook />, link: socialLinks.facebook },
+    { name: "instagram", icon: <SiInstagram />, link: socialLinks.instagram },
+    { name: "x", icon: <SiX />, link: socialLinks.x },
+    { name: "linkedin", icon: <SiLinkedin />, link: socialLinks.linkedin },
+    { name: "youtube", icon: <SiYoutube />, link: socialLinks.youtube },
+    { name: "tiktok", icon: <SiTiktok />, link: socialLinks.tiktok },
+
+  ];
+
+  // Function to create rows of icons
+  const createRows = (icons, itemsPerRow) => {
+    const rows = [];
+    for (let i = 0; i < icons.length; i += itemsPerRow) {
+      const row = icons.slice(i, i + itemsPerRow);
+      rows.push(
+        <div key={i} className="flex items-center gap-3">
+          {row.map((iconObj) => (
+            <a
+              key={iconObj.name}
+              href={iconObj.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex w-12 h-12 justify-center items-center p-3 rounded-lg bg-brand-red hover:bg-brand-red-hover"
+            >
+              {iconObj.icon}
+            </a>
+          ))}
+        </div>
+      );
+    }
+    return rows;
+  };
+
   return (  
-    <div  
-      className={`social-media items-center gap-3 self-stretch text-white ${visibilityClass}`}  
-    >  
-      <a  
-        href={socialLinks.linkedin}  
-        target="_blank"  
-        rel="noopener noreferrer"  
-        className="flex w-12 h-12 justify-center items-center p-3 rounded-lg bg-brand-red hover:bg-brand-red-hover"  
-      >  
-        <SiLinkedin />  
-      </a>  
-      <a  
-        href={socialLinks.instagram}  
-        target="_blank"  
-        rel="noopener noreferrer"  
-        className="flex w-12 h-12 justify-center items-center p-3 rounded-lg bg-brand-red hover:bg-brand-red-hover"  
-      >  
-        <SiInstagram />  
-      </a>  
-      <a  
-        href={socialLinks.youtube}  
-        target="_blank"  
-        rel="noopener noreferrer"  
-        className="flex w-12 h-12 justify-center items-center p-3 rounded-lg bg-brand-red hover:bg-brand-red-hover"  
-      >  
-        <SiYoutube />  
-      </a>  
-      <a  
-        href={socialLinks.facebook}  
-        target="_blank"  
-        rel="noopener noreferrer"  
-        className="flex w-12 h-12 justify-center items-center p-3 rounded-lg bg-brand-red hover:bg-brand-red-hover"  
-      >  
-        <SiFacebook />  
-      </a>  
+    <div className={`social-media flex flex-col gap-3 self-stretch text-white ${visibilityClass}`}>
+      {createRows(icons, 4)}
     </div>  
   );  
 };  
@@ -75,4 +85,4 @@ Social.propTypes = {
 
 Social.defaultProps = {  
   hideAt: "",  
-};  
+};
