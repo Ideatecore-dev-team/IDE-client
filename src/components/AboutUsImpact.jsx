@@ -21,7 +21,7 @@ export const AboutUsImpact = () => {
         <div className="all-impact flex lg:w-[1224px] w-full xs:px-6 lg:flex-row flex-col lg:items-center items-start lg:gap-16 gap-8 lg:self-stretch">
           <div className="impact-1 lg:w-[365px] flex flex-col items-start gap-2 self-stretch">
             <div className="point flex items-center gap-4 self-stretch">
-              <div className="icon flex lg:size-[48px] size-9 justify-center items-center rounded-lg bg-brand-red">
+              <div className="icon flex lg:size-[48px] size-9 justify-center items-center rounded-lg bg-brand-red hover:bg-brand-red-hover">
                 <MdLocationOn className="text-white size-6" />
               </div>
               <h1 className=" text-3xl lg:text-[48px] lg:font-[500] font-bold">
@@ -34,7 +34,7 @@ export const AboutUsImpact = () => {
           </div>
           <div className="impact-2 lg:w-[365px] flex flex-col items-start gap-2 self-stretch">
             <div className="point flex items-center gap-4 self-stretch">
-              <div className="icon flex lg:size-[48px] size-9 justify-center items-center rounded-lg bg-brand-red">
+              <div className="icon flex lg:size-[48px] size-9 justify-center items-center rounded-lg bg-brand-red hover:bg-brand-red-hover">
                 <MdLocationCity className="text-white size-6" />
               </div>
               <h1 className=" text-3xl lg:text-[48px] lg:font-[500] font-bold">
@@ -47,7 +47,7 @@ export const AboutUsImpact = () => {
           </div>
           <div className="impact-3 lg:w-[365px] flex flex-col items-start gap-2 self-stretch">
             <div className="point flex items-center gap-4 self-stretch">
-              <div className="icon flex lg:size-[48px] size-9 justify-center items-center rounded-lg bg-brand-red">
+              <div className="icon flex lg:size-[48px] size-9 justify-center items-center rounded-lg bg-brand-red hover:bg-brand-red-hover">
                 <MdPeople className="text-white size-6" />
               </div>
               <h1 className=" text-3xl lg:text-[48px] lg:font-[500] font-bold">
