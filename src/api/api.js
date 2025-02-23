@@ -115,9 +115,9 @@ export const fetchGalleryImages = async () => {
       throw new Error("Network response was not ok");
     }
     const data = await response.json();
-    return data.data.map((item) => item.image);
+    return data.data;
   } catch (error) {
-    console.error("There was a problem with the fetch operation:", error);
+    console.error("[FETCH GALLERY ERROR]:", error);
     return [];
   }
 };
