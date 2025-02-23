@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { ContactDetails } from "./ContactDetails";    
 import { Social } from "./Social";    
 import { motion } from "framer-motion";    
+import { Subscribe } from "./Subscribe";
   
 export const Footer = () => {    
   const [isVisible, setIsVisible] = useState(false);    
@@ -91,7 +92,14 @@ export const Footer = () => {
             <div className="social flex flex-col items-start gap-3">    
               <p className="text-sm font-bold">Follow Us</p>    
               <Social />    
-            </div>    
+            </div>
+            <div className="border-r-[1px] border-neutral-3 h-[192px] lg:block hidden"></div>    
+            <div className="subscribe w-[302px]  items-start gap-4 lg:block hidden">
+              <p className="text-sm font-bold lg:self-stretch pb-3">
+                Berlangganan Berita kami
+              </p>
+              <Subscribe/>    
+            </div>   
           </div>    
           <div className="explore lg:hidden flex flex-col gap-4">    
             <p className="text-sm font-bold">Explore</p>    
@@ -131,7 +139,14 @@ export const Footer = () => {
             <Social />    
           </div>    
         </div>    
-        <hr className="border-b-[1px] w-full xs:px-6 flex-1 border-neutral-3" />    
+        {/* <hr className="border-b-[1px] w-full xs:px-6 flex-1 border-neutral-3" /> */}
+        <div className="subscribe flex w-[302px] flex-col items-start gap-4 lg:hidden">
+          <p className="text-sm font-bold lg:self-stretch">
+            Berlangganan Berita kami
+          </p>
+          <Subscribe/>    
+        </div>   
+        <hr className="border-b-[1px] w-full xs:px-6 flex-1 border-neutral-3" />
         <p className="text-sm font-bold">    
           Copyright {currentYear} IDE Indonesia. All rights reserved.    
         </p>    
