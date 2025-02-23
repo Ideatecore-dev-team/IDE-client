@@ -59,6 +59,7 @@ export const HomeArticle = () => {
           <Link
             className="text-base font-bold underline decoration-solid"
             to="/articles"
+            onClick={scrollToTop}
           >
             Browse All Newest
           </Link>
