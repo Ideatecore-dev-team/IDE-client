@@ -35,7 +35,7 @@ export const AboutUsSection = () => {
               potensi, keterampilan, profesionalisme, dan idealisme mereka.
             </span>
             <a
-              href="/program"
+              href="/our-program"
               className="text-brand-red font-lato text-[14px] font-bold underline decoration-solid decoration-auto underline-offset-auto"
             >
               Check Our Program

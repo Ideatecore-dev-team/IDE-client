@@ -88,18 +88,23 @@ export const fetchCompanyInfo = async () => {
       instagram: data.data.Instagram,
       youtube: data.data.Youtube,
       facebook: data.data.Facebook,
-    }; 
+      tiktok: data.data.Tiktok,
+      x: data.data.Twitter,
+    };
   } catch (error) {
     console.error("Error fetching company info:", error);
     return {
       phone: "",
       addrese: "",
       email: "",
+
       linkedin: "",
       instagram: "",
       youtube: "",
       facebook: "",
-    }; 
+      tiktok: "",
+      x: "",
+    };
   }
 };
 
@@ -110,10 +115,10 @@ export const fetchGalleryImages = async () => {
       throw new Error("Network response was not ok");
     }
     const data = await response.json();
-    return data.data.map(item => item.image);
+    return data.data;
   } catch (error) {
-    console.error("There was a problem with the fetch operation:", error);
-    return []; // Return an empty array in case of error
+    console.error("[FETCH GALLERY ERROR]:", error);
+    return [];
   }
 };
 
@@ -126,7 +131,7 @@ export const fetchPartnerData = async () => {
       throw new Error("Network response was not ok");
     }
     const data = await response.json();
-    return data.data.map(item => ({
+    return data.data.map((item) => ({
       id: item.id,
       name: item.name,
       image: item.image,
@@ -135,5 +140,39 @@ export const fetchPartnerData = async () => {
   } catch (error) {
     console.error("There was a problem with the fetch operation:", error);
     return [];
+  }
+};
+
+export const subscribeEmail = async (email) => {
+  try {
+    const response = await api.post("/subscribe", { email });
+    return response.data;
+  } catch (error) {
+    console.error("[API ERROR]:", error);
+    throw error.response ? error.response.data : error.message;
+  }
+};
+
+export const submitContactUs = async ({
+  firstName,
+  lastName,
+  email,
+  message,
+}) => {
+  try {
+    const response = await api.post("/contactus", {
+      firstName,
+      lastName,
+      email,
+      message,
+    });
+    console.log("[API SUCCESS]:", response.data); // Debug respons
+    return response.data;
+  } catch (error) {
+    console.error(
+      "[API ERROR]:",
+      error.response ? error.response.data : error.message
+    ); // Debug error
+    throw error.response ? error.response.data : error.message;
   }
 };
