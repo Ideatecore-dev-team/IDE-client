@@ -118,7 +118,7 @@ export const fetchGalleryImages = async () => {
     return data.data.map((item) => item.image);
   } catch (error) {
     console.error("There was a problem with the fetch operation:", error);
-    return []; // Return an empty array in case of error
+    return [];
   }
 };
 
@@ -149,6 +149,30 @@ export const subscribeEmail = async (email) => {
     return response.data;
   } catch (error) {
     console.error("[API ERROR]:", error);
+    throw error.response ? error.response.data : error.message;
+  }
+};
+
+export const submitContactUs = async ({
+  firstName,
+  lastName,
+  email,
+  message,
+}) => {
+  try {
+    const response = await api.post("/contactus", {
+      firstName,
+      lastName,
+      email,
+      message,
+    });
+    console.log("[API SUCCESS]:", response.data); // Debug respons
+    return response.data;
+  } catch (error) {
+    console.error(
+      "[API ERROR]:",
+      error.response ? error.response.data : error.message
+    ); // Debug error
     throw error.response ? error.response.data : error.message;
   }
 };
