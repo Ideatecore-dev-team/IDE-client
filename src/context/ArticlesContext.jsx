@@ -28,7 +28,6 @@ const articlesReducer = (state, action) => {
     case "SET_PAGE":
       return { ...state, currentPage: action.payload };
     case "SET_PAGINATION":
-      console.log("📌 SET_PAGINATION:", action.payload);
       return { ...state, pagination: action.payload };
     case "SET_SEARCH_QUERY":
       return { ...state, searchQuery: action.payload, currentPage: 1 };

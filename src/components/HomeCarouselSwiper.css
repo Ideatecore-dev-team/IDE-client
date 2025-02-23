@@ -32,4 +32,8 @@
     height: 4px;
     opacity: 1;
   }
+
+  .article-container .swiper-pagination {
+    bottom: -5px !important;
+  }
 }

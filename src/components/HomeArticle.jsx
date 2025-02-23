@@ -1,8 +1,13 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useEffect, useState, useContext } from "react"; // ✅ Tambahkan useContext
+import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { ArticlesContext } from "../context/ArticlesContext"; // ✅ Import Context
+import { ArticlesContext } from "../context/ArticlesContext";
 import { motion } from "framer-motion";
+import { Swiper, SwiperSlide } from "swiper/react";
+import PropTypes from "prop-types";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Pagination } from "swiper/modules";
 
 export const HomeArticle = () => {
   const { articles, loading, error } = useContext(ArticlesContext);
@@ -20,7 +25,7 @@ export const HomeArticle = () => {
   }, []);
 
   const scrollToTop = () => {
-    const duration = 1000; // Duration in milliseconds (1 second)
+    const duration = 1000;
     const start = window.pageYOffset;
     const change = -start;
     let startTime = null;
@@ -49,7 +54,63 @@ export const HomeArticle = () => {
     (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
   );
 
-  const mostRecentArticle = sortedArticles[0];
+  const articleContainerClass = `article flex items-center self-stretch gap-6 articles ${
+    !isMobile && sortedArticles.length < 4 ? "justify-center" : "justify-left"
+  }`;
+
+  const ArticleCard = ({ article }) => (
+    <motion.div
+      key={article.id} // Key sudah ada di sini
+      className="flex flex-col items-start justify-between w-full lg:w-[288px] lg:h-[296.63px] gap-3 article-card"
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
+    >
+      <Link
+        to={`/article/${article.id}`}
+        className="w-full"
+        onClick={scrollToTop}
+      >
+        <img
+          src={article.image}
+          className="w-full h-[172.8px]"
+          alt={article.title}
+        />
+        <div className="flex flex-col h-[123px]">
+          <h5 className="text-base font-bold text-brand-red py-3">
+            {article.Category?.category?.toUpperCase() || "Uncategorized"}
+          </h5>
+          <div className="title-detail flex flex-col self-stretch gap-1">
+            <Link className="text-xl font-bold">
+              {article.title.length > 30
+                ? `${article.title.substring(0, 30)}...`
+                : article.title}
+            </Link>
+            <div className="flex items-center gap-1 text-sm font-normal user-date text-neutral-3">
+              <p>{article.User?.name || "Unknown Author"}</p>
+              <p>-</p>
+              <p>{new Date(article.createdAt).toLocaleDateString()}</p>
+            </div>
+          </div>
+        </div>
+      </Link>
+    </motion.div>
+  );
+
+  ArticleCard.propTypes = {
+    article: PropTypes.shape({
+      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+      image: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      createdAt: PropTypes.string.isRequired,
+      Category: PropTypes.shape({
+        category: PropTypes.string,
+      }),
+      User: PropTypes.shape({
+        name: PropTypes.string,
+      }),
+    }).isRequired,
+  };
 
   return (
     <div className="flex items-start self-stretch justify-center article-section">
@@ -85,12 +146,12 @@ export const HomeArticle = () => {
                   r="10"
                   stroke="currentColor"
                   strokeWidth="4"
-                ></circle>
+                />
                 <path
                   className="opacity-75"
                   fill="currentColor"
                   d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                ></path>
+                />
               </svg>
             </motion.div>
           </div>
@@ -101,51 +162,35 @@ export const HomeArticle = () => {
         {!loading && validArticles.length === 0 ? (
           <p className="text-center text-gray-500">No articles available.</p>
         ) : (
-          <div className="article flex items-center self-stretch justify-left gap-6 articles ">
-            {(isMobile ? [mostRecentArticle] : sortedArticles.slice(0, 4)).map(
-              (article) =>
-                article && ( // ✅ Pastikan `article` tidak `undefined`
-                  <motion.div
-                    key={article.id}
-                    className="flex flex-col items-start justify-between w-full lg:w-[288px] lg:h-[296.63px] gap-3 article-card "//nambahin h biar card sama
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, ease: "easeInOut" }}
-                  >
-                    <Link
-                      to={`/article/${article.id}`}
-                      className="w-full"
-                      onClick={scrollToTop}
-                    >
-                      <img
-                        src={article.image}
-                        className="w-full h-[172.8px]"
-                        alt={article.title}
-                      />
-                      <div className="flex flex-col h-[123px]">
-                        <h5 className="text-base font-bold text-brand-red py-3">
-                          {article.Category?.category?.toUpperCase() || "Uncategorized"}
-                        </h5>
-                        <div className="title-detail flex flex-col self-stretch gap-1">
-                          <Link className="text-xl font-bold">
-                            {article.title.length > 30
-                              ? `${article.title.substring(0, 30)}...`
-                              : article.title}
-                          </Link>
-                          <div className="flex items-center gap-1 text-sm font-normal user-date text-neutral-3">
-                            <p>{article.User?.name || "Unknown Author"}</p>
-                            <p>-</p>
-                            <p>
-                              {new Date(article.createdAt).toLocaleDateString()}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </Link>
-                  </motion.div>
-                )
+          <>
+            {isMobile ? (
+              <Swiper
+                spaceBetween={10}
+                slidesPerView={1}
+                pagination={{ clickable: true }}
+                modules={[Pagination]}
+                className="w-full"
+              >
+                {sortedArticles.slice(0, 4).map((article) =>
+                  article ? (
+                    <SwiperSlide key={article.id}>
+                      <ArticleCard article={article} />
+                    </SwiperSlide>
+                  ) : null
+                )}
+              </Swiper>
+            ) : (
+              <div className={articleContainerClass}>
+                {sortedArticles
+                  .slice(0, 4)
+                  .map((article) =>
+                    article ? (
+                      <ArticleCard key={article.id} article={article} />
+                    ) : null
+                  )}
+              </div>
             )}
-          </div>
+          </>
         )}
       </div>
     </div>
