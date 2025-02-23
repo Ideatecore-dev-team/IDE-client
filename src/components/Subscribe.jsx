@@ -1,13 +1,13 @@
-// eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
-import useSubscribe from "../hooks/useSubscribe"; // Sesuaikan path dengan lokasi useSubscribe.js
+import useSubscribe from "../hooks/useSubscribe"; // Sesuaikan path
 
 export const Subscribe = () => {
   const [email, setEmail] = useState("");
-  const { subscribe, loading, error, message } = useSubscribe();
+  const { subscribe, loading } = useSubscribe();
 
   const handleSubscribe = () => {
     subscribe(email);
+    if (!loading) setEmail(""); // Kosongkan input hanya jika tidak sedang loading
   };
 
   return (
@@ -28,8 +28,6 @@ export const Subscribe = () => {
           {loading ? "Mengirim..." : "Subscribe"}
         </p>
       </button>
-      {message && <p className="text-sm mt-2 text-green-500">{message}</p>}
-      {error && <p className="text-sm mt-2 text-red-500">{error}</p>}
     </div>
   );
 };

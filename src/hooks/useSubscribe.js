@@ -1,32 +1,29 @@
 import { useState } from "react";
-import { subscribeEmail } from "../api/api";
+import { toast } from "react-toastify";
+import { subscribeEmail } from "../api/api"; // Sesuaikan path
 
 const useSubscribe = () => {
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [message, setMessage] = useState("");
 
   const subscribe = async (email) => {
     if (!email) {
-      setError("Email tidak boleh kosong.");
+      toast.error("Email tidak boleh kosong.");
       return;
     }
 
     setLoading(true);
-    setError(null);
-    setMessage("");
 
     try {
       await subscribeEmail(email);
-      setMessage("Berhasil subscribe! Terima kasih.");
+      toast.success("Berhasil subscribe! Terima kasih.");
     } catch (err) {
-      setError(err.message || "Gagal subscribe. Silakan coba lagi.");
+      toast.error(err.message || "Gagal subscribe. Silakan coba lagi.");
     } finally {
       setLoading(false);
     }
   };
 
-  return { subscribe, loading, error, message };
+  return { subscribe, loading };
 };
 
 export default useSubscribe;
