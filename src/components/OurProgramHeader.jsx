@@ -36,13 +36,13 @@ export const OurProgramHeader = () => {
     {  
       program: "Media, Art, And Creative Affairs",  
       desc: "Menciptakan anak-anak bangsa kreatif, inovatif, adaptif, dan berdaya saing global melalui inovasi media, seni, dan industri kreatif.",  
-      icon: <SiMediamarkt size={24} className="text-white" />,  
+      icon: <MdStarRate size={24} className="text-white" />,  
     },  
   ];  
   
   return (  
     <div className="our-program-section flex items-start justify-center">  
-      <div className="our-program-container w-full xs:mx-6 lg:w-[1224px] flex flex-col items-center border-b-[1px] border-l-neutral-3">  
+      <div className="our-program-container w-full xs:mx-6 lg:w-[1224px] flex flex-col items-center border-b-[1px] border-neutral-3">  
         <div className="desc flex lg:w-[520px] py-12 flex-col items-start gap-4 self-stretch">  
           <h5 className="text-sm lg:text-base font-bold">OUR PROGRAM</h5>  
           <img src={Logo} alt="" />  
