@@ -8,6 +8,7 @@ import { Articles } from "../pages/Articles";
 import { Article } from "../pages/Article";
 import { OurProgram } from "../pages/OurProgram";
 import { ArticlesProvider } from "../context/ArticlesContext";
+import { NotFound } from "../components/NotFound";
 
 const ListRouter = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const ListRouter = createBrowserRouter([
             <Home />
           </ArticlesProvider>
         ), // Membungkus Home dengan ArticlesProvider
+      },
+      {
+        path: "*",
+        element: <NotFound />,
       },
       {
         path: "/contact-us",
