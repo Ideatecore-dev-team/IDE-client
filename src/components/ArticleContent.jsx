@@ -36,6 +36,32 @@ export const ArticleContent = ({ articleData }) => {
         ></div>
         <div className="author flex flex-col items-start gap-3 xs:hidden w-[157.594px]"></div>
       </div>
+      <style jsx>{`
+        .article-content h1 {
+          font-size: 2em; /* 32 piksel */
+
+        }
+        .article-content h2 {
+          font-size: 1.5em; /* 24 piksel */
+
+        }
+        .article-content h3 {
+          font-size: 1.17em; /* 18.72 piksel */
+
+        }
+        .article-content h4 {
+          font-size: 1em; /* 16 piksel */
+
+        }
+        .article-content h5 {
+          font-size: 0.83em; /* 13.28 piksel */
+
+        }
+        .article-content h6 {
+          font-size: 0.67em; /* 10.72 piksel */
+
+        }
+      `}</style>
     </div>
   );
 };
