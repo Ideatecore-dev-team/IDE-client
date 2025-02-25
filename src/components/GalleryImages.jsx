@@ -46,8 +46,8 @@ export const GalleryImages = () => {
   }
 
   return (
-    <div className="gallery-images w-full lg:w-[1224px] xs:px-6 flex pb-12 xs:flex-col xs:justify-center items-start lg:items-center gap-6 self-stretch lg:mx-auto border-b-[1px] border-neutral-3">
-      <div className="gallery-frame-1 w-full lg:w-[392px] h-[802.98px] lg:h-[824px] flex flex-col items-start gap-6">
+    <div className="gallery-images w-full lg:w-[1224px] xs:px-6 flex lg:pb-12 xs:flex-col xs:justify-center items-start lg:items-center gap-6 self-stretch lg:mx-auto border-b-[1px] border-neutral-3">
+      <div className="gallery-frame-1 w-full lg:w-[392px] h-auto lg:h-[824px] flex flex-col items-start gap-6">
         <img src={gallery.topLeft} alt="Top Left" className="w-full h-auto" />
         <img
           src={gallery.bottomLeft}
@@ -62,7 +62,7 @@ export const GalleryImages = () => {
           className="w-full h-full object-cover"
         />
       </div>
-      <div className="gallery-frame-3 w-full lg:w-[392px] h-[802.98px] lg:h-[824px] flex flex-col items-start gap-6">
+      <div className="gallery-frame-3 w-full lg:w-[392px] h-auto xs:pb-12 lg:h-[824px] flex flex-col items-start gap-6">
         <img src={gallery.topRight} alt="Top Right" className="w-full h-auto" />
         <img
           src={gallery.bottomRight}
