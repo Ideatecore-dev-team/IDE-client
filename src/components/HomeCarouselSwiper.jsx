@@ -1,20 +1,44 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Pagination, Autoplay, Navigation } from "swiper/modules";
-import image1 from "../assets/images/hero-carousel-1.png";
-import image2 from "../assets/images/hero-carousel-2.png";
-import image3 from "../assets/images/hero-carousel-3.png";
-import image4 from "../assets/images/hero-carousel-4.png";
-import image5 from "../assets/images/hero-carousel-5.png";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import "./HomeCarouselSwiper.css";
+import { fetchHomeImages } from "../api/api";
+import { motion } from "framer-motion";
+
 
 export const HomeCarouselSwiper = () => {
-  const images = [image1, image2, image3, image4, image5];
+  const [HomeImages, setHomeImages] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const loadHomeImages = async () => {
+      try {
+        const fetchedHomeImages = await fetchHomeImages();
+        setHomeImages(fetchedHomeImages);
+      } catch (err) {
+        setError("Failed to fetch images");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadHomeImages();
+  }, []);
+
+  if (loading) {
+    return <div className="w-full text-center py-10 text-brand-red hover:text-brand-red-hover">Loading...</div>;
+  }
+
+  if (error) {
+    return <div className="w-full text-center py-10 text-red-500">{error}</div>;
+  }
+
 
   return (
     <div className="w-full relative">
@@ -41,13 +65,14 @@ export const HomeCarouselSwiper = () => {
         modules={[Pagination, Autoplay, Navigation]}
         className="mySwiper pb-6 w-full"
       >
-        {images.map((image, index) => (
+        {HomeImages.map((image, index) => (
           <SwiperSlide key={index}>
             <img
-              src={image}
+              src={image.image}
               alt={`Slide ${index + 1}`}
               className="w-full h-full object-cover"
             />
+          {console.log(image)}
           </SwiperSlide>
         ))}
 
