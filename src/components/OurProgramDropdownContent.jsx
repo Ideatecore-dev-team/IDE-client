@@ -44,9 +44,9 @@ export const OurProgramDropdownContent = ({ programId }) => {
       description:
         "Menghubungkan wirausahawan muda di berbagai sektor dan mendukung berbagai inovasi ekonomi kreatif UMKM Lokal serta mempromosikannya di panggung global.",
       caption1:
-        "Democracy Affairs adalah ruang yang dirancang untuk memperkuat fondasi demokrasi melalui kajian, penelitian, diskusi, dan dialog terbuka. Program ini berkomitmen untuk meningkatkan pemahaman masyarakat terhadap prinsip-prinsip demokrasi, hak asasi manusia, dan tata kelola yang transparan. Dengan menyediakan platform kolaborasi lintas sektor, kami mendorong pertukaran ide serta wawasan yang relevan untuk menciptakan solusi inovatif dalam menghadapi tantangan politik dan sosial di Indonesia.",
+        "Kami mendorong pertumbuhan ekosistem wirausaha yang inklusif dan berkelanjutan melalui pelatihan kewirausahaan dan pendampingan bisnis. Kami membantu UMKM dan startup mengakses jaringan pemodal serta meningkatkan kapasitas bisnis mereka.",
       caption2:
-        "Melalui Democracy Affairs, kami juga memberikan pelatihan dan pengembangan kapasitas bagi generasi muda, komunitas, dan pemimpin lokal untuk membangun kesadaran akan pentingnya partisipasi aktif dalam proses demokrasi. Program ini bertujuan menciptakan masyarakat yang lebih kritis, terinformasi, dan siap berkontribusi dalam penguatan demokrasi, baik di tingkat nasional maupun global.",
+        "Kami juga menyelenggarakan kompetisi dan pameran bisnis untuk mempromosikan produk lokal dan mendorong inovasi. Dengan program ini, kami bertujuan untuk menciptakan lapangan kerja dan meningkatkan perekonomian masyarakat.",
     },
     5: {
       image: ProgramImage5,
@@ -54,9 +54,9 @@ export const OurProgramDropdownContent = ({ programId }) => {
       description:
         "Melahirkan berbagai inovasi baru dalam rangka menciptakan masa depan anak bangsa yang kreatif, adaptif, inklusif, dan berdaya saing global.",
       caption1:
-        "Democracy Affairs adalah ruang yang dirancang untuk memperkuat fondasi demokrasi melalui kajian, penelitian, diskusi, dan dialog terbuka. Program ini berkomitmen untuk meningkatkan pemahaman masyarakat terhadap prinsip-prinsip demokrasi, hak asasi manusia, dan tata kelola yang transparan. Dengan menyediakan platform kolaborasi lintas sektor, kami mendorong pertukaran ide serta wawasan yang relevan untuk menciptakan solusi inovatif dalam menghadapi tantangan politik dan sosial di Indonesia.",
+        "Kami memajukan industri kreatif Indonesia dengan mendukung seniman, kreator, dan pelaku media melalui workshop, festival, dan pameran seni. Kami memberikan platform bagi mereka untuk menampilkan karya dan mengembangkan potensi kreatif.",
       caption2:
-        "Melalui Democracy Affairs, kami juga memberikan pelatihan dan pengembangan kapasitas bagi generasi muda, komunitas, dan pemimpin lokal untuk membangun kesadaran akan pentingnya partisipasi aktif dalam proses demokrasi. Program ini bertujuan menciptakan masyarakat yang lebih kritis, terinformasi, dan siap berkontribusi dalam penguatan demokrasi, baik di tingkat nasional maupun global.",
+        "Selain itu, kami mengembangkan platform digital untuk mendistribusikan konten kreatif serta bekerja sama dengan media untuk meningkatkan visibilitas industri kreatif Indonesia di kancah global. Dengan ini, kami berharap dapat memperkuat identitas budaya dan ekonomi kreatif Indonesia.",
     },
   };
 

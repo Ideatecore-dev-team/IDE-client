@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useContext, useMemo, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useMemo, useEffect, useRef } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArticlesContext } from "../context/ArticlesContext";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
@@ -31,9 +31,26 @@ export const ArticlesList = () => {
     return sorted;
   }, [articles, selectedSort]); // Dependensi: articles dan selectedSort
 
+  const containerRef = useRef(null);
+  const navigate = useNavigate();
+
+  const scrollToTop = () => {
+    if (containerRef.current) {
+      containerRef.current.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  const handleArticleClick = (articleId) => {
+    scrollToTop();
+    navigate(`/article/${articleId}`);
+  };
+
   return (
     <div className="articles-list-section flex flex-col items-center self-center">
-      <div className="articles-list-container flex w-full lg:w-[1224px] xs:px-6 py-12 flex-col items-start gap-12">
+      <div
+        ref={containerRef}
+        className="articles-list-container flex w-full lg:w-[1224px] xs:px-6 py-12 flex-col items-start gap-12"
+      >
         <div className="flex flex-col items-start gap-4 articles-list xs:w-full lg:self-stretch">
           <p className="article-list-header text-base font-bold">
             NEWEST ARTICLE
@@ -114,6 +131,7 @@ export const ArticlesList = () => {
                   <Link
                     to={`/article/${article.id}`}
                     className="article-card flex w-full lg:w-[376px] flex-col items-start justify-center"
+                    onClick={() => handleArticleClick(article.id)}
                   >
                     <img
                       src={article.image}

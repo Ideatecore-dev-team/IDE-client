@@ -19,7 +19,7 @@ const Hero = () => {
         <ButtonLink
           caption="Learn More"
           color="bg-brand-red hover:bg-brand-red-hover"
-          to="/contact-us"
+          to="/about"
         />
       </div>
       <HomeCarouselSwiper />
