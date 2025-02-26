@@ -1,0 +1,15 @@
+/* Styling untuk list */
+.article-content ol,
+.article-content ul {
+  padding-left: 1.5em;
+  margin-bottom: 1em;
+}
+.article-content li {
+  margin-bottom: 0.5em;
+}
+.article-content li[data-list="bullet"] {
+  list-style-type: disc !important; /* Bullet */
+}
+.article-content li[data-list="ordered"] {
+  list-style-type: decimal !important; /* Numbering */
+}

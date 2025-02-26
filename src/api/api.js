@@ -176,3 +176,24 @@ export const submitContactUs = async ({
     throw error.response ? error.response.data : error.message;
   }
 };
+
+
+export const fetchHomeImages = async () => {
+  try {
+    const response = await fetch(`${BASE_URL}/homeimage`);
+
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    const data = await response.json();
+    return data.data;
+    
+    // data.data.map((item) => ({
+    //   image: item.image,
+    // }));
+  } catch (error) {
+    console.error("There was a problem with the fetch operation:", error);
+    return [];
+  }
+};
+

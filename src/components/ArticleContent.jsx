@@ -3,9 +3,51 @@ import React from "react";
 import { MdPerson } from "react-icons/md";
 import DOMPurify from "dompurify";
 import PropTypes from "prop-types";
-import "quill/dist/quill.snow.css"; // Include the Quill stylesheet
+import "quill/dist/quill.snow.css";
+import "./quill-costom.css";
 
 export const ArticleContent = ({ articleData }) => {
+  const formattedContent = articleData.content.replace(
+    /href="([^"]+)"/g,
+    (match, url) => {
+      if (!url.startsWith("http://") && !url.startsWith("https://")) {
+        return `href="https://${url}"`;
+      }
+      return match;
+    }
+  );
+
+  // Sanitasi konten dengan DOMPurify
+  const sanitizedContent = DOMPurify.sanitize(formattedContent, {
+    ALLOWED_TAGS: [
+      "h1",
+      "h2",
+      "h3",
+      "p",
+      "br",
+      "strong",
+      "em",
+      "ul",
+      "ol",
+      "li",
+      "a",
+      "img",
+      "sup",
+      "sub",
+      "s",
+      "u",
+    ],
+    ALLOWED_ATTR: [
+      "href",
+      "rel",
+      "target",
+      "class",
+      "style",
+      "src",
+      "data-list",
+    ],
+  });
+
   return (
     <div className="article-content flex flex-col items-start gap-6 lg:gap-12 self-stretch">
       <img
@@ -30,9 +72,7 @@ export const ArticleContent = ({ articleData }) => {
         </div>
         <div
           className="article-content lg:w-[600px] flex flex-col items-start gap-0 self-stretch text-justify"
-          dangerouslySetInnerHTML={{
-            __html: DOMPurify.sanitize(articleData.content),
-          }}
+          dangerouslySetInnerHTML={{ __html: sanitizedContent }}
         ></div>
         <div className="author flex flex-col items-start gap-3 xs:hidden w-[157.594px]"></div>
       </div>

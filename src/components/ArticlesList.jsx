@@ -1,9 +1,10 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useContext, useMemo, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useMemo, useEffect, useRef } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArticlesContext } from "../context/ArticlesContext";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+import { ArticleListNotFound } from "./ArticleListNotFound";
 
 export const ArticlesList = () => {
   const {
@@ -12,6 +13,7 @@ export const ArticlesList = () => {
     error,
     searchQuery,
     selectedCategory,
+    selectedSort,
     currentPage,
     dispatch,
     pagination,
@@ -20,12 +22,35 @@ export const ArticlesList = () => {
   const totalPages = pagination?.totalPage || 1;
 
   const filteredArticles = useMemo(() => {
-    return [...articles];
-  }, [articles]);
+    const sorted = [...articles];
+    if (selectedSort === "newest") {
+      sorted.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+    } else if (selectedSort === "oldest") {
+      sorted.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
+    }
+    return sorted;
+  }, [articles, selectedSort]);
+
+  const containerRef = useRef(null);
+  const navigate = useNavigate();
+
+  const scrollToTop = () => {
+    if (containerRef.current) {
+      containerRef.current.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
+  const handleArticleClick = (articleId) => {
+    scrollToTop();
+    navigate(`/article/${articleId}`);
+  };
 
   return (
     <div className="articles-list-section flex flex-col items-center self-center">
-      <div className="articles-list-container flex w-full lg:w-[1224px] xs:px-6 py-12 flex-col items-start gap-12">
+      <div
+        ref={containerRef}
+        className="articles-list-container flex w-full lg:w-[1224px] xs:px-6 py-12 flex-col items-start gap-12"
+      >
         <div className="flex flex-col items-start gap-4 articles-list xs:w-full lg:self-stretch">
           <p className="article-list-header text-base font-bold">
             NEWEST ARTICLE
@@ -68,24 +93,18 @@ export const ArticlesList = () => {
 
           {/* No Articles Found (Search) */}
           {!loading &&
-            articles.length === 0 &&
+            filteredArticles.length === 0 &&
             searchQuery &&
-            typeof searchQuery === "string" && (
-              <p className="text-center text-gray-500">
-                No articles found for &quot;{searchQuery}&quot;.
-              </p>
-            )}
+            typeof searchQuery === "string" && <ArticleListNotFound />}
 
           {/* No Articles Found (Filter by Category) */}
-          {!loading && articles.length === 0 && selectedCategory && (
-            <p className="text-center text-gray-500">
-              No articles found in this category.
-            </p>
+          {!loading && filteredArticles.length === 0 && selectedCategory && (
+            <ArticleListNotFound />
           )}
 
           {/* No Articles Available (General Case) */}
           {!loading &&
-            articles.length === 0 &&
+            filteredArticles.length === 0 &&
             !searchQuery &&
             !selectedCategory && (
               <p className="text-center text-gray-500">
@@ -106,6 +125,7 @@ export const ArticlesList = () => {
                   <Link
                     to={`/article/${article.id}`}
                     className="article-card flex w-full lg:w-[376px] flex-col items-start justify-center"
+                    onClick={() => handleArticleClick(article.id)}
                   >
                     <img
                       src={article.image}
