@@ -12,6 +12,7 @@ export const ArticlesList = () => {
     error,
     searchQuery,
     selectedCategory,
+    selectedSort, // Tambahkan selectedSort dari context
     currentPage,
     dispatch,
     pagination,
@@ -19,9 +20,16 @@ export const ArticlesList = () => {
 
   const totalPages = pagination?.totalPage || 1;
 
+  // Mengurutkan artikel berdasarkan selectedSort
   const filteredArticles = useMemo(() => {
-    return [...articles];
-  }, [articles]);
+    const sorted = [...articles]; // Salin array untuk menghindari mutasi
+    if (selectedSort === "newest") {
+      sorted.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+    } else if (selectedSort === "oldest") {
+      sorted.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
+    }
+    return sorted;
+  }, [articles, selectedSort]); // Dependensi: articles dan selectedSort
 
   return (
     <div className="articles-list-section flex flex-col items-center self-center">
@@ -68,7 +76,7 @@ export const ArticlesList = () => {
 
           {/* No Articles Found (Search) */}
           {!loading &&
-            articles.length === 0 &&
+            filteredArticles.length === 0 &&
             searchQuery &&
             typeof searchQuery === "string" && (
               <p className="text-center text-gray-500">
@@ -77,7 +85,7 @@ export const ArticlesList = () => {
             )}
 
           {/* No Articles Found (Filter by Category) */}
-          {!loading && articles.length === 0 && selectedCategory && (
+          {!loading && filteredArticles.length === 0 && selectedCategory && (
             <p className="text-center text-gray-500">
               No articles found in this category.
             </p>
@@ -85,7 +93,7 @@ export const ArticlesList = () => {
 
           {/* No Articles Available (General Case) */}
           {!loading &&
-            articles.length === 0 &&
+            filteredArticles.length === 0 &&
             !searchQuery &&
             !selectedCategory && (
               <p className="text-center text-gray-500">
