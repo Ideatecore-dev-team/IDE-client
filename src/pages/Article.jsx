@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import useGetArticleById from "../hooks/useGetArticleById";
 import { ArticleContent } from "../components/ArticleContent";
@@ -9,6 +9,11 @@ import { motion } from "framer-motion"; // Import motion from framer-motion
 export const Article = () => {
   const { id } = useParams();
   const { article, loading, error } = useGetArticleById(id);
+
+  useEffect(() => {
+    // Scroll to the top of the page smoothly when the article is loaded
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [id]); // Dependency on id to trigger scroll when the article changes
 
   return (
     <div className="items-start self-center justify-center article article-section">
