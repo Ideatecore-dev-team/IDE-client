@@ -1,17 +1,17 @@
-/* eslint-disable react/prop-types */  
-import React, { useState, useEffect } from "react";  
-import PropTypes from "prop-types";  
-import { 
-  SiLinkedin, 
-  SiInstagram, 
-  SiYoutube, 
+/* eslint-disable no-unused-vars */
+import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
+import {
+  SiLinkedin,
+  SiInstagram,
+  SiYoutube,
   SiFacebook,
-  SiTiktok, 
+  SiTiktok,
   SiX,
-} from "react-icons/si";  
+} from "react-icons/si";
 import { fetchCompanyInfo } from "../api/api"; // Import the fetch function
 
-export const Social = ({ hideAt }) => {  
+export const Social = ({ hideAt = "" }) => {
   const [socialLinks, setSocialLinks] = useState({
     linkedin: "",
     instagram: "",
@@ -29,13 +29,13 @@ export const Social = ({ hideAt }) => {
     getCompanyInfo();
   }, []);
 
-  // Determine visibility class based on "hideAt" prop  
-  const visibilityClass =  
-    hideAt === "mobile"  
-      ? "hidden md:flex" // Hidden on small screens, visible on medium and up  
-      : hideAt === "desktop"  
-      ? "flex md:hidden mt-4" // Visible on small screens, hidden on medium and up  
-      : "flex"; // Default is visible everywhere  
+  // Determine visibility class based on "hideAt" prop
+  const visibilityClass =
+    hideAt === "mobile"
+      ? "hidden md:flex" // Hidden on small screens, visible on medium and up
+      : hideAt === "desktop"
+      ? "flex md:hidden mt-4" // Visible on small screens, hidden on medium and up
+      : "flex"; // Default is visible everywhere
 
   // Create an array of icon components
   const icons = [
@@ -45,7 +45,6 @@ export const Social = ({ hideAt }) => {
     { name: "linkedin", icon: <SiLinkedin />, link: socialLinks.linkedin },
     { name: "youtube", icon: <SiYoutube />, link: socialLinks.youtube },
     { name: "tiktok", icon: <SiTiktok />, link: socialLinks.tiktok },
-
   ];
 
   // Function to create rows of icons
@@ -72,17 +71,15 @@ export const Social = ({ hideAt }) => {
     return rows;
   };
 
-  return (  
-    <div className={`social-media flex flex-col gap-3 self-stretch text-white ${visibilityClass}`}>
+  return (
+    <div
+      className={`social-media flex flex-col gap-3 self-stretch text-white ${visibilityClass}`}
+    >
       {createRows(icons, 4)}
-    </div>  
-  );  
-};  
+    </div>
+  );
+};
 
-Social.propTypes = {  
-  hideAt: PropTypes.oneOf(["mobile", "desktop", ""]),  
-};  
-
-Social.defaultProps = {  
-  hideAt: "",  
+Social.propTypes = {
+  hideAt: PropTypes.oneOf(["mobile", "desktop", ""]),
 };

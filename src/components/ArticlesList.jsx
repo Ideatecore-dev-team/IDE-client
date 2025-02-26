@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArticlesContext } from "../context/ArticlesContext";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+import { ArticleListNotFound } from "./ArticleListNotFound";
 
 export const ArticlesList = () => {
   const {
@@ -12,7 +13,7 @@ export const ArticlesList = () => {
     error,
     searchQuery,
     selectedCategory,
-    selectedSort, // Tambahkan selectedSort dari context
+    selectedSort,
     currentPage,
     dispatch,
     pagination,
@@ -20,23 +21,22 @@ export const ArticlesList = () => {
 
   const totalPages = pagination?.totalPage || 1;
 
-  // Mengurutkan artikel berdasarkan selectedSort
   const filteredArticles = useMemo(() => {
-    const sorted = [...articles]; // Salin array untuk menghindari mutasi
+    const sorted = [...articles];
     if (selectedSort === "newest") {
       sorted.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
     } else if (selectedSort === "oldest") {
       sorted.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
     }
     return sorted;
-  }, [articles, selectedSort]); // Dependensi: articles dan selectedSort
+  }, [articles, selectedSort]);
 
   const containerRef = useRef(null);
   const navigate = useNavigate();
 
   const scrollToTop = () => {
     if (containerRef.current) {
-      containerRef.current.scrollTo({ top: 0, behavior: 'smooth' });
+      containerRef.current.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
@@ -95,17 +95,11 @@ export const ArticlesList = () => {
           {!loading &&
             filteredArticles.length === 0 &&
             searchQuery &&
-            typeof searchQuery === "string" && (
-              <p className="text-center text-gray-500">
-                No articles found for &quot;{searchQuery}&quot;.
-              </p>
-            )}
+            typeof searchQuery === "string" && <ArticleListNotFound />}
 
           {/* No Articles Found (Filter by Category) */}
           {!loading && filteredArticles.length === 0 && selectedCategory && (
-            <p className="text-center text-gray-500">
-              No articles found in this category.
-            </p>
+            <ArticleListNotFound />
           )}
 
           {/* No Articles Available (General Case) */}
