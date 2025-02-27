@@ -6,7 +6,8 @@ import {
   MdMenuBook,  
   MdPeople,  
   MdLightbulb,  
-  MdStarRate,  
+  MdStarRate, 
+  MdCameraAlt, 
 } from "react-icons/md";  
 
 import { SiMediamarkt } from "react-icons/si";
@@ -36,7 +37,7 @@ export const OurProgramHeader = () => {
     {  
       program: "Media, Art, And Creative Affairs",  
       desc: "Menciptakan anak-anak bangsa kreatif, inovatif, adaptif, dan berdaya saing global melalui inovasi media, seni, dan industri kreatif.",  
-      icon: <MdStarRate size={24} className="text-white" />,  
+      icon: <MdCameraAlt size={24} className="text-white" />,  
     },  
   ];  
   
