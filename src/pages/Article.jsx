@@ -8,13 +8,13 @@ import { motion } from "framer-motion"; // Import motion from framer-motion
 import { Helmet } from "react-helmet"; // Import Helmet from react-helmet
 
 export const Article = () => {
-  const { id } = useParams();
+  const { id, image } = useParams();
   const { article, loading, error } = useGetArticleById(id);
 
   useEffect(() => {
     // Scroll to the top of the page smoothly when the article is loaded
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [id]); // Dependency on id to trigger scroll when the article changes
+  }, [id, image]); // Dependency on id to trigger scroll when the article changes
 
   // Handle loading and error states
   if (loading) return <div>Loading...</div>;
@@ -26,7 +26,7 @@ export const Article = () => {
         {/* Open Graph meta tags */}
         <meta property="og:title" content={article.title} />
         <meta property="og:description" content={article.content.substring(0, 160)} />
-        <meta property="og:image" content={article.image} />
+        <meta property="og:image" content={article.image || `https://api.theideindonesia.id/article/${image}`} />
         <meta property="og:url" content={`https://api.theideindonesia.id/article/${id}`} />
         <meta property="og:type" content="article" />
       </Helmet>
