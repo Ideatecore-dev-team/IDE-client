@@ -5,6 +5,7 @@ import DOMPurify from "dompurify";
 import PropTypes from "prop-types";
 import "quill/dist/quill.snow.css";
 import "./quill-costom.css";
+import { Helmet } from "react-helmet"; // Import Helmet from react-helmet
 
 export const ArticleContent = ({ articleData }) => {
   const formattedContent = articleData.content.replace(
@@ -50,6 +51,11 @@ export const ArticleContent = ({ articleData }) => {
 
   return (
     <div className="article-content flex flex-col items-start gap-6 lg:gap-12 self-stretch">
+      <Helmet>
+        {/* Additional meta tags for the article content */}
+        <meta property="og:image" content={articleData.image} />
+        <meta property="og:description" content={articleData.content.substring(0, 160)} />
+      </Helmet>
       <img
         src={articleData.image}
         alt={articleData.title}
