@@ -6,7 +6,7 @@ import "quill/dist/quill.snow.css";
 import "./quill-costom.css";
 import { Helmet } from "react-helmet"; // Import Helmet from react-helmet
 
-const ArticleContent = React.memo(({ articleData }) => {
+export const ArticleContent = React.memo(({ articleData }) => {
   const formattedContent = articleData.content.replace(
     /href="([^"]+)"/g,
     (match, url) => {
