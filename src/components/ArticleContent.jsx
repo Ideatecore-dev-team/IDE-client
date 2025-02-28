@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 import React from "react";
 import { MdPerson } from "react-icons/md";
 import DOMPurify from "dompurify";
@@ -7,7 +6,7 @@ import "quill/dist/quill.snow.css";
 import "./quill-costom.css";
 import { Helmet } from "react-helmet"; // Import Helmet from react-helmet
 
-export const ArticleContent = ({ articleData }) => {
+const ArticleContent = React.memo(({ articleData }) => {
   const formattedContent = articleData.content.replace(
     /href="([^"]+)"/g,
     (match, url) => {
@@ -84,7 +83,7 @@ export const ArticleContent = ({ articleData }) => {
       </div>
     </div>
   );
-};
+});
 
 ArticleContent.propTypes = {
   articleData: PropTypes.shape({
