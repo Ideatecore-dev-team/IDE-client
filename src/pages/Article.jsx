@@ -5,6 +5,7 @@ import useGetArticleById from "../hooks/useGetArticleById";
 import { ArticleContent } from "../components/ArticleContent";
 import { HomeArticle } from "../components/HomeArticle";
 import { motion } from "framer-motion"; // Import motion from framer-motion
+import { Helmet } from "react-helmet"; // Import Helmet from react-helmet
 
 export const Article = () => {
   const { id } = useParams();
@@ -15,8 +16,20 @@ export const Article = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [id]); // Dependency on id to trigger scroll when the article changes
 
+  // Handle loading and error states
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error loading article</div>;
+
   return (
     <div className="items-start self-center justify-center article article-section">
+      <Helmet>
+        {/* Open Graph meta tags */}
+        <meta property="og:title" content={article.title} />
+        <meta property="og:description" content={article.content.substring(0, 160)} />
+        <meta property="og:image" content={article.image || "https://example.com/default-image.jpg"} />
+        <meta property="og:url" content={`https://yourdomain.com/articles/${id}`} />
+        <meta property="og:type" content="article" />
+      </Helmet>
       <div className="article-container w-full lg:w-[1224px] xs:px-6 pt-12 flex flex-col items-start lg:items-center lg:mx-auto">
         <motion.div // Wrap the main content in a motion.div
           key={`${article?.id}-${article?.Category?.id}`} // Key to trigger animation on article and category change
