@@ -27,7 +27,7 @@ export const Article = () => {
         <meta property="og:title" content={article.title} />
         <meta property="og:description" content={article.content.substring(0, 160)} />
         <meta property="og:image" content={article.image || "https://example.com/default-image.jpg"} />
-        <meta property="og:url" content={`https://yourdomain.com/articles/${id}`} />
+        <meta property="og:url" content={`https://api.theideindonesia.id/article/${id}`} />
         <meta property="og:type" content="article" />
       </Helmet>
       <div className="article-container w-full lg:w-[1224px] xs:px-6 pt-12 flex flex-col items-start lg:items-center lg:mx-auto">
