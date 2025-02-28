@@ -26,7 +26,7 @@ export const Article = () => {
         {/* Open Graph meta tags */}
         <meta property="og:title" content={article.title} />
         <meta property="og:description" content={article.content.substring(0, 160)} />
-        <meta property="og:image" content={article.image || "https://example.com/default-image.jpg"} />
+        <meta property="og:image" content={article.image || `https://api.theideindonesia.id/media/${id}`} />
         <meta property="og:url" content={`https://api.theideindonesia.id/article/${id}`} />
         <meta property="og:type" content="article" />
       </Helmet>
