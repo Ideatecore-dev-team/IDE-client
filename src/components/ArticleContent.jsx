@@ -52,7 +52,7 @@ export const ArticleContent = React.memo(({ articleData }) => {
     <div className="article-content flex flex-col items-start gap-6 lg:gap-12 self-stretch">
       <Helmet>
         {/* Additional meta tags for the article content */}
-        <meta property="og:image" content={articleData.image} />
+        {/* <meta property="og:image" content={articleData.image} /> */}
         <meta property="og:description" content={articleData.content.substring(0, 160)} />
       </Helmet>
       <img
