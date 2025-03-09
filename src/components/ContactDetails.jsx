@@ -25,22 +25,22 @@ export const ContactDetails = ({
     getCompanyInfo();
   }, []);
   return (
-    <div className="details flex flex-col items-start gap-4 w-56">
+    <div className="details flex flex-col items-start gap-4 w-[232px]">
       <div className="detail flex items-center gap-3">
         <MdLocalPhone className={`${iconColor} text-xl`} />
-        <p className={`text-base font-normal w-[192px] ${textColor}`}>
+        <p className={`text-base font-normal w-[200px] ${textColor}`}>
           {socialLinks.phone}
         </p>
       </div>
       <div className="detail flex items-center gap-3">
         <MdEmail className={`${iconColor} text-xl`} />
-        <p className={`text-base font-normal w-[192px] ${textColor}`}>
+        <p className={`text-base font-normal w-[200px] ${textColor}`}>
           {socialLinks.email}
         </p>
       </div>
       <div className="detail flex items-center gap-3">
         <MdLocationOn className={`${iconColor} text-xl`} />
-        <p className={`text-base font-normal w-[192px] ${textColor}`}>
+        <p className={`text-base font-normal w-[200px] ${textColor}`}>
           {socialLinks.addrese}
         </p>
       </div>
