@@ -114,7 +114,7 @@ export const ArticlesList = () => {
 
           {/* Article List */}
           {!loading && filteredArticles.length > 0 && (
-            <div className="article-cards flex flex-col lg:h-[717.08px] lg:items-start items-center self-stretch gap-12 lg:flex-row lg:flex-wrap">
+            <div className="article-cards flex flex-col lg:min-h-[717.08px] lg:items-start items-center self-stretch gap-12 lg:flex-row lg:flex-wrap">
               {filteredArticles.map((article) => (
                 <motion.div
                   key={article.id}
