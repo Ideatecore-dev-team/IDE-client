@@ -24,13 +24,9 @@ export const Article = () => {
   return (
     <div className="items-start self-center justify-center article article-section">
       <Helmet>
-        {/* Open Graph meta tags */}
         <meta property="og:title" content={article.title} />
         <meta property="og:description" content={article.content.substring(0, 160)} />
-        
-        {/* location.origin = domain sekarang */}
         <meta property="og:image" content={article.image} />
-        {/* <meta property="og:image" content={new URL("/hero-carousel-5.png", location.origin).href} /> */}
         <meta property="og:image:width" content="1224" />
         <meta property="og:image:height" content="889" />
         <meta property="og:url" content={`https://api.theideindonesia.id/article/${article.id}`} />
