@@ -25,6 +25,7 @@ export const Article = () => {
     <div className="items-start self-center justify-center article article-section">
       <Helmet>
         <meta property="og:title" content={article.title} />
+        
         <meta property="og:description" content={article.content.substring(0, 160)} />
         <meta property="og:image" content={article.image} />
         <meta property="og:image:width" content="1224" />
