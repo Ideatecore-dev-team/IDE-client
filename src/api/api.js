@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const BASE_URL = "https://ide-server.vercel.app";
+// const BASE_URL = "https://ide-server.vercel.app";
+const BASE_URL = "https://api.theideindonesia.id";
+
 
 const api = axios.create({
   baseURL: BASE_URL,

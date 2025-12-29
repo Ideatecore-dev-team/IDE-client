@@ -1,7 +1,6 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArticlesContext } from "../context/ArticlesContext";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import PropTypes from "prop-types";
@@ -9,10 +8,40 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 
-export const HomeArticle = () => {
-  const { articles, loading, error } = useContext(ArticlesContext);
+import api from "../api/api"; 
 
+export const HomeArticle = () => {
+  const [homeArticles, setHomeArticles] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const fetchNewestArticles = async () => {
+      try {
+        setLoading(true);
+        
+        const response = await api.getArticles({ 
+          page: 1, 
+          size: 4, 
+          search: "", 
+          searchByCategory: null 
+        }); 
+        
+        const data = response.data.data || []; 
+        
+        setHomeArticles(data);
+      } catch (err) {
+        console.error("Failed to fetch home articles:", err);
+        setError("Failed to load latest articles.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchNewestArticles();
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -29,7 +58,6 @@ export const HomeArticle = () => {
     const start = window.pageYOffset;
     const change = -start;
     let startTime = null;
-
     const animateScroll = (currentTime) => {
       if (startTime === null) startTime = currentTime;
       const timeElapsed = currentTime - startTime;
@@ -37,19 +65,17 @@ export const HomeArticle = () => {
       window.scrollTo(0, run);
       if (timeElapsed < duration) requestAnimationFrame(animateScroll);
     };
-
     const easeInOutQuad = (t, b, c, d) => {
       t /= d / 2;
       if (t < 1) return (c / 2) * t * t + b;
       t--;
       return (-c / 2) * (t * (t - 2) - 1) + b;
     };
-
     requestAnimationFrame(animateScroll);
   };
 
-  const validArticles = !loading && Array.isArray(articles) ? articles : [];
-
+  const validArticles = !loading && Array.isArray(homeArticles) ? homeArticles : [];
+  
   const sortedArticles = [...validArticles].sort(
     (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
   );
@@ -60,20 +86,16 @@ export const HomeArticle = () => {
 
   const ArticleCard = ({ article }) => (
     <motion.div
-      key={article.id} // Key sudah ada di sini
+      key={article.id}
       className="flex flex-col items-start justify-between w-full lg:w-[288px] lg:h-[296.63px] gap-3 article-card"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
     >
-      <Link
-        to={`/article/${article.id}`}
-        className="w-full"
-        onClick={scrollToTop}
-      >
+      <Link to={`/article/${article.id}`} className="w-full" onClick={scrollToTop}>
         <img
           src={article.image}
-          className="w-full h-[172.8px]"
+          className="w-full h-[172.8px] object-cover" 
           alt={article.title}
         />
         <div className="flex flex-col h-[123px]">
@@ -133,25 +155,9 @@ export const HomeArticle = () => {
               animate={{ rotate: 360 }}
               transition={{ repeat: Infinity, duration: 1 }}
             >
-              <svg
-                className="animate-spin size-10 text-brand-red"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <circle
-                  className="opacity-25"
-                  cx="12"
-                  cy="12"
-                  r="10"
-                  stroke="currentColor"
-                  strokeWidth="4"
-                />
-                <path
-                  className="opacity-75"
-                  fill="currentColor"
-                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                />
+              <svg className="animate-spin size-10 text-brand-red" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
               </svg>
             </motion.div>
           </div>
@@ -181,13 +187,11 @@ export const HomeArticle = () => {
               </Swiper>
             ) : (
               <div className={articleContainerClass}>
-                {sortedArticles
-                  .slice(0, 4)
-                  .map((article) =>
-                    article ? (
-                      <ArticleCard key={article.id} article={article} />
-                    ) : null
-                  )}
+                {sortedArticles.slice(0, 4).map((article) =>
+                  article ? (
+                    <ArticleCard key={article.id} article={article} />
+                  ) : null
+                )}
               </div>
             )}
           </>
