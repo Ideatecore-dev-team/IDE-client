@@ -1,9 +1,9 @@
 import React from "react";
-import ProgramImage1 from "../assets/images/program-image-1.png";
-import ProgramImage2 from "../assets/images/program-image-2.png";
-import ProgramImage3 from "../assets/images/program-image-3.png";
-import ProgramImage4 from "../assets/images/program-image-4.png";
-import ProgramImage5 from "../assets/images/program-image-5.png";
+import ProgramImage1 from "../assets/images/program-image-1.webp";
+import ProgramImage2 from "../assets/images/program-image-2.webp";
+import ProgramImage3 from "../assets/images/program-image-3.webp";
+import ProgramImage4 from "../assets/images/program-image-4.webp";
+import ProgramImage5 from "../assets/images/program-image-5.webp";
 import { motion } from "framer-motion";
 
 export const OurProgramDropdownContent = ({ programId }) => {

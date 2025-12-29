@@ -6,7 +6,7 @@ import { ArticleContent } from "../components/ArticleContent";
 import { HomeArticle } from "../components/HomeArticle";
 import { motion } from "framer-motion"; // Import motion from framer-motion
 import { Helmet } from "react-helmet"; // Import Helmet from react-helmet
-// import testImage from "../../public/hero-carousel-5.png"
+// import testImage from "../../public/hero-carousel-5.webp"
 
 export const Article = () => {
   const { id, image } = useParams();

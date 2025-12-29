@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
-import FooterLogo from "../assets/images/footer-logo.png";
+import FooterLogo from "../assets/images/footer-logo.webp";
 import { Link } from "react-router-dom";
 import { ContactDetails } from "./ContactDetails";
 import { Social } from "./Social";

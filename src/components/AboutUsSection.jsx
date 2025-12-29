@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
-import aboutUsPhotos from "../assets/images/about-us-banner.png";
+import aboutUsPhotos from "../assets/images/about-us-banner.webp";
 
 export const AboutUsSection = () => {
   return (

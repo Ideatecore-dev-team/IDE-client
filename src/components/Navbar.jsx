@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
-import NavLogo from "../assets/images/nav-logo.png";
+import NavLogo from "../assets/images/nav-logo.webp";
 import { NavLink } from "react-router-dom";
 import ButtonLink from "./Buttons/ButtonLink";
 import { MdMenu } from "react-icons/md";

@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars  
 import React from "react";  
-import Logo from "../assets/images/logo-color.png";  
+import Logo from "../assets/images/logo-color.webp";  
 import {  
   MdHowToVote,  
   MdMenuBook,  

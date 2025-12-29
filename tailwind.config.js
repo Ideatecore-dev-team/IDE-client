@@ -26,14 +26,14 @@ export default {
       },
       backgroundImage: {
         "batik-mobile-bg":
-          "linear-gradient(0deg, rgba(18, 18, 18, 0.00) 0.4%, #121212 99.58%), url('/src/assets/images/batik-footer-Mobile.png')",
+          "linear-gradient(0deg, rgba(18, 18, 18, 0.00) 0.4%, #121212 99.58%), url('/src/assets/images/batik-footer-Mobile.webp')",
         "batik-desktop-bg":
-          "url('/src/assets/images/batik-footer-Desktop.png')",
-        // "gallery-1": "url('./assets/images/gallery-1.png')",
-        // "gallery-2": "url('./assets/images/gallery-2.png')",
-        // "gallery-3": "url('./assets/images/gallery-3.png')",
-        // "gallery-4": "url('./assets/images/gallery-4.png')",
-        // "gallery-5": "url('./assets/images/gallery-5.png')",
+          "url('/src/assets/images/batik-footer-Desktop.webp')",
+        // "gallery-1": "url('./assets/images/gallery-1.webp')",
+        // "gallery-2": "url('./assets/images/gallery-2.webp')",
+        // "gallery-3": "url('./assets/images/gallery-3.webp')",
+        // "gallery-4": "url('./assets/images/gallery-4.webp')",
+        // "gallery-5": "url('./assets/images/gallery-5.webp')",
       },
     },
   },
