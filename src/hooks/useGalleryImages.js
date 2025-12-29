@@ -43,7 +43,7 @@ const useGalleryImages = () => {
                 ?.image || "",
           };
           setGallery(mappedGallery);
-          console.log("[GALLERY MAPPED]:", mappedGallery);
+          // console.log("[GALLERY MAPPED]:", mappedGallery);
         }
       } catch (err) {
         setError(err.message || "Failed to load gallery images");

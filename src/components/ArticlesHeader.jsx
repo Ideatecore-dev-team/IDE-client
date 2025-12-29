@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext, useState } from "react";
 import { MdSearch, MdFilterList } from "react-icons/md";
-import { ArticlesContext } from "../context/ArticlesContext";
+import { ArticlesContext } from "../context/ArticlesContextValue";
 import { ButtonPopCategory } from "./Buttons/ButtonPopCategory";
 import "./Buttons/ButtonPopCategory.css";
 

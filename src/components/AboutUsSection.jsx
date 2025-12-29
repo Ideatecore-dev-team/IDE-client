@@ -27,7 +27,7 @@ export const AboutUsSection = () => {
               <br />
               <br />
               IDE menghubungkan generasi muda, memungkinkan mereka untuk{" "}
-              <a className="font-bold">"Connect the Dots"</a> dan terlibat dalam
+              <a className="font-bold">&ldquo;Connect the Dots&rdquo;</a> dan terlibat dalam
               program-program yang mencari solusi demi kesejahteraan bangsa. IDE
               mengundang pemimpin muda, baik yang sedang menempuh studi di luar
               negeri maupun di Indonesia, untuk berpartisipasi aktif dan

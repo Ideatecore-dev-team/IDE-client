@@ -1,10 +1,10 @@
-import React from "react";
 import ProgramImage1 from "../assets/images/program-image-1.webp";
 import ProgramImage2 from "../assets/images/program-image-2.webp";
 import ProgramImage3 from "../assets/images/program-image-3.webp";
 import ProgramImage4 from "../assets/images/program-image-4.webp";
 import ProgramImage5 from "../assets/images/program-image-5.webp";
 import { motion } from "framer-motion";
+import PropTypes from "prop-types";
 
 export const OurProgramDropdownContent = ({ programId }) => {
   const programDetails = {
@@ -104,6 +104,10 @@ export const OurProgramDropdownContent = ({ programId }) => {
       </p>
       </motion.div>
     </div>
-    
+
   );
+};
+
+OurProgramDropdownContent.propTypes = {
+  programId: PropTypes.number.isRequired,
 };

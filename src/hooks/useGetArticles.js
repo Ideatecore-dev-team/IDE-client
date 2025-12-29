@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 import { useState, useEffect } from "react";
 import api from "../api/api";
 
@@ -7,7 +6,6 @@ const useGetArticles = ({ page, size, search, searchByCategory } = {}) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [pagination, setPagination] = useState(null);
-  const [usedCategories, setUsedCategories] = useState([]);
   useEffect(() => {
     const fetchArticles = async () => {
       try {
@@ -31,7 +29,7 @@ const useGetArticles = ({ page, size, search, searchByCategory } = {}) => {
     fetchArticles();
   }, [page, size, search, searchByCategory]);
 
-  return { articles, loading, error, pagination, usedCategories };
+  return { articles, loading, error, pagination };
 };
 
 export default useGetArticles;

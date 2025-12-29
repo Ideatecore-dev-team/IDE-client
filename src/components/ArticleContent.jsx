@@ -85,6 +85,8 @@ export const ArticleContent = React.memo(({ articleData }) => {
   );
 });
 
+ArticleContent.displayName = 'ArticleContent';
+
 ArticleContent.propTypes = {
   articleData: PropTypes.shape({
     image: PropTypes.string.isRequired,

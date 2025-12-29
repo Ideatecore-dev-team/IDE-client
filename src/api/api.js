@@ -167,7 +167,7 @@ export const submitContactUs = async ({
       email,
       message,
     });
-    console.log("[API SUCCESS]:", response.data);
+    // console.log("[API SUCCESS]:", response.data);
     return response.data;
   } catch (error) {
     console.error(

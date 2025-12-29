@@ -1,7 +1,8 @@
 /* eslint-disable no-unused-vars */
-import { createContext, useReducer, useEffect } from "react";
+import { useReducer, useEffect } from "react";
 import useGetArticles from "../hooks/useGetArticles";
 import { useGetCategories } from "../hooks/useGetCategories";
+import { ArticlesContext } from "./ArticlesContextValue";
 
 const initialState = {
   articles: [],
@@ -42,8 +43,6 @@ const articlesReducer = (state, action) => {
       return state;
   }
 };
-
-export const ArticlesContext = createContext();
 
 // eslint-disable-next-line react/prop-types
 export const ArticlesProvider = ({ children }) => {

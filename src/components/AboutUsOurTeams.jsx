@@ -27,7 +27,7 @@ export const AboutUsOurTeam = () => {
   }, []);
 
   useEffect(() => {
-    console.log(team);
+    // console.log(team);
 
     if (team && team.length > 0) {
       const uniqueCategories = [

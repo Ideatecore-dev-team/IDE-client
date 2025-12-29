@@ -2,7 +2,7 @@
 import React, { useContext, useState } from "react";
 import { MdClose, MdArrowDropDown } from "react-icons/md";
 import { IoMdCloseCircleOutline } from "react-icons/io";
-import { ArticlesContext } from "../../context/ArticlesContext";
+import { ArticlesContext } from "../../context/ArticlesContextValue";
 
 // eslint-disable-next-line react/prop-types
 export const ButtonPopCategory = ({ onClose }) => {

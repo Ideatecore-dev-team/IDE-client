@@ -1,4 +1,3 @@
-import React from "react";        
 import { Link } from "react-router-dom";        
 import { MdLocationOn, MdLocationCity, MdPeople } from "react-icons/md";        
   

@@ -10,7 +10,7 @@ const useCounterVisitor = () => {
         const ip = data.ip;
 
         // Send IP to backend
-        await fetch("https://server-ideindonesia.ideatecore.com/metric/visit", {
+        await fetch("https://api.theideindonesia.id/metric/visit", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

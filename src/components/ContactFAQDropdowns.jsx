@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */  
 // eslint-disable-next-line no-unused-vars  
 import React, { useState } from "react";  
-import { MdArrowDropDown, MdArrowDropUp } from "react-icons/md";  
+import { MdArrowDropDown } from "react-icons/md";  
 import { motion } from "framer-motion"; 
   
 const ContactFAQDropdowns = ({ question, answer }) => {  

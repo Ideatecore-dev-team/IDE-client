@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -8,7 +8,6 @@ import { MdKeyboardArrowRight } from "react-icons/md";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import "./HomeCarouselSwiper.css";
 import { fetchHomeImages } from "../api/api";
-import { motion } from "framer-motion";
 
 
 export const HomeCarouselSwiper = () => {
@@ -21,7 +20,7 @@ export const HomeCarouselSwiper = () => {
       try {
         const fetchedHomeImages = await fetchHomeImages();
         setHomeImages(fetchedHomeImages);
-      } catch (err) {
+      } catch {
         setError("Failed to fetch images");
       } finally {
         setLoading(false);
@@ -72,7 +71,6 @@ export const HomeCarouselSwiper = () => {
               alt={`Slide ${index + 1}`}
               className="w-full h-full object-cover"
             />
-          {console.log(image)}
           </SwiperSlide>
         ))}
 

@@ -1,16 +1,13 @@
 // eslint-disable-next-line no-unused-vars  
 import React from "react";  
 import Logo from "../assets/images/logo-color.webp";  
-import {  
-  MdHowToVote,  
-  MdMenuBook,  
-  MdPeople,  
-  MdLightbulb,  
-  MdStarRate, 
-  MdCameraAlt, 
-} from "react-icons/md";  
-
-import { SiMediamarkt } from "react-icons/si";
+import {
+  MdHowToVote,
+  MdMenuBook,
+  MdPeople,
+  MdLightbulb,
+  MdCameraAlt,
+} from "react-icons/md";
   
 export const OurProgramHeader = () => {  
   const OurProgramData = [  
