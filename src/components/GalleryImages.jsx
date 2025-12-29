@@ -52,7 +52,7 @@ export const GalleryImages = () => {
         <img
           src={gallery.bottomLeft}
           alt="Bottom Left"
-          className="w-full h-auto"
+          className="w-full h-[225px]"
         />
       </div>
       <div className="gallery-frame-2 w-full lg:w-[392px] h-[824px]">
@@ -63,7 +63,7 @@ export const GalleryImages = () => {
         />
       </div>
       <div className="gallery-frame-3 w-full lg:w-[392px] h-auto xs:pb-12 lg:h-[824px] flex flex-col items-start gap-6">
-        <img src={gallery.topRight} alt="Top Right" className="w-full h-auto" />
+        <img src={gallery.topRight} alt="Top Right" className="w-full h-[225px]" />
         <img
           src={gallery.bottomRight}
           alt="Bottom Right"
