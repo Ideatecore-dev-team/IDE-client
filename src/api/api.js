@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://api.theideindonesia.id";
+const BASE_URL = "https://ide-server.vercel.app";
 
 const api = axios.create({
   baseURL: BASE_URL,
@@ -19,7 +19,7 @@ export const getArticles = async ({
   if (page) query += `page=${page}&`;
   if (size) query += `size=${size}&`;
   if (search) query += `search=${search}&`;
-  if (searchByCategory) query += `searchByCategory=${searchByCategory}&`; // ✅ Tambahkan kategori
+  if (searchByCategory) query += `searchByCategory=${searchByCategory}&`;
 
   const fullUrl = `${BASE_URL}${query}`;
   try {
@@ -122,7 +122,6 @@ export const fetchGalleryImages = async () => {
   }
 };
 
-// api.js
 export const fetchPartnerData = async () => {
   try {
     const response = await fetch(`${BASE_URL}/partner`);
@@ -166,13 +165,13 @@ export const submitContactUs = async ({
       email,
       message,
     });
-    console.log("[API SUCCESS]:", response.data); // Debug respons
+    console.log("[API SUCCESS]:", response.data);
     return response.data;
   } catch (error) {
     console.error(
       "[API ERROR]:",
       error.response ? error.response.data : error.message
-    ); // Debug error
+    );
     throw error.response ? error.response.data : error.message;
   }
 };
@@ -187,10 +186,6 @@ export const fetchHomeImages = async () => {
     }
     const data = await response.json();
     return data.data;
-    
-    // data.data.map((item) => ({
-    //   image: item.image,
-    // }));
   } catch (error) {
     console.error("There was a problem with the fetch operation:", error);
     return [];
